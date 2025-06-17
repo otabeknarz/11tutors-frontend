@@ -24,7 +24,7 @@ const defaultTranslations = {
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<Language>("ru");
+  const [language, setLanguage] = useState<Language>("en");
   const [translations, setTranslations] =
     useState<Record<string, Record<string, string>>>(defaultTranslations);
   const [isLoading, setIsLoading] = useState(true);
