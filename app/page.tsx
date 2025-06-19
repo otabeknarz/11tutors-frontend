@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useAuth } from "../lib/AuthContext";
 import { useLanguage } from "../lib/LanguageContext";
 import { ArrowRightIcon } from "lucide-react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation, useInView, useScroll, useSpring } from "framer-motion";
 
 // Import landing page components
 import Navbar from "@/components/landing/Navbar";
@@ -77,19 +77,41 @@ const SectionWrapper = ({
 				visible: { opacity: 1, y: 0 },
 			}}
 			transition={{ duration: 0.6, ease: "easeOut" }}
-			className="relative overflow-hidden py-16 md:py-24 lg:py-32"
+			className="relative overflow-hidden py-16 md:py-24 lg:py-32 container mx-auto px-4"
 		>
 			{children}
 		</motion.section>
 	);
 };
 
+// Decorative divider component between sections
+const SectionDivider = () => (
+  <div className="relative py-12">
+    <div className="absolute inset-0 flex items-center" aria-hidden="true">
+      <div className="w-full border-t border-border/10 dark:border-border/20" />
+    </div>
+    <div className="relative flex justify-center">
+      <span className="bg-background px-4">
+        <motion.span
+          className="inline-block h-2 w-2 rounded-full bg-primary"
+          animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </span>
+    </div>
+  </div>
+);
+
 export default function Home() {
 	const { user } = useAuth();
 	const { t } = useLanguage();
+	const { scrollYProgress } = useScroll();
+	const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
 	return (
 		<div className="min-h-screen bg-background relative overflow-x-hidden">
+			{/* Scroll progress bar */}
+			<motion.div style={{ scaleX }} className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/70 to-primary/30 origin-left z-50" />
 			{/* Navbar - fixed at the top */}
 			<Navbar />
 
@@ -111,30 +133,42 @@ export default function Home() {
 					<HowItWorks />
 				</SectionWrapper>
 
+				<SectionDivider />
+
 				{/* Featured Courses */}
 				<SectionWrapper id={t("landing.sections.courses.id")}>
 					<FeaturedCourses />
 				</SectionWrapper>
+
+				<SectionDivider />
 
 				{/* Why Choose Us */}
 				<SectionWrapper id={t("landing.sections.whyChooseUs.id")}>
 					<WhyChooseUs />
 				</SectionWrapper>
 
+				<SectionDivider />
+
 				{/* For Tutors */}
 				<SectionWrapper id={t("landing.sections.forTutors.id")}>
 					<ForTutors />
 				</SectionWrapper>
+
+				<SectionDivider />
 
 				{/* Testimonials */}
 				<SectionWrapper id={t("landing.sections.testimonials.id")}>
 					<Testimonials />
 				</SectionWrapper>
 
+				<SectionDivider />
+
 				{/* Join Community */}
 				<SectionWrapper id={t("landing.sections.joinCommunity.id")}>
 					<JoinCommunity />
 				</SectionWrapper>
+
+				<SectionDivider />
 
 				{/* CTA Banner */}
 				<CtaBanner />
@@ -150,8 +184,11 @@ export default function Home() {
 					initial={{ scale: 0, opacity: 0 }}
 					animate={{ scale: 1, opacity: 1 }}
 					transition={{ delay: 3, type: "spring" }}
+					whileHover={{ scale: 1.05 }}
+					whileTap={{ scale: 0.95 }}
 				>
 					<Button
+						className="relative overflow-hidden bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300"
 						size="lg"
 						onClick={() => (window.location.href = "/register")}
 					>

@@ -291,6 +291,68 @@ const translations = {
   "onboarding.interests.select": "Выберите ваши интересы",
   "onboarding.interests.selectMultiple": "можно выбрать несколько",
   "onboarding.interests.required": "Пожалуйста, выберите хотя бы один интерес",
+
+  // Courses Page
+  "courses.title": "Изучите наши курсы",
+  "courses.description": "Просмотрите наш обширный выбор университетских курсов, преподаваемых опытными преподавателями.",
+  "courses.searchPlaceholder": "Поиск курсов...",
+  "courses.filterByCategory": "Фильтр по категории",
+  "courses.allCategories": "Все категории",
+  "courses.categories.mathematics": "Математика",
+  "courses.categories.science": "Наука",
+  "courses.categories.literature": "Литература",
+  "courses.categories.technology": "Технологии",
+  "courses.categories.history": "История",
+  "courses.sortBy": "Сортировать по",
+  "courses.sortOptions.popular": "Самые популярные",
+  "courses.sortOptions.newest": "Новейшие",
+  "courses.sortOptions.priceAsc": "Цена: от низкой к высокой",
+  "courses.sortOptions.priceDesc": "Цена: от высокой к низкой",
+  "courses.course": "Курс",
+  "courses.coursesPlural": "Курсы",
+  "courses.viewCourse": "Просмотреть курс",
+  "courses.noCoursesFound": "Курсы не найдены",
+  "courses.tryDifferentSearch": "Попробуйте другой поисковый запрос или категорию",
+  "courses.clearFilters": "Очистить фильтры",
+  "courses.previous": "Предыдущий",
+  "courses.next": "Следующий",
+  "courses.ctaTitle": "Готовы начать обучение?",
+  "courses.ctaDescription": "Присоединяйтесь к тысячам студентов, которые уже учатся с 11Tutors. Найдите идеальный курс или станьте преподавателем.",
+  "courses.startLearning": "Начать обучение",
+  "courses.becomeTutor": "Стать репетитором",
+  
+  // Course levels
+  "courses.level.beginner": "Начинающий",
+  "courses.level.intermediate": "Средний",
+  "courses.level.advanced": "Продвинутый",
+  
+  // Course duration
+  "courses.duration.weeks": "{{count}} недель",
+  
+  // Mock course data
+  "courses.mockData.math.title": "Введение в математику",
+  "courses.mockData.math.description": "Освойте основы математики с помощью этого комплексного курса.",
+  "courses.mockData.math.instructor": "Д-р Сара Джонсон",
+  
+  "courses.mockData.physics.title": "Продвинутая физика",
+  "courses.mockData.physics.description": "Исследуйте увлекательный мир физики от классической механики до квантовой теории.",
+  "courses.mockData.physics.instructor": "Проф. Майкл Чен",
+  
+  "courses.mockData.literature.title": "Классика английской литературы",
+  "courses.mockData.literature.description": "Анализируйте и оценивайте величайшие произведения английской литературы на протяжении всей истории.",
+  "courses.mockData.literature.instructor": "Д-р Эмили Уильямс",
+  
+  "courses.mockData.cs.title": "Основы информатики",
+  "courses.mockData.cs.description": "Изучите основные концепции информатики и программирования.",
+  "courses.mockData.cs.instructor": "Проф. Дэвид Миллер",
+  
+  "courses.mockData.history.title": "Мировая история: Современная эпоха",
+  "courses.mockData.history.description": "Исследуйте основные события и разработки, которые сформировали наш современный мир.",
+  "courses.mockData.history.instructor": "Д-р Роберт Томпсон",
+  
+  "courses.mockData.chemistry.title": "Органическая химия",
+  "courses.mockData.chemistry.description": "Освойте принципы и применение органической химии.",
+  "courses.mockData.chemistry.instructor": "Проф. Лиза Андерсон"
 };
 
 export default translations;

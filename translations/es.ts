@@ -328,6 +328,68 @@ const translations = {
 	"onboarding.interests.select": "Selecciona tus intereses",
 	"onboarding.interests.selectMultiple": "selecciona varios",
 	"onboarding.interests.required": "Por favor selecciona al menos un interés",
+
+	// Courses Page
+	"courses.title": "Explora Nuestros Cursos",
+	"courses.description": "Navega por nuestra amplia selección de cursos de nivel universitario impartidos por tutores expertos.",
+	"courses.searchPlaceholder": "Buscar cursos...",
+	"courses.filterByCategory": "Filtrar por Categoría",
+	"courses.allCategories": "Todas las Categorías",
+	"courses.categories.mathematics": "Matemáticas",
+	"courses.categories.science": "Ciencia",
+	"courses.categories.literature": "Literatura",
+	"courses.categories.technology": "Tecnología",
+	"courses.categories.history": "Historia",
+	"courses.sortBy": "Ordenar Por",
+	"courses.sortOptions.popular": "Más Populares",
+	"courses.sortOptions.newest": "Más Recientes",
+	"courses.sortOptions.priceAsc": "Precio: De Menor a Mayor",
+	"courses.sortOptions.priceDesc": "Precio: De Mayor a Menor",
+	"courses.course": "Curso",
+	"courses.coursesPlural": "Cursos",
+	"courses.viewCourse": "Ver Curso",
+	"courses.noCoursesFound": "No se encontraron cursos",
+	"courses.tryDifferentSearch": "Intenta con un término de búsqueda o categoría diferente",
+	"courses.clearFilters": "Limpiar Filtros",
+	"courses.previous": "Anterior",
+	"courses.next": "Siguiente",
+	"courses.ctaTitle": "¿Listo para Empezar a Aprender?",
+	"courses.ctaDescription": "Únete a miles de estudiantes que ya están aprendiendo con 11Tutors. Encuentra el curso perfecto o conviértete en tutor.",
+	"courses.startLearning": "Comenzar a Aprender",
+	"courses.becomeTutor": "Conviértete en Tutor",
+	
+	// Course levels
+	"courses.level.beginner": "Principiante",
+	"courses.level.intermediate": "Intermedio",
+	"courses.level.advanced": "Avanzado",
+	
+	// Course duration
+	"courses.duration.weeks": "{{count}} semanas",
+	
+	// Mock course data
+	"courses.mockData.math.title": "Introducción a las Matemáticas",
+	"courses.mockData.math.description": "Domina los fundamentos de las matemáticas con este curso completo.",
+	"courses.mockData.math.instructor": "Dra. Sarah Johnson",
+	
+	"courses.mockData.physics.title": "Física Avanzada",
+	"courses.mockData.physics.description": "Explora el fascinante mundo de la física desde la mecánica clásica hasta la teoría cuántica.",
+	"courses.mockData.physics.instructor": "Prof. Michael Chen",
+	
+	"courses.mockData.literature.title": "Clásicos de la Literatura Inglesa",
+	"courses.mockData.literature.description": "Analiza y aprecia las mejores obras de la literatura inglesa a lo largo de la historia.",
+	"courses.mockData.literature.instructor": "Dra. Emily Williams",
+	
+	"courses.mockData.cs.title": "Fundamentos de Informática",
+	"courses.mockData.cs.description": "Aprende los conceptos fundamentales de la informática y la programación.",
+	"courses.mockData.cs.instructor": "Prof. David Miller",
+	
+	"courses.mockData.history.title": "Historia Mundial: Era Moderna",
+	"courses.mockData.history.description": "Explora los principales acontecimientos y desarrollos que dieron forma a nuestro mundo moderno.",
+	"courses.mockData.history.instructor": "Dr. Robert Thompson",
+	
+	"courses.mockData.chemistry.title": "Química Orgánica",
+	"courses.mockData.chemistry.description": "Domina los principios y aplicaciones de la química orgánica.",
+	"courses.mockData.chemistry.instructor": "Prof. Lisa Anderson"
 };
 
 export default translations;

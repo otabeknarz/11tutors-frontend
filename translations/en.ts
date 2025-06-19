@@ -293,6 +293,68 @@ const translations = {
   "onboarding.interests.select": "Select your interests",
   "onboarding.interests.selectMultiple": "select multiple",
   "onboarding.interests.required": "Please select at least one interest",
+
+  // Courses Page
+  "courses.title": "Explore Our Courses",
+  "courses.description": "Browse our comprehensive selection of university-level courses taught by expert tutors.",
+  "courses.searchPlaceholder": "Search for courses...",
+  "courses.filterByCategory": "Filter by Category",
+  "courses.allCategories": "All Categories",
+  "courses.categories.mathematics": "Mathematics",
+  "courses.categories.science": "Science",
+  "courses.categories.literature": "Literature",
+  "courses.categories.technology": "Technology",
+  "courses.categories.history": "History",
+  "courses.sortBy": "Sort By",
+  "courses.sortOptions.popular": "Most Popular",
+  "courses.sortOptions.newest": "Newest",
+  "courses.sortOptions.priceAsc": "Price: Low to High",
+  "courses.sortOptions.priceDesc": "Price: High to Low",
+  "courses.course": "Course",
+  "courses.coursesPlural": "Courses",
+  "courses.viewCourse": "View Course",
+  "courses.noCoursesFound": "No courses found",
+  "courses.tryDifferentSearch": "Try a different search term or category",
+  "courses.clearFilters": "Clear Filters",
+  "courses.previous": "Previous",
+  "courses.next": "Next",
+  "courses.ctaTitle": "Ready to Start Learning?",
+  "courses.ctaDescription": "Join thousands of students already learning with 11Tutors. Find the perfect course or become a tutor yourself.",
+  "courses.startLearning": "Start Learning",
+  "courses.becomeTutor": "Become a Tutor",
+  
+  // Course levels
+  "courses.level.beginner": "Beginner",
+  "courses.level.intermediate": "Intermediate",
+  "courses.level.advanced": "Advanced",
+  
+  // Course duration
+  "courses.duration.weeks": "{{count}} weeks",
+  
+  // Mock course data
+  "courses.mockData.math.title": "Introduction to Mathematics",
+  "courses.mockData.math.description": "Master the fundamentals of mathematics with this comprehensive course.",
+  "courses.mockData.math.instructor": "Dr. Sarah Johnson",
+  
+  "courses.mockData.physics.title": "Advanced Physics",
+  "courses.mockData.physics.description": "Explore the fascinating world of physics from classical mechanics to quantum theory.",
+  "courses.mockData.physics.instructor": "Prof. Michael Chen",
+  
+  "courses.mockData.literature.title": "English Literature Classics",
+  "courses.mockData.literature.description": "Analyze and appreciate the greatest works of English literature throughout history.",
+  "courses.mockData.literature.instructor": "Dr. Emily Williams",
+  
+  "courses.mockData.cs.title": "Computer Science Fundamentals",
+  "courses.mockData.cs.description": "Learn the core concepts of computer science and programming.",
+  "courses.mockData.cs.instructor": "Prof. David Miller",
+  
+  "courses.mockData.history.title": "World History: Modern Era",
+  "courses.mockData.history.description": "Explore the major events and developments that shaped our modern world.",
+  "courses.mockData.history.instructor": "Dr. Robert Thompson",
+  
+  "courses.mockData.chemistry.title": "Organic Chemistry",
+  "courses.mockData.chemistry.description": "Master the principles and applications of organic chemistry.",
+  "courses.mockData.chemistry.instructor": "Prof. Lisa Anderson"
 };
 
 export default translations;
