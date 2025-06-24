@@ -184,6 +184,8 @@ const translations = {
 	"auth.emailPlaceholder": "Introduce tu correo electrónico",
 	"auth.password": "Contraseña",
 	"auth.passwordPlaceholder": "Introduce tu contraseña",
+	"auth.passwordRequirements": "La contraseña debe tener al menos 8 caracteres",
+	"auth.forgotPassword": "¿Olvidaste tu contraseña?",
 	"auth.signingIn": "Iniciando sesión...",
 	"auth.createAccount": "Crea tu cuenta",
 	"auth.alreadyHaveAccount": "¿Ya tienes una cuenta?",
@@ -331,7 +333,8 @@ const translations = {
 
 	// Courses Page
 	"courses.title": "Explora Nuestros Cursos",
-	"courses.description": "Navega por nuestra amplia selección de cursos de nivel universitario impartidos por tutores expertos.",
+	"courses.description":
+		"Navega por nuestra amplia selección de cursos de nivel universitario impartidos por tutores expertos.",
 	"courses.searchPlaceholder": "Buscar cursos...",
 	"courses.filterByCategory": "Filtrar por Categoría",
 	"courses.allCategories": "Todas las Categorías",
@@ -349,47 +352,122 @@ const translations = {
 	"courses.coursesPlural": "Cursos",
 	"courses.viewCourse": "Ver Curso",
 	"courses.noCoursesFound": "No se encontraron cursos",
-	"courses.tryDifferentSearch": "Intenta con un término de búsqueda o categoría diferente",
+	"courses.tryDifferentSearch":
+		"Intenta con un término de búsqueda o categoría diferente",
 	"courses.clearFilters": "Limpiar Filtros",
 	"courses.previous": "Anterior",
 	"courses.next": "Siguiente",
 	"courses.ctaTitle": "¿Listo para Empezar a Aprender?",
-	"courses.ctaDescription": "Únete a miles de estudiantes que ya están aprendiendo con 11Tutors. Encuentra el curso perfecto o conviértete en tutor.",
+	"courses.ctaDescription":
+		"Únete a miles de estudiantes que ya están aprendiendo con 11Tutors. Encuentra el curso perfecto o conviértete en tutor.",
 	"courses.startLearning": "Comenzar a Aprender",
 	"courses.becomeTutor": "Conviértete en Tutor",
-	
+
 	// Course levels
 	"courses.level.beginner": "Principiante",
 	"courses.level.intermediate": "Intermedio",
 	"courses.level.advanced": "Avanzado",
-	
+
 	// Course duration
 	"courses.duration.weeks": "{{count}} semanas",
-	
+
 	// Mock course data
 	"courses.mockData.math.title": "Introducción a las Matemáticas",
-	"courses.mockData.math.description": "Domina los fundamentos de las matemáticas con este curso completo.",
+	"courses.mockData.math.description":
+		"Domina los fundamentos de las matemáticas con este curso completo.",
 	"courses.mockData.math.instructor": "Dra. Sarah Johnson",
-	
+
 	"courses.mockData.physics.title": "Física Avanzada",
-	"courses.mockData.physics.description": "Explora el fascinante mundo de la física desde la mecánica clásica hasta la teoría cuántica.",
+	"courses.mockData.physics.description":
+		"Explora el fascinante mundo de la física desde la mecánica clásica hasta la teoría cuántica.",
 	"courses.mockData.physics.instructor": "Prof. Michael Chen",
-	
+
 	"courses.mockData.literature.title": "Clásicos de la Literatura Inglesa",
-	"courses.mockData.literature.description": "Analiza y aprecia las mejores obras de la literatura inglesa a lo largo de la historia.",
+	"courses.mockData.literature.description":
+		"Analiza y aprecia las mejores obras de la literatura inglesa a lo largo de la historia.",
 	"courses.mockData.literature.instructor": "Dra. Emily Williams",
-	
+
 	"courses.mockData.cs.title": "Fundamentos de Informática",
-	"courses.mockData.cs.description": "Aprende los conceptos fundamentales de la informática y la programación.",
+	"courses.mockData.cs.description":
+		"Aprende los conceptos fundamentales de la informática y la programación.",
 	"courses.mockData.cs.instructor": "Prof. David Miller",
-	
+
 	"courses.mockData.history.title": "Historia Mundial: Era Moderna",
-	"courses.mockData.history.description": "Explora los principales acontecimientos y desarrollos que dieron forma a nuestro mundo moderno.",
+	"courses.mockData.history.description":
+		"Explora los principales acontecimientos y desarrollos que dieron forma a nuestro mundo moderno.",
 	"courses.mockData.history.instructor": "Dr. Robert Thompson",
-	
+
 	"courses.mockData.chemistry.title": "Química Orgánica",
-	"courses.mockData.chemistry.description": "Domina los principios y aplicaciones de la química orgánica.",
-	"courses.mockData.chemistry.instructor": "Prof. Lisa Anderson"
+	"courses.mockData.chemistry.description":
+		"Domina los principios y aplicaciones de la química orgánica.",
+	"courses.mockData.chemistry.instructor": "Prof. Lisa Anderson",
+
+	// Course Detail Page
+	"courseDetail.loading": "Cargando curso...",
+	"courseDetail.error": "Error",
+	"courseDetail.notFound": "Curso no encontrado",
+	"courseDetail.notFoundMessage":
+		"El curso que estás buscando no existe o ha sido eliminado.",
+	"courseDetail.goBack": "Volver",
+	"courseDetail.lessons": "Lecciones",
+	"courseDetail.updated": "Actualizado",
+	"courseDetail.instructors": "Instructores",
+	"courseDetail.noDescription":
+		"No hay descripción disponible para este curso.",
+	"courseDetail.free": "Gratis",
+	"courseDetail.fullAccess": "Acceso completo a todo el contenido del curso",
+	"courseDetail.enroll": "Inscribirse ahora",
+	"courseDetail.totalLength": "duración total",
+	"courseDetail.lifetime": "Acceso de por vida",
+	"courseDetail.certificate": "Certificado de finalización",
+	"courseDetail.courseContent": "Contenido del curso",
+	"courseDetail.overview": "Descripción general",
+	"courseDetail.reviews": "Reseñas",
+	"courseDetail.aboutCourse": "Acerca de este curso",
+	"courseDetail.noReviews": "Aún no hay reseñas",
+	"courseDetail.beFirst": "Sé el primero en dejar una reseña para este curso",
+	"courseDetail.writeReview": "Escribir una reseña",
+	"courseDetail.relatedCourses": "Cursos relacionados",
+	"courseDetail.comingSoon": "Próximamente",
+	"courseDetail.errorFetching": "Error al cargar los detalles del curso",
+
+	// Lesson Detail Page
+	"lessonDetail.loading": "Cargando lección...",
+	"lessonDetail.error": "Error",
+	"lessonDetail.errorFetching": "Error al cargar los detalles de la lección",
+	"lessonDetail.goBack": "Volver",
+	"lessonDetail.notFound": "Lección no encontrada",
+	"lessonDetail.notFoundMessage":
+		"La lección que estás buscando no existe o ha sido eliminada.",
+	"lessonDetail.backToCourse": "Volver al curso",
+	"lessonDetail.freePreview": "Vista previa gratuita",
+	"lessonDetail.premium": "Premium",
+	"lessonDetail.premiumContent": "Contenido Premium",
+	"lessonDetail.enrollToUnlock":
+		"Inscríbete en este curso para desbloquear esta lección y todo el contenido premium.",
+	"lessonDetail.enrollNow": "Inscribirse ahora",
+	"lessonDetail.noVideo": "No hay video disponible",
+	"lessonDetail.about": "Acerca de esta lección",
+	"lessonDetail.noDescription":
+		"No hay descripción disponible para esta lección.",
+	"lessonDetail.discussion": "Discusión",
+	"lessonDetail.notes": "Notas",
+	"lessonDetail.noComments": "Aún no hay comentarios",
+	"lessonDetail.beFirstComment": "Sé el primero en comentar esta lección",
+	"lessonDetail.addComment": "Añadir un comentario",
+	"lessonDetail.noNotes": "Aún no hay notas",
+	"lessonDetail.addNoteDescription":
+		"Toma notas mientras ves la lección para ayudarte a recordar puntos clave",
+	"lessonDetail.addNote": "Añadir una nota",
+	"lessonDetail.courseNavigation": "Navegación del curso",
+	"lessonDetail.navigationDescription": "Navega por las lecciones del curso",
+	"lessonDetail.updated": "Actualizado",
+	"lessonDetail.totalLength": "duración total",
+	"lessonDetail.lifetime": "Acceso de por vida",
+	"lessonDetail.certificate": "Certificado de finalización",
+	"lessonDetail.fullAccess":
+		"Acceso completo a todo el contenido de la lección",
+	"lessonDetail.benefits": "Lo que obtendrás",
 };
 
 export default translations;

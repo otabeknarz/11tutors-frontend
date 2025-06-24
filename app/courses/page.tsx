@@ -1,8 +1,13 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import axios from "axios";
+import { format } from "date-fns";
 import {
 	BookOpenIcon,
 	StarIcon,
@@ -10,6 +15,15 @@ import {
 	ClockIcon,
 	FilterIcon,
 	SearchIcon,
+	CalendarIcon,
+	ChevronLeftIcon,
+	ChevronRightIcon,
+	Loader2Icon,
+	XIcon,
+	SlidersHorizontalIcon,
+	TagIcon,
+	BarChartIcon,
+	CheckIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,95 +43,212 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+	Sheet,
+	SheetContent,
+	SheetDescription,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+	SheetFooter,
+	SheetClose,
+} from "@/components/ui/sheet";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import { COURSES_URL } from "@/lib/constants";
+
+// Define types for the API response
+interface Category {
+	id: number;
+	name: string;
+	slug: string;
+}
+
+interface CoursePart {
+	id: string;
+	title: string;
+	order: number;
+}
+
+interface Tutor {
+	id: string;
+	first_name: string;
+	last_name: string;
+	email: string;
+}
+
+interface Course {
+	id: string;
+	title: string;
+	slug: string;
+	description: string;
+	thumbnail: string;
+	tutors: Tutor[];
+	category: Category;
+	parts: CoursePart[];
+	created_at: string;
+	updated_at: string;
+	// These fields aren't in the API response but are used in the UI
+	// We'll calculate or provide default values for them
+	level?: string;
+	rating?: number;
+	students?: number;
+	duration?: string;
+	price?: string | number;
+}
+
+interface CoursesResponse {
+	count: number;
+	next: string | null;
+	previous: string | null;
+	results: Course[];
+}
 
 export default function CoursesPage() {
 	const { t } = useLanguage();
-	const [searchQuery, setSearchQuery] = React.useState("");
-	const [categoryFilter, setCategoryFilter] = React.useState("all");
+	const [searchQuery, setSearchQuery] = useState("");
+	const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
+	const [categoryFilter, setCategoryFilter] = useState("all");
+	const [levelFilter, setLevelFilter] = useState<string[]>([]);
+	const [priceFilter, setPriceFilter] = useState<string[]>([]);
+	const [sortOption, setSortOption] = useState("popular");
+	const [isFilterOpen, setIsFilterOpen] = useState(false);
+	const [activeTab, setActiveTab] = useState("all");
 
-	// Mock course data - in a real app, this would come from an API
-	const courses = [
-		{
-			id: 1,
-			title: t("courses.mockData.math.title"),
-			description: t("courses.mockData.math.description"),
-			category: "mathematics",
-			level: t("courses.level.beginner"),
-			rating: 4.8,
-			students: 1245,
-			duration: t("courses.duration.weeks", { count: 8 }),
-			image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb",
-			price: "$49.99",
-			instructor: t("courses.mockData.math.instructor"),
-		},
-		{
-			id: 2,
-			title: t("courses.mockData.physics.title"),
-			description: t("courses.mockData.physics.description"),
-			category: "science",
-			level: t("courses.level.advanced"),
-			rating: 4.9,
-			students: 876,
-			duration: t("courses.duration.weeks", { count: 12 }),
-			image: "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa",
-			price: "$69.99",
-			instructor: t("courses.mockData.physics.instructor"),
-		},
-		{
-			id: 3,
-			title: t("courses.mockData.literature.title"),
-			description: t("courses.mockData.literature.description"),
-			category: "literature",
-			level: t("courses.level.intermediate"),
-			rating: 4.7,
-			students: 932,
-			duration: t("courses.duration.weeks", { count: 10 }),
-			image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0",
-			price: "$39.99",
-			instructor: t("courses.mockData.literature.instructor"),
-		},
-		{
-			id: 4,
-			title: t("courses.mockData.cs.title"),
-			description: t("courses.mockData.cs.description"),
-			category: "technology",
-			level: t("courses.level.beginner"),
-			rating: 4.9,
-			students: 2134,
-			duration: t("courses.duration.weeks", { count: 8 }),
-			image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
-			price: "$59.99",
-			instructor: t("courses.mockData.cs.instructor"),
-		},
-		{
-			id: 5,
-			title: t("courses.mockData.history.title"),
-			description: t("courses.mockData.history.description"),
-			category: "history",
-			level: t("courses.level.intermediate"),
-			rating: 4.6,
-			students: 745,
-			duration: t("courses.duration.weeks", { count: 6 }),
-			image: "https://images.unsplash.com/photo-1461360370896-922624d12aa1",
-			price: "$44.99",
-			instructor: t("courses.mockData.history.instructor"),
-		},
-		{
-			id: 6,
-			title: t("courses.mockData.chemistry.title"),
-			description: t("courses.mockData.chemistry.description"),
-			category: "science",
-			level: t("courses.level.advanced"),
-			rating: 4.8,
-			students: 623,
-			duration: t("courses.duration.weeks", { count: 14 }),
-			image: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6",
-			price: "$79.99",
-			instructor: t("courses.mockData.chemistry.instructor"),
-		},
-	];
+	// State for API data and pagination
+	const [courses, setCourses] = useState<Course[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [totalPages, setTotalPages] = useState(1);
+	const [totalCount, setTotalCount] = useState(0);
+	const [nextPageUrl, setNextPageUrl] = useState<string | null>(null);
+	const [prevPageUrl, setPrevPageUrl] = useState<string | null>(null);
+	const pageSize = 12; // Maximum number of courses per page
+
+	// Debounce search query
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setDebouncedSearchQuery(searchQuery);
+		}, 500);
+		return () => clearTimeout(timer);
+	}, [searchQuery]);
+
+	// Build query parameters based on filters
+	const buildQueryParams = () => {
+		const params = new URLSearchParams();
+		params.append("limit", pageSize.toString());
+
+		if (debouncedSearchQuery) {
+			params.append("search", debouncedSearchQuery);
+		}
+
+		if (categoryFilter !== "all") {
+			params.append("category", categoryFilter);
+		}
+
+		if (levelFilter.length > 0) {
+			levelFilter.forEach((level) => {
+				params.append("level", level);
+			});
+		}
+
+		if (priceFilter.length > 0) {
+			priceFilter.forEach((price) => {
+				params.append("price_type", price);
+			});
+		}
+
+		if (sortOption) {
+			params.append("ordering", sortOption);
+		}
+
+		return params.toString();
+	};
+
+	// Fetch courses from the API
+	const fetchCourses = async (url?: string) => {
+		try {
+			setLoading(true);
+			setError(null);
+
+			const fetchUrl = url || `${COURSES_URL}?${buildQueryParams()}`;
+			const response = await axios.get<CoursesResponse>(fetchUrl);
+			const data = response.data;
+
+			setCourses(data.results);
+			setTotalCount(data.count);
+			setNextPageUrl(data.next);
+			setPrevPageUrl(data.previous);
+			setTotalPages(Math.ceil(data.count / pageSize));
+		} catch (err) {
+			console.error("Error fetching courses:", err);
+			setError(t("courses.errorFetching") || "Error fetching courses");
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	// Apply filters and fetch courses
+	useEffect(() => {
+		fetchCourses();
+		setCurrentPage(1);
+	}, [
+		debouncedSearchQuery,
+		categoryFilter,
+		levelFilter,
+		priceFilter,
+		sortOption,
+	]);
+
+	// Load courses on initial render
+	useEffect(() => {
+		fetchCourses();
+	}, []);
+
+	// Handle page navigation
+	const goToNextPage = () => {
+		if (nextPageUrl) {
+			fetchCourses(nextPageUrl);
+			setCurrentPage((prev) => prev + 1);
+		}
+	};
+
+	const goToPrevPage = () => {
+		if (prevPageUrl) {
+			fetchCourses(prevPageUrl);
+			setCurrentPage((prev) => prev - 1);
+		}
+	};
+
+	// Reset filters
+	const resetFilters = () => {
+		setSearchQuery("");
+		setDebouncedSearchQuery("");
+		setCategoryFilter("all");
+		setLevelFilter([]);
+		setPriceFilter([]);
+		setSortOption("popular");
+		setActiveTab("all");
+	};
+
+	// For development/fallback when API is not available
+	const [showPlaceholders, setShowPlaceholders] = useState(false);
+
+	// Use placeholder data if no courses are available and not loading
+	useEffect(() => {
+		if (!loading && courses.length === 0 && !error) {
+			setShowPlaceholders(true);
+		} else {
+			setShowPlaceholders(false);
+		}
+	}, [courses, loading, error]);
 
 	// Filter courses based on search query and category
 	const filteredCourses = courses.filter((course) => {
@@ -125,25 +256,10 @@ export default function CoursesPage() {
 			course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
 			course.description.toLowerCase().includes(searchQuery.toLowerCase());
 		const matchesCategory =
-			categoryFilter === "all" || course.category === categoryFilter;
+			categoryFilter === "all" ||
+			course.category.name.toLowerCase() === categoryFilter;
 		return matchesSearch && matchesCategory;
 	});
-
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-	};
-
-	const itemVariants = {
-		hidden: { opacity: 0, y: 20 },
-		visible: { opacity: 1, y: 0 },
-	};
 
 	return (
 		<div className="min-h-screen bg-background">
@@ -267,29 +383,27 @@ export default function CoursesPage() {
 							</Button>
 						</div>
 					) : (
-						<motion.div
-							variants={containerVariants}
-							initial="hidden"
-							animate="visible"
-							className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-						>
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 							{filteredCourses.map((course) => (
-								<motion.div key={course.id} variants={itemVariants}>
+								<div key={course.id}>
 									<Card className="h-full flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
 										<div className="relative h-48 bg-muted">
-											<div
-												className="absolute inset-0 bg-cover bg-center"
-												style={{ backgroundImage: `url(${course.image})` }}
+											<Image
+												src={course.thumbnail || "/placeholder-course.jpg"}
+												alt={course.title}
+												width={500}
+												height={300}
+												className="w-full h-full object-cover"
 											/>
 											<div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 											<div className="absolute bottom-3 left-3">
 												<Badge className="bg-primary/90 hover:bg-primary text-white">
-													{course.level}
+													{course.level || "All Levels"}
 												</Badge>
 											</div>
 											<div className="absolute top-3 right-3 flex items-center bg-black/50 text-white text-sm px-2 py-1 rounded-full">
 												<StarIcon className="h-3 w-3 text-yellow-400 mr-1" />
-												{course.rating}
+												{course.rating || 5}
 											</div>
 										</div>
 
@@ -300,7 +414,9 @@ export default function CoursesPage() {
 												</CardTitle>
 											</div>
 											<CardDescription className="text-sm text-muted-foreground">
-												{course.instructor}
+												{course.tutors && course.tutors.length > 0
+													? `${course.tutors[0].first_name} ${course.tutors[0].last_name}`.trim()
+													: "Unknown Instructor"}
 											</CardDescription>
 										</CardHeader>
 
@@ -312,23 +428,33 @@ export default function CoursesPage() {
 											<div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
 												<div className="flex items-center">
 													<UsersIcon className="h-4 w-4 mr-1" />
-													{course.students}
+													{course.students || 0}
 												</div>
 												<div className="flex items-center">
 													<ClockIcon className="h-4 w-4 mr-1" />
-													{course.duration}
+													{course.duration ||
+														`${course.parts?.length || 0} parts`}
 												</div>
 											</div>
 										</CardContent>
 
 										<CardFooter className="flex justify-between items-center border-t pt-4">
-											<span className="font-bold">{course.price}</span>
-											<Button size="sm">{t("courses.viewCourse")}</Button>
+											<span className="font-bold">
+												{course.price || "Free"}
+											</span>
+											<Button
+												size="sm"
+												onClick={() =>
+													(window.location.href = `/courses/${course.slug}`)
+												}
+											>
+												{t("courses.viewCourse")}
+											</Button>
 										</CardFooter>
 									</Card>
-								</motion.div>
+								</div>
 							))}
-						</motion.div>
+						</div>
 					)}
 
 					{/* Pagination */}
@@ -363,13 +489,7 @@ export default function CoursesPage() {
 			{/* CTA Section */}
 			<section className="py-16 bg-muted/30">
 				<div className="container mx-auto px-4">
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.5 }}
-						className="text-center max-w-2xl mx-auto"
-					>
+					<div className="text-center max-w-2xl mx-auto">
 						<h2 className="text-3xl font-bold mb-4">{t("courses.ctaTitle")}</h2>
 						<p className="text-lg text-muted-foreground mb-8">
 							{t("courses.ctaDescription")}
@@ -380,7 +500,7 @@ export default function CoursesPage() {
 								{t("courses.becomeTutor")}
 							</Button>
 						</div>
-					</motion.div>
+					</div>
 				</div>
 			</section>
 
