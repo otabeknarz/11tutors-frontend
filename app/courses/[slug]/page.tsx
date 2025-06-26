@@ -195,9 +195,9 @@ export default function CourseDetailPage() {
 	const courseDescription =
 		course.description || t("courseDetail.noDescription");
 
-	// Format price display
+	// Format price display with proper currency formatting
 	const priceDisplay = course.price
-		? `$${course.price}`
+		? new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(Number(course.price))
 		: t("courseDetail.free");
 
 	// Format tutor name
@@ -321,9 +321,9 @@ export default function CourseDetailPage() {
 									<CardContent className="p-6">
 										<div className="mt-4 space-y-2">
 											<div className="flex items-center justify-between">
-												{/* <span className="text-2xl font-bold">
+												<span className="text-2xl font-bold">
 													{priceDisplay}
-												</span> */}
+												</span>
 											</div>
 											<p className="text-sm text-gray-600">
 												{t("courseDetail.fullAccess")}

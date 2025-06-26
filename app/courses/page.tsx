@@ -161,7 +161,13 @@ export default function CoursesPage() {
 
 		if (priceFilter.length > 0) {
 			priceFilter.forEach((price) => {
-				params.append("price_type", price);
+				if (price === "free") {
+					params.append("is_free", "true");
+				} else if (price === "paid") {
+					params.append("is_free", "false");
+				} else {
+					params.append("price_type", price);
+				}
 			});
 		}
 
@@ -292,31 +298,59 @@ export default function CoursesPage() {
 									onChange={(e) => setSearchQuery(e.target.value)}
 								/>
 							</div>
-							<Select value={categoryFilter} onValueChange={setCategoryFilter}>
-								<SelectTrigger className="w-full md:w-[180px]">
-									<SelectValue placeholder={t("courses.filterByCategory")} />
-								</SelectTrigger>
-								<SelectContent>
-									<SelectItem value="all">
-										{t("courses.allCategories")}
-									</SelectItem>
-									<SelectItem value="mathematics">
-										{t("courses.categories.mathematics")}
-									</SelectItem>
-									<SelectItem value="science">
-										{t("courses.categories.science")}
-									</SelectItem>
-									<SelectItem value="literature">
-										{t("courses.categories.literature")}
-									</SelectItem>
-									<SelectItem value="technology">
-										{t("courses.categories.technology")}
-									</SelectItem>
-									<SelectItem value="history">
-										{t("courses.categories.history")}
-									</SelectItem>
-								</SelectContent>
-							</Select>
+							<div className="flex gap-2">
+								<Select
+									value={categoryFilter}
+									onValueChange={setCategoryFilter}
+								>
+									<SelectTrigger className="w-full md:w-[180px]">
+										<SelectValue placeholder={t("courses.filterByCategory")} />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectItem value="all">
+											{t("courses.allCategories")}
+										</SelectItem>
+										<SelectItem value="mathematics">
+											{t("courses.categories.mathematics")}
+										</SelectItem>
+										<SelectItem value="science">
+											{t("courses.categories.science")}
+										</SelectItem>
+										<SelectItem value="literature">
+											{t("courses.categories.literature")}
+										</SelectItem>
+										<SelectItem value="technology">
+											{t("courses.categories.technology")}
+										</SelectItem>
+										<SelectItem value="history">
+											{t("courses.categories.history")}
+										</SelectItem>
+									</SelectContent>
+								</Select>
+								<Select
+									value={priceFilter.length > 0 ? priceFilter[0] : "all"}
+									onValueChange={(value) =>
+										setPriceFilter(value === "all" ? [] : [value])
+									}
+								>
+									<SelectTrigger className="w-full md:w-[140px]">
+										<SelectValue
+											placeholder={t("courses.filterByPrice") || "Price"}
+										/>
+									</SelectTrigger>
+									<SelectContent>
+										<SelectItem value="all">
+											{t("courses.allPrices") || "All Prices"}
+										</SelectItem>
+										<SelectItem value="free">
+											{t("courses.free") || "Free"}
+										</SelectItem>
+										<SelectItem value="paid">
+											{t("courses.paid") || "Paid"}
+										</SelectItem>
+									</SelectContent>
+								</Select>
+							</div>
 						</div>
 					</motion.div>
 				</div>
@@ -439,9 +473,23 @@ export default function CoursesPage() {
 										</CardContent>
 
 										<CardFooter className="flex justify-between items-center border-t pt-4">
-											<span className="font-bold">
-												{course.price || "Free"}
-											</span>
+											<div className="flex items-center gap-2">
+												{course.price ? (
+													<span className="font-bold">
+														{new Intl.NumberFormat("en-US", {
+															style: "currency",
+															currency: "USD",
+														}).format(Number(course.price))}
+													</span>
+												) : (
+													<Badge
+														variant="outline"
+														className="bg-green-50 text-green-700 border-green-200"
+													>
+														{t("courses.free") || "Free"}
+													</Badge>
+												)}
+											</div>
 											<Button
 												size="sm"
 												onClick={() =>
