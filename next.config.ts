@@ -12,8 +12,12 @@ const nextConfig: NextConfig = {
 			{
 				protocol: "https",
 				hostname: "api.11-tutors.com",
-				port: "443",
 				pathname: "/media/**",
+			},
+			{
+				protocol: "https",
+				hostname: "images.unsplash.com",
+				pathname: "**",
 			},
 		],
 	},

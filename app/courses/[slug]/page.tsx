@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
 import { motion } from "framer-motion";
@@ -197,7 +198,10 @@ export default function CourseDetailPage() {
 
 	// Format price display with proper currency formatting
 	const priceDisplay = course.price
-		? new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(Number(course.price))
+		? new Intl.NumberFormat("en-US", {
+				style: "currency",
+				currency: "USD",
+		  }).format(Number(course.price))
 		: t("courseDetail.free");
 
 	// Format tutor name
@@ -303,9 +307,11 @@ export default function CourseDetailPage() {
 							>
 								<Card className="sticky top-24">
 									<div className="aspect-video relative overflow-hidden rounded-t-lg">
-										<img
+										<Image
 											src={course.thumbnail}
 											alt={course.title}
+											width={500}
+											height={500}
 											className="w-full h-full object-cover"
 										/>
 										<div className="absolute inset-0 bg-black/50 flex items-center justify-center">
