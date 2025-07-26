@@ -8,7 +8,7 @@ import { COURSE_ENDPOINTS } from "@/lib/constants";
 import axios from "axios";
 import { initiatePayment } from "@/lib/payment";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "../../../../hooks/use-media-query";
+import { useMediaQuery } from "../../../../../hooks/use-media-query";
 
 // UI Components
 import { Button } from "@/components/ui/button";
@@ -777,14 +777,13 @@ export default function LessonPage() {
 													<p className="text-gray-400 mb-4 text-center max-w-md">
 														{t("lessonDetail.enrollToUnlock")}
 													</p>
-													<Button 
+													<Button
 														onClick={handleEnrollment}
 														disabled={paymentLoading}
 													>
-														{paymentLoading 
+														{paymentLoading
 															? t("lessonDetail.processing") || "Processing..."
-															: t("lessonDetail.enrollNow") || "Enroll Now"
-														}
+															: t("lessonDetail.enrollNow") || "Enroll Now"}
 													</Button>
 												</div>
 											)
