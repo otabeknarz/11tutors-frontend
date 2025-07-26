@@ -93,17 +93,17 @@ export default function AppNav() {
 
 	const navItems = [
 		{
-			href: "/home",
+			href: "/dashboard/home",
 			icon: <HomeIcon className="h-5 w-5" />,
 			label: "nav.home",
 		},
 		{
-			href: "/courses",
+			href: "/dashboard/courses",
 			icon: <BookOpenIcon className="h-5 w-5" />,
 			label: "nav.courses",
 		},
 		{
-			href: "/profile",
+			href: "/dashboard/profile",
 			icon: <UserIcon className="h-5 w-5" />,
 			label: "nav.profile",
 		},

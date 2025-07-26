@@ -1,4 +1,18 @@
 const translations = {
+	// Profile
+	"profile.title": "Profile Settings",
+	"profile.subtitle": "Manage your account information and preferences",
+	"profile.personalInfo": "Personal Information",
+	"profile.updateInfo": "Update your personal information",
+	"profile.firstName": "First Name",
+	"profile.firstNamePlaceholder": "Enter your first name",
+	"profile.phone": "Phone Number",
+	"profile.email": "Email Address",
+	"profile.username": "Username",
+	"profile.saveChanges": "Save Changes",
+	"profile.tabs.profile": "Profile",
+	"profile.tabs.preferences": "Preferences",
+
 	// Common
 	"app.name": "11Tutors",
 	"app.tagline": "Learn university courses from the best tutors",
@@ -17,6 +31,7 @@ const translations = {
 	"nav.my_courses": "My Courses",
 	"nav.logout": "Logout",
 	"nav.new": "New",
+	"nav.profile": "Profile",
 
 	// Home page
 	"home.hero.title": "Learn with the Best Tutors",
@@ -425,6 +440,20 @@ const translations = {
 	"lessonDetail.certificate": "Certificate of completion",
 	"lessonDetail.fullAccess": "Full access to all lesson content",
 	"lessonDetail.benefits": "What You'll Get",
+
+	// Payment Success Page
+	"payment.success.title": "Payment Successful!",
+	"payment.success.subtitle":
+		"Congratulations! Your enrollment was successful.",
+	"payment.success.enrollmentComplete": "Enrollment Complete",
+	"payment.success.accessMessage":
+		"You now have full access to all course materials, lessons, and resources.",
+	"payment.success.viewCourses": "View Courses",
+	"payment.success.startCourse": "Start Course",
+	"payment.success.backToDashboard": "Back to Dashboard",
+	"payment.success.supportMessage":
+		"Need help? Contact our support team anytime.",
+	"payment.success.contactSupport": "Contact Support",
 };
 
 export default translations;

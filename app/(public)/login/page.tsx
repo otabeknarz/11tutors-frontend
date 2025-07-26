@@ -21,9 +21,19 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useTheme } from "next-themes";
 
 // Icons
-import { Mail, Lock, AlertCircle, ArrowRight } from "lucide-react";
+import {
+	Mail,
+	Lock,
+	AlertCircle,
+	ArrowRight,
+	MoonIcon,
+	SunIcon,
+	EyeIcon,
+	EyeOffIcon,
+} from "lucide-react";
 
 export default function LoginPage() {
 	const { login, error, clearError } = useAuth();
@@ -34,6 +44,8 @@ export default function LoginPage() {
 	const [password, setPassword] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [formError, setFormError] = useState("");
+	const { theme, setTheme } = useTheme();
+	const [passwordVisible, setPasswordVisible] = useState(false);
 
 	const validateForm = () => {
 		if (!email) {
@@ -131,7 +143,7 @@ export default function LoginPage() {
 										<Input
 											id="password"
 											name="password"
-											type="password"
+											type={passwordVisible ? "text" : "password"}
 											autoComplete="current-password"
 											required
 											value={password}
@@ -139,6 +151,21 @@ export default function LoginPage() {
 											className="pl-10"
 											placeholder={t("auth.passwordPlaceholder")}
 										/>
+										<Button
+											variant="ghost"
+											size="icon"
+											type="button"
+											className="absolute right-3 top-2.5 cursor-pointer"
+											aria-label="Toggle password visibility"
+											onClick={() => setPasswordVisible(!passwordVisible)}
+											asChild
+										>
+											{passwordVisible ? (
+												<EyeIcon className="h-4 w-4 text-muted-foreground" />
+											) : (
+												<EyeOffIcon className="h-4 w-4 text-muted-foreground" />
+											)}
+										</Button>
 									</div>
 								</div>
 
@@ -165,8 +192,21 @@ export default function LoginPage() {
 							</form>
 						</CardContent>
 
-						<CardFooter className="flex justify-center border-t pt-4">
+						<CardFooter className="flex justify-between border-t pt-4">
 							<LanguageSwitcher />
+							<Button
+								variant="ghost"
+								size="icon"
+								onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+								className="rounded-full"
+								aria-label="Toggle theme"
+							>
+								{theme === "dark" ? (
+									<SunIcon className="h-5 w-5" />
+								) : (
+									<MoonIcon className="h-5 w-5" />
+								)}
+							</Button>
 						</CardFooter>
 					</Card>
 				</motion.div>

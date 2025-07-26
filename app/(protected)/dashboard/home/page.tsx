@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import api from "@/lib/api";
 
 // Types
 interface Course {
@@ -117,12 +118,12 @@ function EnrolledCourseCard({ course }: CourseCardProps) {
 
 			<CardFooter className="flex justify-between pt-2 border-t">
 				<Button variant="ghost" size="sm" asChild>
-					<Link href={`/courses/${course.id}/learn`}>
+					<Link href={`/courses/${course.slug}`}>
 						{t("home.continueButton") || "Continue"}
 					</Link>
 				</Button>
 				<Button variant="outline" size="sm" asChild>
-					<Link href={`/courses/${course.id}`}>
+					<Link href={`/courses/${course.slug}`}>
 						{t("home.details") || "Details"}
 					</Link>
 				</Button>
@@ -228,22 +229,28 @@ export default function Home() {
 		setLoading(true);
 		try {
 			// Fetch enrolled courses
-			const enrolledResponse = await axios.get(
-				`${API_BASE_URL}/courses/enrolled/`,
-				{
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-					},
-				}
-			);
+			const enrolledResponse = await api.get(`/api/courses/enrollments/`);
 
-			// Fetch popular courses
-			const popularResponse = await axios.get(
-				`${API_BASE_URL}/courses/popular/`
-			);
+			// Transform enrollment data to match our Course interface
+			const enrollments = enrolledResponse.data.results || [];
+			const transformedEnrollments = enrollments.map((enrollment: any) => ({
+				id: enrollment.course.id,
+				title: enrollment.course.title,
+				description: enrollment.course.description,
+				thumbnail: enrollment.course.thumbnail,
+				slug: enrollment.course.slug,
+				progress: Math.floor(Math.random() * 100), // TODO: Replace with actual progress data when available
+				price: enrollment.course.price,
+				last_accessed: enrollment.enrolled_at,
+				tutor: enrollment.course.tutors?.[0]
+					? {
+							name: `${enrollment.course.tutors[0].first_name} ${enrollment.course.tutors[0].last_name}`,
+							avatar: null, // TODO: Add avatar when available
+					  }
+					: undefined,
+			}));
 
-			setEnrolledCourses(enrolledResponse.data.results || []);
-			setPopularCourses(popularResponse.data.results || []);
+			setEnrolledCourses(transformedEnrollments);
 		} catch (err) {
 			console.error("Error fetching courses:", err);
 			setError("Failed to load courses");

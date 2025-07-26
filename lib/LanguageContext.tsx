@@ -1,79 +1,87 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
+import ruModule from "../translations/ru";
+import enModule from "../translations/en";
+import esModule from "../translations/es";
 
 type Language = "ru" | "en" | "es";
 
 interface LanguageContextType {
 	language: Language;
-	setLanguage: (lang: Language) => void;
-	t: (key: string, params?: Record<string, any>) => string;
+	setLanguage: (language: Language) => void;
+	t: (key: string, params?: Record<string, string>) => string;
+}
+
+interface LanguageProviderProps {
+	children: React.ReactNode;
+	defaultTranslations?: Record<
+		string,
+		Record<string, string | Record<string, string>>
+	>;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
 	undefined
 );
 
-// Default translations to use before the dynamic imports are complete
+// Default translations as a fallback
 const defaultTranslations = {
 	ru: {},
 	en: {},
 	es: {},
 };
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
+export const LanguageProvider: React.FC<LanguageProviderProps> = ({
 	children,
+	defaultTranslations = {},
 }) => {
-	const [language, setLanguage] = useState<Language>("en");
+	// Initialize with a function to ensure localStorage is only accessed during client-side rendering
+	const [language, setLanguage] = useState<Language>(() => {
+		if (typeof window !== "undefined") {
+			const savedLanguage = localStorage.getItem("11tutors-language");
+			if (savedLanguage) {
+				try {
+					const parsedLanguage = JSON.parse(savedLanguage);
+					if (["en", "ru", "es"].includes(parsedLanguage)) {
+						return parsedLanguage as Language;
+					}
+				} catch (e) {
+					console.error("Failed to parse saved language", e);
+				}
+			}
+		}
+		return "en";
+	});
+
 	const [translations, setTranslations] =
-		useState<Record<string, Record<string, string | Record<string, string>>>>(defaultTranslations);
+		useState<Record<string, Record<string, string | Record<string, string>>>>(
+			defaultTranslations
+		);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		// Load saved language preference from localStorage if available
-		if (typeof window !== "undefined") {
-			const savedLanguage = localStorage.getItem("11tutors-language");
-			if (
-				savedLanguage &&
-				(savedLanguage === "ru" ||
-					savedLanguage === "en" ||
-					savedLanguage === "es")
-			) {
-				setLanguage(savedLanguage as Language);
-			}
-		}
+		setIsLoading(true);
 
-		// Load translations
-		const loadTranslations = async () => {
-			try {
-				setIsLoading(true);
+		// Set translations
+		setTranslations({
+			ru: ruModule,
+			en: enModule,
+			es: esModule,
+		});
 
-				// Dynamic imports for translations
-				const ruModule = await import("../translations/ru");
-				const enModule = await import("../translations/en");
-				const esModule = await import("../translations/es");
-
-				setTranslations({
-					ru: ruModule.default,
-					en: enModule.default,
-					es: esModule.default,
-				});
-			} catch (error) {
-				console.error("Failed to load translations:", error);
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
-		loadTranslations();
+		setIsLoading(false);
 	}, []);
 
 	// Save language preference to localStorage when it changes
 	useEffect(() => {
-		if (typeof window !== "undefined") {
-			localStorage.setItem("11tutors-language", language);
+		if (typeof window !== "undefined" && !isLoading) {
+			localStorage.setItem("11tutors-language", JSON.stringify(language));
+			// Force the document language attribute to update
+			document.documentElement.lang = language;
+			console.log("Language saved to localStorage:", language);
 		}
-	}, [language]);
+	}, [language, isLoading]);
 
 	// Translation function with interpolation support
 	const t = (key: string, params?: Record<string, any>): string => {
@@ -82,11 +90,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
 		}
 
 		// Get the translation text, with fallbacks
-		const translationValue = translations[language][key] || translations["ru"][key];
-		let text = typeof translationValue === 'string' ? translationValue : key;
+		const translationValue =
+			translations[language][key] || translations["ru"][key];
+		let text = typeof translationValue === "string" ? translationValue : key;
 
 		// If params are provided, replace placeholders in the text
-		if (params && typeof text === 'string') {
+		if (params && typeof text === "string") {
 			Object.entries(params).forEach(([paramKey, paramValue]) => {
 				text = text.replace(
 					new RegExp(`{${paramKey}}`, "g"),

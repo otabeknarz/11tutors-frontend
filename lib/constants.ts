@@ -4,7 +4,8 @@
  */
 
 // Base URL for the backend API
-export const API_BASE_URL = "https://api.11-tutors.com";
+export const API_BASE_URL =
+	process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 
 // Authentication endpoints
 export const AUTH_ENDPOINTS = {
@@ -29,6 +30,12 @@ export const COURSE_ENDPOINTS = {
 	LESSONS: `${API_BASE_URL}/api/courses/lessons/`,
 	// Get a specific course by ID
 	COURSE_DETAIL: (id: string) => `${API_BASE_URL}/api/courses/courses/${id}/`,
+};
+
+// Payment endpoints
+export const PAYMENT_ENDPOINTS = {
+	// Create Stripe checkout session
+	CREATE_CHECKOUT: `${API_BASE_URL}/api/payments/payments/`,
 };
 
 // Export individual endpoints for direct imports

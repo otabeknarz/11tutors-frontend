@@ -27,7 +27,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { COURSE_ENDPOINTS } from "@/lib/constants";
-import axios from "axios";
+import api from "@/lib/api";
+import { initiatePayment } from "@/lib/payment";
 
 // Define types based on the API response
 interface Tutor {
@@ -77,6 +78,7 @@ export default function CourseDetailPage() {
 	const [loading, setLoading] = useState(true);
 	const router = useRouter();
 	const [error, setError] = useState<string | null>(null);
+	const [paymentLoading, setPaymentLoading] = useState(false);
 
 	// Calculate total duration of the course
 	const getTotalDuration = (parts: CoursePart[]): string => {
@@ -115,6 +117,28 @@ export default function CourseDetailPage() {
 		router.push(`/courses/${slug}/${lesson.slug}`);
 	};
 
+	// Handle enrollment/payment
+	const handleEnrollment = async () => {
+		if (!course) return;
+
+		try {
+			setPaymentLoading(true);
+			setError(null);
+
+			// Initiate payment process
+			await initiatePayment(course.id);
+		} catch (err) {
+			console.error("Payment initiation failed:", err);
+			setError(
+				`${t("courseDetail.paymentError")}: ${
+					(err as Error).message || String(err)
+				}`
+			);
+		} finally {
+			setPaymentLoading(false);
+		}
+	};
+
 	// Fetch course details
 	useEffect(() => {
 		const fetchCourseDetail = async () => {
@@ -123,9 +147,7 @@ export default function CourseDetailPage() {
 				setError(null);
 
 				// Use the COURSE_DETAIL endpoint with the slug
-				const response = await axios.get<CourseDetail>(
-					`${COURSE_ENDPOINTS.COURSES}${slug}/`
-				);
+				const response = await api.get(`/api/courses/courses/${slug}/`);
 
 				setCourse(response.data);
 			} catch (err) {
@@ -334,8 +356,15 @@ export default function CourseDetailPage() {
 											<p className="text-sm text-gray-600">
 												{t("courseDetail.fullAccess")}
 											</p>
-											<Button className="w-full">
-												{t("courseDetail.enroll")}
+											<Button 
+												className="w-full" 
+												onClick={handleEnrollment}
+												disabled={paymentLoading}
+											>
+												{paymentLoading 
+													? t("courseDetail.processing") || "Processing..."
+													: t("courseDetail.enroll") || "Enroll Now"
+												}
 											</Button>
 											<div className="mt-4 space-y-2">
 												<div className="flex items-center gap-2">

@@ -108,10 +108,10 @@ export default function Navbar() {
 					{user ? (
 						<div className="flex items-center gap-2">
 							<Button variant="ghost" size="sm" asChild>
-								<Link href="/dashboard">{t("nav.dashboard")}</Link>
+								<Link href="/dashboard/home">{t("nav.dashboard")}</Link>
 							</Button>
 							<Button variant="default" size="sm" asChild>
-								<Link href="/dashboard/my-courses">{t("nav.my_courses")}</Link>
+								<Link href="/dashboard/courses">{t("nav.my_courses")}</Link>
 							</Button>
 						</div>
 					) : (

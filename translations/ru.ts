@@ -1,4 +1,18 @@
 const translations: Record<string, string | Record<string, string>> = {
+	// Profile
+	"profile.title": "Настройки профиля",
+	"profile.subtitle": "Управляйте информацией и настройками вашего аккаунта",
+	"profile.personalInfo": "Личная информация",
+	"profile.updateInfo": "Обновите вашу личную информацию",
+	"profile.firstName": "Имя",
+	"profile.firstNamePlaceholder": "Введите ваше имя",
+	"profile.phone": "Номер телефона",
+	"profile.email": "Электронная почта",
+	"profile.username": "Имя пользователя",
+	"profile.saveChanges": "Сохранить изменения",
+	"profile.tabs.profile": "Профиль",
+	"profile.tabs.preferences": "Настройки",
+
 	// Common
 	"app.name": "11Tutors",
 	"app.tagline": "Изучайте университетские курсы с лучшими преподавателями",
@@ -17,6 +31,7 @@ const translations: Record<string, string | Record<string, string>> = {
 	"nav.my_courses": "Мои курсы",
 	"nav.logout": "Выход",
 	"nav.new": "Новое",
+	"nav.profile": "Профиль",
 
 	// Home page
 	"home.hero.title": "Учитесь с лучшими преподавателями",
@@ -467,6 +482,19 @@ const translations: Record<string, string | Record<string, string>> = {
 	"lessonDetail.certificate": "Сертификат о прохождении",
 	"lessonDetail.fullAccess": "Полный доступ ко всему содержанию урока",
 	"lessonDetail.benefits": "Что вы получите",
+
+	// Payment Success Page
+	"payment.success.title": "Оплата прошла успешно!",
+	"payment.success.subtitle": "Поздравляем! Ваша регистрация прошла успешно.",
+	"payment.success.enrollmentComplete": "Регистрация завершена",
+	"payment.success.accessMessage":
+		"Теперь у вас есть полный доступ ко всем материалам курса, урокам и ресурсам.",
+	"payment.success.viewCourses": "Просмотр курсов",
+	"payment.success.startCourse": "Начать курс",
+	"payment.success.backToDashboard": "Вернуться на панель управления",
+	"payment.success.supportMessage":
+		"Нужна помощь? Обращайтесь к нашей службе поддержки в любое время.",
+	"payment.success.contactSupport": "Связаться с поддержкой",
 };
 
 export default translations;

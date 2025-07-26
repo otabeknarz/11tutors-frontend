@@ -567,47 +567,6 @@ export default function CoursesPage() {
 						</div>
 					)}
 				</section>
-
-				{/* Pagination */}
-				{!loading && !error && filteredCourses.length > 0 && (
-					<div className="flex items-center justify-between">
-						<div className="text-sm text-muted-foreground">
-							{t("courses.showing", {
-								start: (currentPage - 1) * pageSize + 1,
-								end: Math.min(currentPage * pageSize, totalCount),
-								total: totalCount,
-							}) ||
-								`Showing ${(currentPage - 1) * pageSize + 1}-${Math.min(
-									currentPage * pageSize,
-									totalCount
-								)} of ${totalCount}`}
-						</div>
-						<div className="flex items-center gap-1">
-							<Button
-								variant="outline"
-								size="icon"
-								onClick={goToPrevPage}
-								disabled={!prevPageUrl}
-							>
-								<ChevronLeftIcon className="h-4 w-4" />
-							</Button>
-							<div className="px-4 py-2 text-sm">
-								{t("courses.page", {
-									current: currentPage,
-									total: totalPages,
-								}) || `Page ${currentPage} of ${totalPages}`}
-							</div>
-							<Button
-								variant="outline"
-								size="icon"
-								onClick={goToNextPage}
-								disabled={!nextPageUrl}
-							>
-								<ChevronRightIcon className="h-4 w-4" />
-							</Button>
-						</div>
-					</div>
-				)}
 			</main>
 			<Footer />
 		</div>
