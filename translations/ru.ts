@@ -6,6 +6,17 @@ const translations: Record<string, string | Record<string, string>> = {
 	"profile.updateInfo": "Обновите вашу личную информацию",
 	"profile.firstName": "Имя",
 	"profile.firstNamePlaceholder": "Введите ваше имя",
+	"profile.lastName": "Фамилия",
+	"profile.lastNamePlaceholder": "Введите вашу фамилию",
+	"profile.emailPlaceholder": "Введите ваш email",
+	"profile.phonePlaceholder": "Введите ваш номер телефона",
+	"profile.usernamePlaceholder": "Введите ваше имя пользователя",
+	"profile.preferences": "Настройки",
+	"profile.preferencesDescription": "Настройте параметры вашего аккаунта",
+	"profile.darkMode": "Тёмная тема",
+	"profile.darkModeDescription": "Переключение между светлой и тёмной темой",
+	"profile.language": "Язык",
+	"profile.languageDescription": "Выберите предпочитаемый язык",
 	"profile.phone": "Номер телефона",
 	"profile.email": "Электронная почта",
 	"profile.username": "Имя пользователя",
@@ -16,6 +27,7 @@ const translations: Record<string, string | Record<string, string>> = {
 	// Common
 	"app.name": "11Tutors",
 	"app.tagline": "Изучайте университетские курсы с лучшими преподавателями",
+	"common.loading": "Загрузка...",
 
 	// Navigation
 	"nav.home": "Главная",
@@ -32,6 +44,7 @@ const translations: Record<string, string | Record<string, string>> = {
 	"nav.logout": "Выход",
 	"nav.new": "Новое",
 	"nav.profile": "Профиль",
+	"nav.menu": "Меню",
 
 	// Home page
 	"home.hero.title": "Учитесь с лучшими преподавателями",
@@ -40,6 +53,14 @@ const translations: Record<string, string | Record<string, string>> = {
 	"home.hero.cta": "Начать",
 	"home.hero.browseCourses": "Просмотреть курсы",
 	"home.hero.becomeTutor": "Стать преподавателем",
+	"home.welcome": "Добро пожаловать",
+	"home.subtitle": "Продолжите свой путь обучения",
+	"home.enrolledCourses": "Ваши записанные курсы",
+	"home.viewAll": "Посмотреть все",
+	"home.popularCourses": "Популярные курсы",
+	"home.completed": "Завершено",
+	"home.continueButton": "Продолжить",
+	"home.details": "Подробности",
 
 	// Landing page - Hero Section
 	"landing.heroSection.title":
@@ -352,6 +373,7 @@ const translations: Record<string, string | Record<string, string>> = {
 
 	// Courses Page
 	"courses.title": "Изучите наши курсы",
+	"courses.subtitle": "Найдите идеальный курс для вашего обучения",
 	"courses.description":
 		"Просмотрите наш обширный выбор университетских курсов, преподаваемых опытными преподавателями.",
 	"courses.searchPlaceholder": "Поиск курсов...",
@@ -434,6 +456,9 @@ const translations: Record<string, string | Record<string, string>> = {
 	"courseDetail.free": "Бесплатно",
 	"courseDetail.fullAccess": "Полный доступ ко всему содержанию курса",
 	"courseDetail.enroll": "Записаться сейчас",
+	"courseDetail.enrolled": "Записан",
+	"courseDetail.duration": "Продолжительность",
+	"courseDetail.continue": "Продолжить",
 	"courseDetail.totalLength": "общая продолжительность",
 	"courseDetail.lifetime": "Пожизненный доступ",
 	"courseDetail.certificate": "Сертификат об окончании",
@@ -495,6 +520,222 @@ const translations: Record<string, string | Record<string, string>> = {
 	"payment.success.supportMessage":
 		"Нужна помощь? Обращайтесь к нашей службе поддержки в любое время.",
 	"payment.success.contactSupport": "Связаться с поддержкой",
+
+	// For Tutors Page
+	"forTutors.title": "Станьте преподавателем",
+	"forTutors.description": "Делитесь знаниями и зарабатывайте во время учебы",
+
+	"forTutors.points.point1": "Зарабатывайте, преподавая предметы, в которых вы преуспеваете",
+	"forTutors.points.point2": "Создайте свой собственный график и работайте удаленно",
+	"forTutors.points.point3": "Улучшите свое резюме с опытом преподавания",
+
+	"forTutors.applyNow": "Подать заявку",
+	"forTutors.earningsTitle": "Потенциальный заработок",
+	"forTutors.averageRate": "$25-45",
+	"forTutors.perHour": "в час",
+
+	"forTutors.potentialEarnings.weekly": "$250-450",
+	"forTutors.weeklyHours": "10 часов/неделю",
+
+	"forTutors.potentialEarnings.monthly": "$1,000-1,800",
+	"forTutors.monthlyHours": "40 часов/месяц",
+
+	"forTutors.benefitsTitle": "Преимущества преподавания",
+	"forTutors.benefitsDescription": "Почему стоит стать преподавателем с 11tutors?",
+
+	"forTutors.benefits.students.title": "Качественные студенты",
+	"forTutors.benefits.students.description": "Общайтесь с мотивированными студентами университетов, стремящимися учиться у сверстников",
+
+	"forTutors.benefits.earnings.title": "Конкурентная оплата",
+	"forTutors.benefits.earnings.description": "Зарабатывайте больше, чем на типичных подработках, с гибким графиком",
+
+	"forTutors.benefits.flexibility.title": "Полная гибкость",
+	"forTutors.benefits.flexibility.description": "Создайте свой собственный график и преподавайте откуда угодно",
+
+	"forTutors.benefits.tools.title": "Инструменты для преподавания",
+	"forTutors.benefits.tools.description": "Получите доступ к учебным ресурсам, материалам и поддержке нашей платформы",
+
+	"forTutors.stepsTitle": "Как стать преподавателем",
+	"forTutors.stepsDescription": "Наш простой процесс подачи заявки",
+
+	"forTutors.steps.apply.title": "Подайте заявку онлайн",
+	"forTutors.steps.apply.description": "Заполните нашу простую форму заявки с вашей квалификацией",
+
+	"forTutors.steps.interview.title": "Короткое собеседование",
+	"forTutors.steps.interview.description": "Встретьтесь с нашей командой, чтобы обсудить ваш стиль преподавания и опыт",
+
+	"forTutors.steps.onboarding.title": "Завершите адаптацию",
+	"forTutors.steps.onboarding.description": "Узнайте, как пользоваться нашей платформой и создайте свой профиль преподавателя",
+
+	"forTutors.steps.teaching.title": "Начните преподавать",
+	"forTutors.steps.teaching.description": "Начните общаться со студентами и зарабатывать деньги",
+
+	"forTutors.testimonialsTitle": "Истории успеха преподавателей",
+	"forTutors.testimonialsDescription": "Отзывы действующих преподавателей на нашей платформе",
+
+	"forTutors.testimonials.testimonial1.name": "Алекс Джонсон",
+	"forTutors.testimonials.testimonial1.subject": "Информатика",
+	"forTutors.testimonials.testimonial1.quote": "Преподавание на 11tutors было невероятно полезным. Я улучшил свое понимание сложных тем, зарабатывая достаточно для покрытия расходов на проживание.",
+
+	"forTutors.testimonials.testimonial2.name": "Мария Родригес",
+	"forTutors.testimonials.testimonial2.subject": "Экономика",
+	"forTutors.testimonials.testimonial2.quote": "Гибкость позволяет мне совмещать учебу в магистратуре с получением значительного дохода. Платформа делает планирование и платежи простыми.",
+
+	"forTutors.testimonials.testimonial3.name": "Дэвид Чен",
+	"forTutors.testimonials.testimonial3.subject": "Математика",
+	"forTutors.testimonials.testimonial3.quote": "Я установил связи со студентами со всего мира и создал свое преподавательское портфолио. Этот опыт был бесценным для моей академической карьеры.",
+
+	"forTutors.applyTitle": "Готовы подать заявку?",
+	"forTutors.applyDescription": "Присоединяйтесь к нашему сообществу преподавателей и начните зарабатывать",
+
+	"forTutors.requirements.requirement1.title": "Академическое превосходство",
+	"forTutors.requirements.requirement1.description": "В настоящее время обучаетесь или окончили с высокими академическими показателями",
+
+	"forTutors.requirements.requirement2.title": "Экспертиза в предмете",
+	"forTutors.requirements.requirement2.description": "Глубокие знания в преподаваемых предметах с соответствующими курсами",
+
+	"forTutors.requirements.requirement3.title": "Коммуникативные навыки",
+	"forTutors.requirements.requirement3.description": "Способность ясно объяснять сложные концепции и взаимодействовать со студентами",
+
+	"forTutors.applicationFormTitle": "Заявка преподавателя",
+	"forTutors.form.firstName": "Имя",
+	"forTutors.form.firstNamePlaceholder": "Введите ваше имя",
+	"forTutors.form.lastName": "Фамилия",
+	"forTutors.form.lastNamePlaceholder": "Введите вашу фамилию",
+	"forTutors.form.email": "Электронная почта",
+	"forTutors.form.emailPlaceholder": "Введите вашу электронную почту",
+	"forTutors.form.subjects": "Предметы, которые вы можете преподавать",
+	"forTutors.form.subjectsPlaceholder": "например, Математический анализ, Микроэкономика, Информатика",
+	"forTutors.form.experience": "Опыт преподавания",
+	"forTutors.form.experiencePlaceholder": "Кратко опишите любой соответствующий опыт преподавания или репетиторства",
+	"forTutors.form.submit": "Отправить заявку",
+
+	"forTutors.faqTitle": "Часто задаваемые вопросы",
+	"forTutors.faqDescription": "Распространенные вопросы о том, как стать преподавателем",
+
+	"forTutors.faqs.faq1.question": "Сколько я действительно могу заработать как преподаватель?",
+	"forTutors.faqs.faq1.answer": "Заработок зависит от ваших предметов, опыта и часов. Большинство преподавателей зарабатывают $25-45 в час, а лучшие преподаватели зарабатывают более $50 в час за специализированные предметы.",
+
+	"forTutors.faqs.faq2.question": "Какие предметы наиболее востребованы?",
+	"forTutors.faqs.faq2.answer": "Предметы STEM (математика, статистика, информатика), экономика и бизнес-курсы обычно имеют наибольший спрос, но нам нужны преподаватели по всем дисциплинам.",
+
+	"forTutors.faqs.faq3.question": "Сколько часов я могу преподавать?",
+	"forTutors.faqs.faq3.answer": "Это полностью зависит от вас. Некоторые преподаватели учат 5-10 часов в неделю, в то время как другие учат более 20 часов. Вы устанавливаете свою доступность и можете изменить ее в любое время.",
+
+	"forTutors.faqs.faq4.question": "Нужен ли мне предыдущий опыт преподавания?",
+	"forTutors.faqs.faq4.answer": "Формальный опыт преподавания не требуется, но вы должны уметь ясно объяснять концепции и иметь прочные знания в своих предметных областях.",
+
+	"forTutors.ctaTitle": "Делитесь знаниями, зарабатывайте во время обучения",
+	"forTutors.ctaDescription": "Присоединяйтесь к нашему растущему сообществу университетских преподавателей сегодня",
+
+	"forTutors.ctaButton": "Подать заявку на должность преподавателя",
+
+	// Страница преподавателей
+	"tutors.title": "Найдите идеального преподавателя",
+	"tutors.description":
+		"Свяжитесь с экспертными преподавателями, которые помогут вам преуспеть в учебе. Просмотрите наше сообщество проверенных университетских инструкторов.",
+	"tutors.searchPlaceholder": "Поиск преподавателей по имени, предмету или экспертизе...",
+	"tutors.filterBySubject": "Фильтр по предмету",
+	"tutors.allSubjects": "Все предметы",
+	"tutors.subjects": {
+		mathematics: "Математика",
+		physics: "Физика",
+		computerScience: "Информатика",
+		englishLiterature: "Английская литература",
+		history: "История",
+		chemistry: "Химия",
+		economics: "Экономика",
+		biology: "Биология",
+		business: "Бизнес",
+		creativeWriting: "Творческое письмо",
+		politicalScience: "Политология",
+		dataScience: "Наука о данных",
+	},
+	"tutors.tutor": "преподаватель найден",
+	"tutors.tutorsPlural": "преподавателей найдено",
+	"tutors.sortBy": "Сортировать по",
+	"tutors.sortOptions.rating": "Высший рейтинг",
+	"tutors.sortOptions.priceAsc": "Цена: от низкой к высокой",
+	"tutors.sortOptions.priceDesc": "Цена: от высокой к низкой",
+	"tutors.sortOptions.experience": "Больше опыта",
+	"tutors.noTutorsFound": "Преподаватели не найдены",
+	"tutors.tryDifferentSearch": "Попробуйте изменить критерии поиска или просмотрите всех преподавателей.",
+	"tutors.clearFilters": "Очистить фильтры",
+	"tutors.verified": "Проверен",
+	"tutors.perHour": "в час",
+	"tutors.experience": "Опыт",
+	"tutors.availability": "Доступность",
+	"tutors.viewProfile": "Посмотреть профиль",
+	"tutors.bookSession": "Забронировать сессию",
+	"tutors.previous": "Предыдущий",
+	"tutors.next": "Следующий",
+	"tutors.becomeTitle": "Стать преподавателем",
+	"tutors.becomeDescription":
+		"Делитесь своими знаниями и зарабатывайте деньги, обучая студентов со всего мира. Присоединяйтесь к нашему сообществу экспертных преподавателей сегодня.",
+	"tutors.benefits.flexible": "Гибкий график - преподавайте когда хотите",
+	"tutors.benefits.earnings": "Конкурентная оплата - $25-60+ в час",
+	"tutors.benefits.impact": "Оказывайте реальное влияние на академический успех студентов",
+	"tutors.applyNow": "Подать заявку сейчас",
+	"tutors.joinTitle": "Присоединиться к 11tutors",
+	"tutors.joinSubtitle": "Начните свой путь преподавания",
+	"tutors.joinBenefits.students": "Связывайтесь с мотивированными студентами по всему миру",
+	"tutors.joinBenefits.tools": "Получите доступ к профессиональным инструментам и ресурсам для преподавания",
+	"tutors.joinBenefits.community": "Присоединяйтесь к поддерживающему сообществу педагогов",
+
+	// How It Works Page
+	"howItWorks.title": "Как работает 11tutors",
+	"howItWorks.description":
+		"Узнайте, как наша платформа связывает студентов с экспертными преподавателями для персонализированного обучения. Начните всего за несколько простых шагов.",
+	"howItWorks.exploreCourses": "Изучить курсы",
+	"howItWorks.findTutor": "Найти преподавателя",
+	"howItWorks.stepsTitle": "Простые шаги к успеху",
+	"howItWorks.stepsDescription":
+		"Следуйте этим простым шагам, чтобы начать свой путь обучения с 11tutors",
+	"howItWorks.videoTitle": "Посмотрите, как это работает",
+	"howItWorks.videoDescription":
+		"Посмотрите наш краткий обзор, чтобы понять, как 11tutors делает обучение доступным и эффективным для всех.",
+	"howItWorks.videoPoints.point1.title": "Интерактивное обучение",
+	"howItWorks.videoPoints.point1.description":
+		"Взаимодействуйте с преподавателями через живые сессии и интерактивный контент",
+	"howItWorks.videoPoints.point2.title": "Персонализированный подход",
+	"howItWorks.videoPoints.point2.description":
+		"Получите индивидуальные планы обучения, адаптированные под ваши потребности",
+	"howItWorks.videoPoints.point3.title": "Отслеживание прогресса",
+	"howItWorks.videoPoints.point3.description":
+		"Отслеживайте свой прогресс в обучении с помощью подробной аналитики",
+	"howItWorks.benefitsTitle": "Почему выбирают 11tutors",
+	"howItWorks.benefitsDescription":
+		"Откройте для себя преимущества, которые делают нас лучшим выбором для онлайн-обучения",
+	"howItWorks.benefits.flexibility.title": "Полная гибкость",
+	"howItWorks.benefits.flexibility.description":
+		"Учитесь в своем темпе, по своему расписанию, из любой точки мира",
+	"howItWorks.benefits.quality.title": "Экспертные преподаватели",
+	"howItWorks.benefits.quality.description":
+		"Учитесь у проверенных преподавателей университетского уровня с доказанной экспертизой",
+	"howItWorks.benefits.technology.title": "Передовые технологии",
+	"howItWorks.benefits.technology.description":
+		"Используйте передовые инструменты для интерактивного обучения и бесшовной коммуникации",
+	"howItWorks.benefits.support.title": "Поддержка 24/7",
+	"howItWorks.benefits.support.description":
+		"Получайте помощь, когда она вам нужна, с нашей специализированной командой поддержки",
+	"howItWorks.faqsTitle": "Часто задаваемые вопросы",
+	"howItWorks.faqsDescription":
+		"Найдите ответы на самые распространенные вопросы о нашей платформе",
+	"howItWorks.faqs.question1": "Как начать работу с 11tutors?",
+	"howItWorks.faqs.answer1":
+		"Просто создайте аккаунт, просмотрите наши курсы или преподавателей и забронируйте свою первую сессию. Это так просто!",
+	"howItWorks.faqs.question2": "Какие предметы доступны?",
+	"howItWorks.faqs.answer2":
+		"Мы предлагаем репетиторство по математике, наукам, языкам, бизнесу и многим другим предметам университетского уровня.",
+	"howItWorks.faqs.question3": "Сколько стоит репетиторство?",
+	"howItWorks.faqs.answer3":
+		"Цены варьируются в зависимости от преподавателя и предмета, обычно от $25-60 в час. Вы можете увидеть точные тарифы перед бронированием.",
+	"howItWorks.faqs.question4": "Могу ли я отменить или перенести сессии?",
+	"howItWorks.faqs.answer4":
+		"Да, вы можете отменить или перенести сессии за 24 часа до начала без штрафа.",
+	"howItWorks.faqs.question5": "Есть ли гарантия возврата денег?",
+	"howItWorks.faqs.answer5":
+		"Да, если вы не удовлетворены своей первой сессией, мы предлагаем полный возврат средств в течение 48 часов.",
 };
 
 export default translations;

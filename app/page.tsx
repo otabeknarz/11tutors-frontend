@@ -19,9 +19,6 @@ import HowItWorks from "@/components/landing/HowItWorks";
 import FeaturedCourses from "@/components/landing/FeaturedCourses";
 import WhyChooseUs from "@/components/landing/WhyChooseUs";
 import ForTutors from "@/components/landing/ForTutors";
-import Testimonials from "@/components/landing/Testimonials";
-import JoinCommunity from "@/components/landing/JoinCommunity";
-import CtaBanner from "@/components/landing/CtaBanner";
 import Footer from "@/components/landing/Footer";
 
 // Import UI components

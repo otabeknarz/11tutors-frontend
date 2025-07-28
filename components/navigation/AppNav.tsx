@@ -167,7 +167,7 @@ export default function AppNav() {
 
 			{/* Mobile Bottom Navigation Bar */}
 			<div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border">
-				<div className="grid grid-cols-3 h-16">
+				<div className="flex justify-around p-4">
 					{navItems.map((item) => (
 						<NavItem
 							key={item.href}

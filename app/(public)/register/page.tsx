@@ -30,7 +30,10 @@ import {
 	AlertCircle,
 	ArrowRight,
 	KeyRound,
+	MoonIcon,
+	SunIcon,
 } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function RegisterPage() {
 	const { register, error, clearError } = useAuth();
@@ -44,6 +47,7 @@ export default function RegisterPage() {
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [formError, setFormError] = useState("");
+	const { theme, setTheme } = useTheme();
 
 	const validateForm = () => {
 		if (!firstName) {
@@ -251,8 +255,21 @@ export default function RegisterPage() {
 							</form>
 						</CardContent>
 
-						<CardFooter className="flex justify-center border-t pt-4">
+						<CardFooter className="flex justify-between border-t pt-4">
 							<LanguageSwitcher />
+							<Button
+								variant="ghost"
+								size="icon"
+								onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+								className="rounded-full"
+								aria-label="Toggle theme"
+							>
+								{theme === "dark" ? (
+									<SunIcon className="h-5 w-5" />
+								) : (
+									<MoonIcon className="h-5 w-5" />
+								)}
+							</Button>
 						</CardFooter>
 					</Card>
 				</motion.div>

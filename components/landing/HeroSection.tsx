@@ -9,47 +9,9 @@ import {
 	GraduationCap,
 	BookOpen,
 	Users,
-	Star,
 	ArrowRight,
 	Brain,
 } from "lucide-react";
-
-type HeroSectionProps = {
-	title?: string;
-	subtitle?: string;
-	ctaText?: string;
-	browseCourses?: string;
-	becomeTutor?: string;
-};
-
-const FeatureCard = ({
-	icon: Icon,
-	title,
-	description,
-}: {
-	icon: any;
-	title: string;
-	description: string;
-}) => {
-	const { t } = useLanguage();
-
-	return (
-		<motion.div
-			whileHover={{ scale: 1.05 }}
-			className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10 shadow-xl"
-		>
-			<div className="flex items-start gap-4">
-				<div className="p-2 rounded-lg bg-primary/10">
-					<Icon className="w-6 h-6 text-primary" />
-				</div>
-				<div>
-					<h3 className="font-semibold text-lg mb-1">{title}</h3>
-					<p className="text-sm text-muted-foreground">{description}</p>
-				</div>
-			</div>
-		</motion.div>
-	);
-};
 
 const HeroIllustration = () => (
 	<div className="hidden lg:block relative w-full aspect-square max-w-md mx-auto">
@@ -168,54 +130,6 @@ const HeroSection = () => {
 						<HeroIllustration />
 					</motion.div>
 				</div>
-
-				{/* Stats with animations */}
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 1 }}
-					className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
-				>
-					{[
-						{
-							number: "1000+",
-							label: t("landing.heroSection.stats.courses"),
-							icon: BookOpen,
-						},
-						{
-							number: "500+",
-							label: t("landing.heroSection.stats.tutors"),
-							icon: GraduationCap,
-						},
-						{
-							number: "50+",
-							label: t("landing.heroSection.stats.universities"),
-							icon: Star,
-						},
-						{
-							number: "10k+",
-							label: t("landing.heroSection.stats.students"),
-							icon: Users,
-						},
-					].map((stat, index) => (
-						<motion.div
-							key={index}
-							whileHover={{ y: -5 }}
-							className="p-6 rounded-xl bg-white/5 backdrop-blur-lg border border-white/10 text-center"
-						>
-							<stat.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
-							<motion.p
-								initial={{ scale: 0.5 }}
-								animate={{ scale: 1 }}
-								transition={{ delay: 1.2 + index * 0.1 }}
-								className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text"
-							>
-								{stat.number}
-							</motion.p>
-							<p className="text-sm text-muted-foreground">{stat.label}</p>
-						</motion.div>
-					))}
-				</motion.div>
 			</div>
 		</section>
 	);

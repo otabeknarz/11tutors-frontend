@@ -6,6 +6,17 @@ const translations = {
 	"profile.updateInfo": "Actualiza tu información personal",
 	"profile.firstName": "Nombre",
 	"profile.firstNamePlaceholder": "Ingresa tu nombre",
+	"profile.lastName": "Apellido",
+	"profile.lastNamePlaceholder": "Ingresa tu apellido",
+	"profile.emailPlaceholder": "Ingresa tu correo electrónico",
+	"profile.phonePlaceholder": "Ingresa tu número de teléfono",
+	"profile.usernamePlaceholder": "Ingresa tu nombre de usuario",
+	"profile.preferences": "Preferencias",
+	"profile.preferencesDescription": "Personaliza la configuración de tu cuenta",
+	"profile.darkMode": "Modo Oscuro",
+	"profile.darkModeDescription": "Alternar entre tema claro y oscuro",
+	"profile.language": "Idioma",
+	"profile.languageDescription": "Elige tu idioma preferido",
 	"profile.phone": "Número de Teléfono",
 	"profile.email": "Correo Electrónico",
 	"profile.username": "Nombre de Usuario",
@@ -16,6 +27,7 @@ const translations = {
 	// Common
 	"app.name": "11Tutors",
 	"app.tagline": "Aprende cursos universitarios con los mejores tutores",
+	"common.loading": "Cargando...",
 
 	// Navigation
 	"nav.home": "Inicio",
@@ -32,6 +44,7 @@ const translations = {
 	"nav.logout": "Cerrar sesión",
 	"nav.new": "Nuevo",
 	"nav.profile": "Perfil",
+	"nav.menu": "Menú",
 
 	// Home page
 	"home.hero.title": "Aprende con los mejores tutores",
@@ -40,6 +53,14 @@ const translations = {
 	"home.hero.cta": "Comenzar",
 	"home.hero.browseCourses": "Explorar Cursos",
 	"home.hero.becomeTutor": "Conviértete en Tutor",
+	"home.welcome": "Bienvenido de vuelta",
+	"home.subtitle": "Continúa tu viaje de aprendizaje",
+	"home.enrolledCourses": "Tus Cursos Inscritos",
+	"home.viewAll": "Ver Todo",
+	"home.popularCourses": "Cursos Populares",
+	"home.completed": "Completado",
+	"home.continueButton": "Continuar",
+	"home.details": "Detalles",
 
 	// Landing page - Hero Section
 	"landing.heroSection.title": "Aprende de los mejores tutores universitarios",
@@ -348,6 +369,7 @@ const translations = {
 
 	// Courses Page
 	"courses.title": "Explora Nuestros Cursos",
+	"courses.subtitle": "Descubre el curso perfecto para tu viaje de aprendizaje",
 	"courses.description":
 		"Navega por nuestra amplia selección de cursos de nivel universitario impartidos por tutores expertos.",
 	"courses.searchPlaceholder": "Buscar cursos...",
@@ -432,6 +454,9 @@ const translations = {
 	"courseDetail.free": "Gratis",
 	"courseDetail.fullAccess": "Acceso completo a todo el contenido del curso",
 	"courseDetail.enroll": "Inscribirse ahora",
+	"courseDetail.enrolled": "Inscrito",
+	"courseDetail.duration": "Duración",
+	"courseDetail.continue": "Continuar",
 	"courseDetail.totalLength": "duración total",
 	"courseDetail.lifetime": "Acceso de por vida",
 	"courseDetail.certificate": "Certificado de finalización",
@@ -496,6 +521,222 @@ const translations = {
 	"payment.success.supportMessage":
 		"¿Necesitas ayuda? Contacta a nuestro equipo de soporte en cualquier momento.",
 	"payment.success.contactSupport": "Contactar soporte",
+
+	// For Tutors Page
+	"forTutors.title": "Conviértete en Tutor",
+	"forTutors.description": "Comparte tu conocimiento y gana mientras estudias",
+
+	"forTutors.points.point1": "Gana dinero enseñando materias en las que sobresales",
+	"forTutors.points.point2": "Crea tu propio horario y trabaja remotamente",
+	"forTutors.points.point3": "Mejora tu currículum con experiencia docente",
+
+	"forTutors.applyNow": "Aplicar Ahora",
+	"forTutors.earningsTitle": "Ganancias Potenciales",
+	"forTutors.averageRate": "$25-45",
+	"forTutors.perHour": "por hora",
+
+	"forTutors.potentialEarnings.weekly": "$250-450",
+	"forTutors.weeklyHours": "10 horas/semana",
+
+	"forTutors.potentialEarnings.monthly": "$1,000-1,800",
+	"forTutors.monthlyHours": "40 horas/mes",
+
+	"forTutors.benefitsTitle": "Beneficios de Enseñar",
+	"forTutors.benefitsDescription": "¿Por qué convertirse en tutor con 11tutors?",
+
+	"forTutors.benefits.students.title": "Estudiantes de Calidad",
+	"forTutors.benefits.students.description": "Conéctate con estudiantes universitarios motivados y ansiosos por aprender de sus compañeros",
+
+	"forTutors.benefits.earnings.title": "Pago Competitivo",
+	"forTutors.benefits.earnings.description": "Gana más que en trabajos típicos de medio tiempo con horarios flexibles",
+
+	"forTutors.benefits.flexibility.title": "Flexibilidad Total",
+	"forTutors.benefits.flexibility.description": "Crea tu propio horario y enseña desde cualquier lugar",
+
+	"forTutors.benefits.tools.title": "Herramientas de Enseñanza",
+	"forTutors.benefits.tools.description": "Accede a recursos de enseñanza, materiales y soporte de nuestra plataforma",
+
+	"forTutors.stepsTitle": "Cómo Convertirse en Tutor",
+	"forTutors.stepsDescription": "Nuestro simple proceso de aplicación",
+
+	"forTutors.steps.apply.title": "Aplica en Línea",
+	"forTutors.steps.apply.description": "Completa nuestro simple formulario de solicitud con tus calificaciones",
+
+	"forTutors.steps.interview.title": "Breve Entrevista",
+	"forTutors.steps.interview.description": "Reúnete con nuestro equipo para discutir tu estilo de enseñanza y experiencia",
+
+	"forTutors.steps.onboarding.title": "Completa la Incorporación",
+	"forTutors.steps.onboarding.description": "Aprende a usar nuestra plataforma y crea tu perfil de tutor",
+
+	"forTutors.steps.teaching.title": "Comienza a Enseñar",
+	"forTutors.steps.teaching.description": "Empieza a conectar con estudiantes y a ganar dinero",
+
+	"forTutors.testimonialsTitle": "Historias de Éxito de Tutores",
+	"forTutors.testimonialsDescription": "Escucha a los tutores actuales en nuestra plataforma",
+
+	"forTutors.testimonials.testimonial1.name": "Alex Johnson",
+	"forTutors.testimonials.testimonial1.subject": "Informática",
+	"forTutors.testimonials.testimonial1.quote": "Enseñar en 11tutors ha sido increíblemente gratificante. He mejorado mi propia comprensión de temas complejos mientras gano lo suficiente para cubrir mis gastos de vida.",
+
+	"forTutors.testimonials.testimonial2.name": "María Rodríguez",
+	"forTutors.testimonials.testimonial2.subject": "Economía",
+	"forTutors.testimonials.testimonial2.quote": "La flexibilidad me permite equilibrar mis estudios de posgrado mientras obtengo ingresos significativos. La plataforma hace que la programación y los pagos sean sencillos.",
+
+	"forTutors.testimonials.testimonial3.name": "David Chen",
+	"forTutors.testimonials.testimonial3.subject": "Matemáticas",
+	"forTutors.testimonials.testimonial3.quote": "Me he conectado con estudiantes de todo el mundo y he construido mi portafolio de enseñanza. La experiencia ha sido invaluable para mi carrera académica.",
+
+	"forTutors.applyTitle": "¿Listo para Aplicar?",
+	"forTutors.applyDescription": "Únete a nuestra comunidad de tutores y comienza a ganar",
+
+	"forTutors.requirements.requirement1.title": "Excelencia Académica",
+	"forTutors.requirements.requirement1.description": "Actualmente matriculado o graduado con un fuerte rendimiento académico",
+
+	"forTutors.requirements.requirement2.title": "Experiencia en la Materia",
+	"forTutors.requirements.requirement2.description": "Conocimiento profundo en tus materias de enseñanza con cursos relevantes",
+
+	"forTutors.requirements.requirement3.title": "Habilidades de Comunicación",
+	"forTutors.requirements.requirement3.description": "Capacidad para explicar conceptos complejos con claridad y relacionarse con los estudiantes",
+
+	"forTutors.applicationFormTitle": "Solicitud de Tutor",
+	"forTutors.form.firstName": "Nombre",
+	"forTutors.form.firstNamePlaceholder": "Ingresa tu nombre",
+	"forTutors.form.lastName": "Apellido",
+	"forTutors.form.lastNamePlaceholder": "Ingresa tu apellido",
+	"forTutors.form.email": "Correo Electrónico",
+	"forTutors.form.emailPlaceholder": "Ingresa tu correo electrónico",
+	"forTutors.form.subjects": "Materias que Puedes Enseñar",
+	"forTutors.form.subjectsPlaceholder": "ej., Cálculo, Microeconomía, Informática",
+	"forTutors.form.experience": "Experiencia en Enseñanza",
+	"forTutors.form.experiencePlaceholder": "Describe brevemente cualquier experiencia relevante en enseñanza o tutoría",
+	"forTutors.form.submit": "Enviar Solicitud",
+
+	"forTutors.faqTitle": "Preguntas Frecuentes",
+	"forTutors.faqDescription": "Preguntas comunes sobre convertirse en tutor",
+
+	"forTutors.faqs.faq1.question": "¿Cuánto puedo ganar realmente como tutor?",
+	"forTutors.faqs.faq1.answer": "Las ganancias varían según tus materias, experiencia y horas. La mayoría de los tutores ganan entre $25-45 por hora, con los mejores tutores ganando más de $50 por hora para materias especializadas.",
+
+	"forTutors.faqs.faq2.question": "¿Qué materias tienen más demanda?",
+	"forTutors.faqs.faq2.answer": "Las materias STEM (matemáticas, estadística, informática), economía y cursos de negocios suelen tener la mayor demanda, pero necesitamos tutores en todas las disciplinas.",
+
+	"forTutors.faqs.faq3.question": "¿Cuántas horas puedo esperar enseñar?",
+	"forTutors.faqs.faq3.answer": "Esto depende completamente de ti. Algunos tutores enseñan 5-10 horas semanales, mientras que otros enseñan más de 20 horas. Tú estableces tu propia disponibilidad y puedes ajustarla en cualquier momento.",
+
+	"forTutors.faqs.faq4.question": "¿Necesito experiencia previa en enseñanza?",
+	"forTutors.faqs.faq4.answer": "No se requiere experiencia formal en enseñanza, pero debes poder explicar conceptos con claridad y tener un conocimiento sólido en tus áreas temáticas.",
+
+	"forTutors.ctaTitle": "Comparte tu Conocimiento, Gana Mientras Aprendes",
+	"forTutors.ctaDescription": "Únete a nuestra creciente comunidad de tutores universitarios hoy",
+
+	"forTutors.ctaButton": "Solicita Convertirte en Tutor",
+
+	// Página de Tutores
+	"tutors.title": "Encuentra tu Tutor Perfecto",
+	"tutors.description":
+		"Conéctate con tutores expertos que te ayudarán a sobresalir en tus estudios. Explora nuestra comunidad de instructores universitarios verificados.",
+	"tutors.searchPlaceholder": "Buscar tutores por nombre, materia o experiencia...",
+	"tutors.filterBySubject": "Filtrar por Materia",
+	"tutors.allSubjects": "Todas las Materias",
+	"tutors.subjects": {
+		mathematics: "Matemáticas",
+		physics: "Física",
+		computerScience: "Ciencias de la Computación",
+		englishLiterature: "Literatura Inglesa",
+		history: "Historia",
+		chemistry: "Química",
+		economics: "Economía",
+		biology: "Biología",
+		business: "Negocios",
+		creativeWriting: "Escritura Creativa",
+		politicalScience: "Ciencias Políticas",
+		dataScience: "Ciencia de Datos",
+	},
+	"tutors.tutor": "tutor encontrado",
+	"tutors.tutorsPlural": "tutores encontrados",
+	"tutors.sortBy": "Ordenar por",
+	"tutors.sortOptions.rating": "Calificación más Alta",
+	"tutors.sortOptions.priceAsc": "Precio: Menor a Mayor",
+	"tutors.sortOptions.priceDesc": "Precio: Mayor a Menor",
+	"tutors.sortOptions.experience": "Más Experiencia",
+	"tutors.noTutorsFound": "No se encontraron tutores",
+	"tutors.tryDifferentSearch": "Intenta ajustar tus criterios de búsqueda o explora todos los tutores.",
+	"tutors.clearFilters": "Limpiar Filtros",
+	"tutors.verified": "Verificado",
+	"tutors.perHour": "por hora",
+	"tutors.experience": "Experiencia",
+	"tutors.availability": "Disponibilidad",
+	"tutors.viewProfile": "Ver Perfil",
+	"tutors.bookSession": "Reservar Sesión",
+	"tutors.previous": "Anterior",
+	"tutors.next": "Siguiente",
+	"tutors.becomeTitle": "Conviértete en Tutor",
+	"tutors.becomeDescription":
+		"Comparte tu conocimiento y gana dinero enseñando a estudiantes de todo el mundo. Únete a nuestra comunidad de tutores expertos hoy.",
+	"tutors.benefits.flexible": "Horario flexible - enseña cuando quieras",
+	"tutors.benefits.earnings": "Ganancias competitivas - $25-60+ por hora",
+	"tutors.benefits.impact": "Causa un impacto real en el éxito académico de los estudiantes",
+	"tutors.applyNow": "Aplicar Ahora",
+	"tutors.joinTitle": "Únete a 11tutors",
+	"tutors.joinSubtitle": "Comienza tu viaje como tutor",
+	"tutors.joinBenefits.students": "Conéctate con estudiantes motivados de todo el mundo",
+	"tutors.joinBenefits.tools": "Accede a herramientas y recursos profesionales de enseñanza",
+	"tutors.joinBenefits.community": "Únete a una comunidad solidaria de educadores",
+
+	// How It Works Page
+	"howItWorks.title": "Cómo Funciona 11tutors",
+	"howItWorks.description":
+		"Descubre cómo nuestra plataforma conecta estudiantes con tutores expertos para experiencias de aprendizaje personalizadas. Comienza en solo unos simples pasos.",
+	"howItWorks.exploreCourses": "Explorar Cursos",
+	"howItWorks.findTutor": "Encontrar un Tutor",
+	"howItWorks.stepsTitle": "Pasos Simples al Éxito",
+	"howItWorks.stepsDescription":
+		"Sigue estos pasos fáciles para comenzar tu viaje de aprendizaje con 11tutors",
+	"howItWorks.videoTitle": "Ve Cómo Funciona",
+	"howItWorks.videoDescription":
+		"Mira nuestro resumen rápido para entender cómo 11tutors hace que el aprendizaje sea accesible y efectivo para todos.",
+	"howItWorks.videoPoints.point1.title": "Aprendizaje Interactivo",
+	"howItWorks.videoPoints.point1.description":
+		"Interactúa con tutores a través de sesiones en vivo y contenido interactivo",
+	"howItWorks.videoPoints.point2.title": "Enfoque Personalizado",
+	"howItWorks.videoPoints.point2.description":
+		"Obtén planes de aprendizaje personalizados adaptados a tus necesidades",
+	"howItWorks.videoPoints.point3.title": "Seguimiento del Progreso",
+	"howItWorks.videoPoints.point3.description":
+		"Monitorea tu progreso de aprendizaje con análisis detallados",
+	"howItWorks.benefitsTitle": "Por qué Elegir 11tutors",
+	"howItWorks.benefitsDescription":
+		"Descubre las ventajas que nos convierten en la mejor opción para el aprendizaje en línea",
+	"howItWorks.benefits.flexibility.title": "Flexibilidad Completa",
+	"howItWorks.benefits.flexibility.description":
+		"Aprende a tu propio ritmo, en tu propio horario, desde cualquier lugar del mundo",
+	"howItWorks.benefits.quality.title": "Tutores Expertos",
+	"howItWorks.benefits.quality.description":
+		"Aprende de instructores verificados de nivel universitario con experiencia comprobada",
+	"howItWorks.benefits.technology.title": "Tecnología Avanzada",
+	"howItWorks.benefits.technology.description":
+		"Utiliza herramientas de vanguardia para el aprendizaje interactivo y la comunicación fluida",
+	"howItWorks.benefits.support.title": "Soporte 24/7",
+	"howItWorks.benefits.support.description":
+		"Obtén ayuda cuando la necesites con nuestro equipo de soporte dedicado",
+	"howItWorks.faqsTitle": "Preguntas Frecuentes",
+	"howItWorks.faqsDescription":
+		"Encuentra respuestas a las preguntas más comunes sobre nuestra plataforma",
+	"howItWorks.faqs.question1": "¿Cómo empiezo con 11tutors?",
+	"howItWorks.faqs.answer1":
+		"Simplemente crea una cuenta, explora nuestros cursos o tutores, y reserva tu primera sesión. ¡Es así de fácil!",
+	"howItWorks.faqs.question2": "¿Qué materias están disponibles?",
+	"howItWorks.faqs.answer2":
+		"Ofrecemos tutorías en matemáticas, ciencias, idiomas, negocios y muchas otras materias de nivel universitario.",
+	"howItWorks.faqs.question3": "¿Cuánto cuesta la tutoría?",
+	"howItWorks.faqs.answer3":
+		"Los precios varían según el tutor y la materia, generalmente oscilan entre $25-60 por hora. Puedes ver las tarifas exactas antes de reservar.",
+	"howItWorks.faqs.question4": "¿Puedo cancelar o reprogramar sesiones?",
+	"howItWorks.faqs.answer4":
+		"Sí, puedes cancelar o reprogramar sesiones hasta 24 horas antes sin ninguna penalización.",
+	"howItWorks.faqs.question5": "¿Hay garantía de devolución de dinero?",
+	"howItWorks.faqs.answer5":
+		"Sí, si no estás satisfecho con tu primera sesión, ofrecemos un reembolso completo dentro de las 48 horas.",
 };
 
 export default translations;

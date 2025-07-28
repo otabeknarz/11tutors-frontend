@@ -91,8 +91,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({
 
 		// Get the translation text, with fallbacks
 		const translationValue =
-			translations[language][key] || translations["ru"][key];
+			translations[language][key] || translations["en"][key];
 		let text = typeof translationValue === "string" ? translationValue : key;
+
+		if (typeof translationValue !== "string") {
+			console.info("Translation not found for key:", key);
+		}
 
 		// If params are provided, replace placeholders in the text
 		if (params && typeof text === "string") {
