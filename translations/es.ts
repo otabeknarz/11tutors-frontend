@@ -61,6 +61,9 @@ const translations = {
 	"home.completed": "Completado",
 	"home.continueButton": "Continuar",
 	"home.details": "Detalles",
+	"home.noCoursesYet": "Aún no tienes cursos inscritos",
+	"home.exploreAndEnroll": "Explora nuestro catálogo de cursos e inscríbete en tu primer curso",
+	"home.exploreCourses": "Explorar Cursos",
 
 	// Landing page - Hero Section
 	"landing.heroSection.title": "Aprende de los mejores tutores universitarios",

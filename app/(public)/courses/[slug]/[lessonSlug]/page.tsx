@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
 import { COURSE_ENDPOINTS } from "@/lib/constants";
-import axios from "axios";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "../../../../../hooks/use-media-query";
 
@@ -37,6 +36,7 @@ import { LessonTabs } from "@/components/lesson/LessonTabs";
 // Layout Components
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import api from "@/lib/api";
 
 // Define types
 interface Lesson {
@@ -94,13 +94,13 @@ export default function LessonPageRefactored() {
 				setError(null);
 
 				// Fetch lesson data
-				const lessonResponse = await axios.get(
+				const lessonResponse = await api.get(
 					`${COURSE_ENDPOINTS.LESSONS}${lessonSlug}/`
 				);
 				setLesson(lessonResponse.data);
 
 				// Fetch course data
-				const courseResponse = await axios.get(
+				const courseResponse = await api.get(
 					`${COURSE_ENDPOINTS.COURSES}${slug}/`
 				);
 				setCourse(courseResponse.data);

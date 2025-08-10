@@ -61,6 +61,9 @@ const translations: Record<string, string | Record<string, string>> = {
 	"home.completed": "Завершено",
 	"home.continueButton": "Продолжить",
 	"home.details": "Подробности",
+	"home.noCoursesYet": "Пока нет записанных курсов",
+	"home.exploreAndEnroll": "Изучите наш каталог курсов и запишитесь на первый курс",
+	"home.exploreCourses": "Изучить курсы",
 
 	// Landing page - Hero Section
 	"landing.heroSection.title":

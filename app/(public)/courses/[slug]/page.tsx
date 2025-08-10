@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
 import { useAuth } from "@/lib/AuthContext";
 import api from "@/lib/api";
-import { initiatePayment } from "@/lib/payment";
+import { EnrollmentManager } from "@/lib/enrollmentManager";
 
 // Components
 import Navbar from "@/components/landing/Navbar";
@@ -112,40 +112,15 @@ export default function CourseDetailPage() {
 	const handleEnrollment = async () => {
 		if (!course) return;
 
-		if (!user) {
-			router.push("/login");
-			return;
-		}
-
-		// If already enrolled, navigate to first lesson
-		if (course.is_enrolled) {
-			const firstLesson = course.parts[0]?.lessons[0];
-			if (firstLesson) {
-				router.push(`/courses/${slug}/${firstLesson.slug}`);
-			} else {
-				// If no lessons available, show message
-				setError(t("courseDetail.noLessonsAvailable"));
-			}
-			return;
-		}
-
-		// If not enrolled, initiate payment process
-		try {
-			setPaymentLoading(true);
-			setError(null);
-
-			// Initiate payment process
-			await initiatePayment(course.id);
-		} catch (err) {
-			console.error("Payment initiation failed:", err);
-			setError(
-				`${t("courseDetail.paymentError")}: ${
-					(err as Error).message || String(err)
-				}`
-			);
-		} finally {
-			setPaymentLoading(false);
-		}
+		// Use the centralized enrollment manager
+		await EnrollmentManager.handleEnrollment({
+			user,
+			router,
+			course,
+			onError: (error) => setError(error),
+			onLoadingChange: (loading) => setPaymentLoading(loading),
+			t,
+		});
 	};
 
 	// Fetch course details

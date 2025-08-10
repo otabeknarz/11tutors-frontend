@@ -29,7 +29,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import api from "@/lib/api";
+import { EnrollmentManager } from "@/lib/enrollmentManager";
 
 interface Course {
 	id: string;
@@ -65,10 +67,15 @@ interface Course {
 export default function CoursesPage() {
 	const { user } = useAuth();
 	const { t } = useLanguage();
+	const router = useRouter();
 	const [courses, setCourses] = useState<Course[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [searchQuery, setSearchQuery] = useState("");
 	const [selectedCategory, setSelectedCategory] = useState("all");
+	const [enrollmentLoading, setEnrollmentLoading] = useState<string | null>(
+		null
+	);
+	const [error, setError] = useState<string | null>(null);
 
 	// Animation variants
 	const fadeIn = {
@@ -105,6 +112,35 @@ export default function CoursesPage() {
 
 		fetchCourses();
 	}, []);
+
+	// Handle course enrollment using the centralized manager
+	const handleCourseEnrollment = async (course: Course) => {
+		setEnrollmentLoading(course.id);
+		setError(null);
+
+		// Convert Course to EnrollmentCourse format
+		const enrollmentCourse = {
+			id: course.id,
+			slug: course.slug,
+			title: course.title,
+			price: course.price,
+			is_enrolled: course.is_enrolled,
+			parts: [], // Dashboard doesn't have detailed course structure
+		};
+
+		await EnrollmentManager.handleEnrollment({
+			user,
+			router,
+			course: enrollmentCourse,
+			onError: (error) => setError(error),
+			onLoadingChange: (loading) => {
+				if (!loading) {
+					setEnrollmentLoading(null);
+				}
+			},
+			t,
+		});
+	};
 
 	const filteredCourses = courses.filter((course) => {
 		const matchesSearch =
@@ -192,6 +228,27 @@ export default function CoursesPage() {
 					</div>
 				</motion.div>
 
+				{/* Error Display */}
+				{error && (
+					<motion.div {...slideUp} className="mb-6">
+						<div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
+							<div className="flex items-center gap-2 text-destructive">
+								<CheckCircle className="h-4 w-4" />
+								<span className="font-medium">Error</span>
+							</div>
+							<p className="text-sm text-destructive/80 mt-1">{error}</p>
+							<Button
+								variant="outline"
+								size="sm"
+								className="mt-2"
+								onClick={() => setError(null)}
+							>
+								Dismiss
+							</Button>
+						</div>
+					</motion.div>
+				)}
+
 				{/* Courses Grid */}
 				<motion.div
 					{...slideUp}
@@ -273,11 +330,13 @@ export default function CoursesPage() {
 											<Avatar className="h-8 w-8">
 												<AvatarImage src="" />
 												<AvatarFallback>
-													{course.tutors[0].first_name[0]}{course.tutors[0].last_name[0]}
+													{course.tutors[0].first_name[0]}
+													{course.tutors[0].last_name[0]}
 												</AvatarFallback>
 											</Avatar>
 											<span className="text-sm font-medium">
-												{course.tutors[0].first_name} {course.tutors[0].last_name}
+												{course.tutors[0].first_name}{" "}
+												{course.tutors[0].last_name}
 											</span>
 										</div>
 									)}
@@ -289,21 +348,28 @@ export default function CoursesPage() {
 											${course.price}
 										</span>
 									</div>
-									<Link href={`/courses/${course.id}`}>
-										<Button className="gap-2">
-											{course.is_enrolled ? (
-												<>
-													<Play className="h-4 w-4" />
-													Continue
-												</>
-											) : (
-												<>
-													<BookOpen className="h-4 w-4" />
-													Enroll Now
-												</>
-											)}
-										</Button>
-									</Link>
+									<Button
+										className="gap-2"
+										onClick={() => handleCourseEnrollment(course)}
+										disabled={enrollmentLoading === course.id}
+									>
+										{enrollmentLoading === course.id ? (
+											<>
+												<div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+												Loading...
+											</>
+										) : course.is_enrolled ? (
+											<>
+												<Play className="h-4 w-4" />
+												{t("courseDetail.continue") || "Continue"}
+											</>
+										) : (
+											<>
+												<BookOpen className="h-4 w-4" />
+												{t("courseDetail.enroll") || "Enroll Now"}
+											</>
+										)}
+									</Button>
 								</CardFooter>
 							</Card>
 						</motion.div>

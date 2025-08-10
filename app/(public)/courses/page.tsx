@@ -66,6 +66,8 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { API_BASE_URL, COURSES_URL } from "@/lib/constants";
 import { Course } from "@/types/course";
+import api from "@/lib/api";
+import { EnrollmentManager } from "@/lib/enrollmentManager";
 
 interface CoursesResponse {
 	count: number;
@@ -232,29 +234,13 @@ export default function CoursesPage() {
 
 	// Handle course enrollment
 	const handleEnrollCourse = async (courseId: string, courseSlug: string) => {
-		if (!user) {
-			router.push("/login");
-			return;
-		}
-
-		try {
-			const response = await axios.post(
-				`${API_BASE_URL}/courses/${courseId}/enroll/`,
-				{},
-				{
-					headers: {
-						Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-					},
-				}
-			);
-
-			if (response.status === 200 || response.status === 201) {
-				// Redirect to course learning page
-				router.push(`/courses/${courseSlug}/learn`);
-			}
-		} catch (error) {
-			console.error("Error enrolling in course:", error);
-		}
+		// Use the centralized enrollment manager for simple enrollment
+		await EnrollmentManager.handleSimpleEnrollment(
+			courseId,
+			courseSlug,
+			user,
+			router
+		);
 	};
 
 	return (
