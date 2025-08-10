@@ -326,6 +326,12 @@ const translations: Record<string, string | Record<string, string>> = {
 	// Onboarding
 	"onboarding.step": "Шаг",
 	"onboarding.of": "из",
+	"onboarding.complete": "Завершено",
+	"onboarding.steps.university": "Университет",
+	"onboarding.steps.age": "Возраст",
+	"onboarding.steps.degree": "Степень",
+	"onboarding.steps.graduation": "Выпуск",
+	"onboarding.steps.interests": "Интересы",
 	"onboarding.buttons.next": "Далее",
 	"onboarding.buttons.back": "Назад",
 	"onboarding.buttons.skip": "Пропустить",

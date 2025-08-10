@@ -319,6 +319,12 @@ const translations = {
 	// Onboarding
 	"onboarding.step": "Step",
 	"onboarding.of": "of",
+	"onboarding.complete": "Complete",
+	"onboarding.steps.university": "University",
+	"onboarding.steps.age": "Age",
+	"onboarding.steps.degree": "Degree",
+	"onboarding.steps.graduation": "Graduation",
+	"onboarding.steps.interests": "Interests",
 	"onboarding.buttons.next": "Next",
 	"onboarding.buttons.back": "Back",
 	"onboarding.buttons.skip": "Skip",

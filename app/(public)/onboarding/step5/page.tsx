@@ -1,134 +1,197 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useOnboarding } from '@/lib/OnboardingContext';
-import { useLanguage } from '@/lib/LanguageContext';
-import OnboardingProgress from '@/components/OnboardingProgress';
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useOnboarding } from "@/lib/OnboardingContext";
+import { useLanguage } from "@/lib/LanguageContext";
+import OnboardingProgress from "@/components/OnboardingProgress";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Badge } from "@/components/ui/badge";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { motion } from "framer-motion";
+import { Heart, ArrowLeft, CheckCircle2, Sparkles } from "lucide-react";
 
 // List of common academic interests
 const INTERESTS = [
-  'Mathematics',
-  'Computer Science',
-  'Physics',
-  'Chemistry',
-  'Biology',
-  'Engineering',
-  'Business',
-  'Economics',
-  'Psychology',
-  'Sociology',
-  'Literature',
-  'History',
-  'Philosophy',
-  'Art',
-  'Music',
-  'Medicine',
-  'Law',
-  'Political Science',
-  'Environmental Science',
-  'Languages'
+  "Mathematics",
+  "Computer Science",
+  "Physics",
+  "Chemistry",
+  "Biology",
+  "Engineering",
+  "Business",
+  "Economics",
+  "Psychology",
+  "Sociology",
+  "Literature",
+  "History",
+  "Philosophy",
+  "Art",
+  "Music",
+  "Medicine",
+  "Law",
+  "Political Science",
+  "Environmental Science",
+  "Languages",
 ];
 
 export default function InterestsStep() {
   const { onboardingData, updateOnboardingData, prevStep } = useOnboarding();
   const { t } = useLanguage();
   const router = useRouter();
-  
+
   const [selectedInterests, setSelectedInterests] = useState<string[]>(onboardingData.interests || []);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const toggleInterest = (interest: string) => {
-    setSelectedInterests(prev => {
+    setSelectedInterests((prev) => {
       if (prev.includes(interest)) {
-        return prev.filter(i => i !== interest);
+        return prev.filter((i) => i !== interest);
       } else {
         return [...prev, interest];
       }
     });
-    setError('');
+    setError("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (selectedInterests.length === 0) {
-      setError(t('onboarding.interests.required'));
+      setError(t("onboarding.interests.required") || "Please select at least one interest");
       return;
     }
 
-    updateOnboardingData({ 
+    updateOnboardingData({
       interests: selectedInterests,
       completed: true,
-      currentStep: 5
+      currentStep: 5,
     });
-    
+
     // Redirect to dashboard after completing onboarding
-    router.push('/dashboard');
+    router.push("/dashboard");
   };
 
   const handleBack = () => {
     prevStep();
-    router.push('/onboarding/step4');
+    router.push("/onboarding/step4");
   };
 
   return (
-    <div className="space-y-6">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="space-y-6 sm:space-y-8"
+    >
       <OnboardingProgress />
-      
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          {t('onboarding.interests.title')}
-        </h2>
-        <p className="text-gray-500">
-          {t('onboarding.interests.subtitle')}
+
+      {/* Header Section */}
+      <div className="text-center space-y-2 sm:space-y-3">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+          className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full mb-3 sm:mb-4"
+        >
+          <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+        </motion.div>
+        <h1 className="text-2xl sm:text-3xl font-bold text-foreground px-2">
+          {t("onboarding.interests.title") || "What interests you?"}
+        </h1>
+        <p className="text-muted-foreground text-base sm:text-lg max-w-md mx-auto px-4">
+          {t("onboarding.interests.subtitle") ||
+            "Choose your academic interests to get personalized recommendations"}
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">
-            {t('onboarding.interests.select')} ({t('onboarding.interests.selectMultiple')})
-          </label>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {INTERESTS.map((interest) => (
-              <div 
+      {/* Form Section */}
+      <motion.form
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        onSubmit={handleSubmit}
+        className="space-y-6"
+      >
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <Label className="text-sm font-medium">
+              {t("onboarding.interests.select") || "Select your interests"}
+            </Label>
+            <Badge variant="secondary" className="text-xs">
+              {selectedInterests.length} selected
+            </Badge>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            {t("onboarding.interests.selectMultiple") || "You can select multiple interests"}
+          </p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3"
+          >
+            {INTERESTS.map((interest, index) => (
+              <motion.div
                 key={interest}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 * index, duration: 0.3 }}
                 onClick={() => toggleInterest(interest)}
                 className={`
-                  cursor-pointer p-3 border rounded-md text-sm text-center transition-colors
-                  ${selectedInterests.includes(interest) 
-                    ? 'bg-indigo-100 border-indigo-500 text-indigo-700' 
-                    : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'}
+                  cursor-pointer p-2 sm:p-3 border-2 rounded-lg text-xs sm:text-sm text-center transition-all duration-200 hover:scale-105
+                  ${
+                    selectedInterests.includes(interest)
+                      ? "bg-primary/10 border-primary text-primary font-medium shadow-md"
+                      : "bg-card border-border text-foreground hover:bg-accent hover:border-accent-foreground"
+                  }
                 `}
               >
-                {interest}
-              </div>
+                <div className="flex items-center justify-center space-x-1">
+                  {selectedInterests.includes(interest) && (
+                    <CheckCircle2 className="w-3 h-3" />
+                  )}
+                  <span className="text-xs sm:text-sm leading-tight">{interest}</span>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {error && (
-          <div className="text-red-500 text-sm">{error}</div>
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <Alert variant="destructive">
+              <AlertDescription>{error}</AlertDescription>
+            </Alert>
+          </motion.div>
         )}
 
-        <div className="flex justify-between pt-4">
-          <button
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 pt-4 sm:pt-6">
+          <Button
             type="button"
+            variant="outline"
             onClick={handleBack}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="flex-1 h-11 sm:h-12 text-sm sm:text-base"
           >
-            {t('onboarding.buttons.back')}
-          </button>
-          <button
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            {t("onboarding.buttons.back") || "Back"}
+          </Button>
+          <Button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="flex-1 h-11 sm:h-12 text-sm sm:text-base"
+            disabled={selectedInterests.length === 0}
           >
-            {t('onboarding.buttons.finish')}
-          </button>
+            <Sparkles className="w-4 h-4 mr-2" />
+            {t("onboarding.buttons.finish") || "Complete Setup"}
+          </Button>
         </div>
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   );
 }

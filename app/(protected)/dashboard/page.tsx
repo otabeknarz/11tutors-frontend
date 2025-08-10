@@ -11,17 +11,48 @@ export default function DashboardPage() {
 	const { t } = useLanguage();
 	const { onboardingData } = useOnboarding();
 	const router = useRouter();
-	const [loading, setLoading] = useState(true);
+	const [isRedirecting, setIsRedirecting] = useState(false);
 
 	useEffect(() => {
-		if (user && !onboardingData.completed) {
-			router.push("/onboarding");
-		} else {
-			setLoading(false);
-		}
-	}, [user, onboardingData, router]);
+		// Wait for auth to finish loading
+		if (authLoading) return;
 
-	if (loading || authLoading) {
+		// Debug logging
+		console.log("Dashboard redirect logic:", {
+			user: !!user,
+			userId: user?.id,
+			onboardingCompleted: onboardingData.completed,
+			onboardingCurrentStep: onboardingData.currentStep,
+			onboardingData: onboardingData
+		});
+
+		// If no user, redirect to login
+		if (!user) {
+			console.log("No user, redirecting to login");
+			setIsRedirecting(true);
+			router.replace("/login");
+			return;
+		}
+
+		// If user exists but onboarding not completed, redirect to onboarding
+		if (user && !onboardingData.completed) {
+			console.log("User exists but onboarding not completed, redirecting to onboarding");
+			setIsRedirecting(true);
+			router.push("/onboarding/step1");
+			return;
+		}
+
+		// If user exists and onboarding completed, redirect to dashboard home
+		if (user && onboardingData.completed) {
+			console.log("User exists and onboarding completed, redirecting to dashboard home");
+			setIsRedirecting(true);
+			router.replace("/dashboard/home");
+			return;
+		}
+	}, [user, authLoading, onboardingData.completed, router]);
+
+	// Show loading while auth is loading or while redirecting
+	if (authLoading || isRedirecting) {
 		return (
 			<div className="min-h-screen flex flex-col items-center justify-center bg-background">
 				<div className="relative w-16 h-16">
@@ -35,11 +66,6 @@ export default function DashboardPage() {
 		);
 	}
 
-	if (!user && typeof window !== "undefined") {
-		router.replace("/login");
-		return null;
-	} else {
-		router.replace("/dashboard/home");
-		return null;
-	}
+	// This should never be reached, but just in case
+	return null;
 }

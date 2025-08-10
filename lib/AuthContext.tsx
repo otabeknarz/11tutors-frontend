@@ -60,8 +60,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       
       if (result.success) {
         setUser(result.data);
+        // Set current user ID for onboarding tracking
+        if (typeof window !== 'undefined' && result.data?.id) {
+          localStorage.setItem('currentUserId', result.data.id);
+        }
       } else {
         setUser(null);
+        // Clear current user ID if login failed
+        if (typeof window !== 'undefined') {
+          localStorage.removeItem('currentUserId');
+        }
       }
     } catch (err) {
       setUser(null);
@@ -140,6 +148,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // Logout function
   const logout = () => {
     setUser(null);
+    // Clear current user ID and onboarding data on logout
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('currentUserId');
+      localStorage.removeItem('onboardingUserId');
+      localStorage.removeItem('11tutors-onboarding');
+    }
     logoutUser();
   };
 
