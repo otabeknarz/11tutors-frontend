@@ -19,19 +19,11 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { motion } from "framer-motion";
 import { BookOpen, ArrowRight, ArrowLeft } from "lucide-react";
 
-// List of common degrees
+// Available degree options
 const DEGREES = [
-  "Bachelor of Arts (BA)",
-  "Bachelor of Science (BS/BSc)",
-  "Bachelor of Engineering (BEng)",
-  "Bachelor of Business Administration (BBA)",
-  "Master of Arts (MA)",
-  "Master of Science (MS/MSc)",
-  "Master of Business Administration (MBA)",
-  "Doctor of Philosophy (PhD)",
-  "Doctor of Medicine (MD)",
-  "Juris Doctor (JD)",
-  "Other",
+  { value: "bachelors", label: "Bachelor's Degree" },
+  { value: "masters", label: "Master's Degree" }, 
+  { value: "phd", label: "PhD / Doctorate" },
 ];
 
 export default function DegreeStep() {
@@ -40,7 +32,6 @@ export default function DegreeStep() {
   const router = useRouter();
 
   const [degree, setDegree] = useState(onboardingData.degree || "");
-  const [otherDegree, setOtherDegree] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -51,14 +42,7 @@ export default function DegreeStep() {
       return;
     }
 
-    const finalDegree = degree === "Other" ? otherDegree : degree;
-
-    if (degree === "Other" && !otherDegree) {
-      setError(t("errors.required") || "This field is required");
-      return;
-    }
-
-    updateOnboardingData({ degree: finalDegree });
+    updateOnboardingData({ degree });
     nextStep();
     router.push("/onboarding/step4");
   };
@@ -125,40 +109,14 @@ export default function DegreeStep() {
             </SelectTrigger>
             <SelectContent>
               {DEGREES.map((deg) => (
-                <SelectItem key={deg} value={deg}>
-                  {deg}
+                <SelectItem key={deg.value} value={deg.value}>
+                  {deg.label}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
 
-        {degree === "Other" && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            transition={{ duration: 0.3 }}
-            className="space-y-3"
-          >
-            <Label htmlFor="otherDegree" className="text-sm font-medium">
-              {t("onboarding.degree.other") || "Enter your degree"}
-            </Label>
-            <Input
-              id="otherDegree"
-              type="text"
-              placeholder={
-                t("onboarding.degree.otherPlaceholder") ||
-                "Type your degree"
-              }
-              value={otherDegree}
-              onChange={(e) => {
-                setOtherDegree(e.target.value);
-                setError("");
-              }}
-              className="h-12"
-            />
-          </motion.div>
-        )}
 
         {error && (
           <motion.div
@@ -185,7 +143,7 @@ export default function DegreeStep() {
           <Button
             type="submit"
             className="flex-1 h-11 sm:h-12 text-sm sm:text-base"
-            disabled={!degree || (degree === "Other" && !otherDegree)}
+            disabled={!degree}
           >
             {t("onboarding.buttons.next") || "Continue"}
             <ArrowRight className="w-4 h-4 ml-2" />

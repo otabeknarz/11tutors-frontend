@@ -37,12 +37,13 @@ const INTERESTS = [
 ];
 
 export default function InterestsStep() {
-  const { onboardingData, updateOnboardingData, prevStep } = useOnboarding();
+  const { onboardingData, updateOnboardingData, prevStep, submitOnboardingAnswers } = useOnboarding();
   const { t } = useLanguage();
   const router = useRouter();
 
   const [selectedInterests, setSelectedInterests] = useState<string[]>(onboardingData.interests || []);
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toggleInterest = (interest: string) => {
     setSelectedInterests((prev) => {
@@ -55,7 +56,7 @@ export default function InterestsStep() {
     setError("");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (selectedInterests.length === 0) {
@@ -63,14 +64,28 @@ export default function InterestsStep() {
       return;
     }
 
-    updateOnboardingData({
-      interests: selectedInterests,
-      completed: true,
-      currentStep: 5,
-    });
+    setIsSubmitting(true);
+    setError("");
 
-    // Redirect to dashboard after completing onboarding
-    router.push("/dashboard");
+    try {
+      // Update local data first
+      updateOnboardingData({
+        interests: selectedInterests,
+        completed: true,
+        currentStep: 5,
+      });
+
+      // Submit to backend
+      await submitOnboardingAnswers();
+
+      // Redirect to dashboard after successful submission
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Failed to submit onboarding:", error);
+      setError("Failed to save your information. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleBack = () => {
@@ -185,10 +200,10 @@ export default function InterestsStep() {
           <Button
             type="submit"
             className="flex-1 h-11 sm:h-12 text-sm sm:text-base"
-            disabled={selectedInterests.length === 0}
+            disabled={selectedInterests.length === 0 || isSubmitting}
           >
             <Sparkles className="w-4 h-4 mr-2" />
-            {t("onboarding.buttons.finish") || "Complete Setup"}
+            {isSubmitting ? "Saving..." : (t("onboarding.buttons.finish") || "Complete Setup")}
           </Button>
         </div>
       </motion.form>

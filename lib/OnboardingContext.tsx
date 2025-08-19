@@ -7,9 +7,11 @@ import React, {
 	useEffect,
 	ReactNode,
 } from "react";
+import { University } from "@/app/(public)/onboarding/step1/page";
+import api from "@/lib/api";
 
 export interface OnboardingData {
-	university?: string;
+	university?: University;
 	age?: number;
 	degree?: string;
 	graduationYear?: number;
@@ -25,10 +27,12 @@ interface OnboardingContextType {
 	prevStep: () => void;
 	resetOnboarding: () => void;
 	clearOnboardingData: () => void;
+	submitOnboardingAnswers: () => Promise<void>;
+	checkOnboardingStatus: () => Promise<boolean>;
 }
 
 const defaultOnboardingData: OnboardingData = {
-	university: "",
+	university: undefined,
 	age: undefined,
 	degree: "",
 	graduationYear: undefined,
@@ -158,6 +162,45 @@ export function OnboardingProvider({ children }: OnboardingProviderProps) {
 		setOnboardingData(defaultOnboardingData);
 	};
 
+	// Submit onboarding answers to backend
+	const submitOnboardingAnswers = async () => {
+		if (
+			!onboardingData.university ||
+			!onboardingData.degree ||
+			!onboardingData.graduationYear ||
+			!onboardingData.interests
+		) {
+			throw new Error("Missing required onboarding data");
+		}
+
+		const payload = {
+			university: onboardingData.university.id,
+			degree: onboardingData.degree,
+			graduation_year: onboardingData.graduationYear,
+			interests: onboardingData.interests.join(","),
+		};
+
+		try {
+			await api.post("/api/auth/onboarding-answers/", payload);
+		} catch (error) {
+			console.error("Failed to submit onboarding answers:", error);
+			throw error;
+		}
+	};
+
+	// Check if user has completed onboarding by fetching from backend
+	const checkOnboardingStatus = async (): Promise<boolean> => {
+		try {
+			const response = await api.get("/api/auth/onboarding-answers/");
+			// If we get data back, user has completed onboarding
+			return response.data.results && response.data.results.length > 0;
+		} catch (error) {
+			console.error("Failed to check onboarding status:", error);
+			// If error (like 404), user hasn't completed onboarding
+			return false;
+		}
+	};
+
 	const value = {
 		onboardingData,
 		updateOnboardingData,
@@ -165,6 +208,8 @@ export function OnboardingProvider({ children }: OnboardingProviderProps) {
 		prevStep,
 		resetOnboarding,
 		clearOnboardingData,
+		submitOnboardingAnswers,
+		checkOnboardingStatus,
 	};
 
 	return (

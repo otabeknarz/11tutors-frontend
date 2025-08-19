@@ -9,50 +9,65 @@ import { useOnboarding } from "@/lib/OnboardingContext";
 export default function DashboardPage() {
 	const { user, loading: authLoading } = useAuth();
 	const { t } = useLanguage();
-	const { onboardingData } = useOnboarding();
+	const { checkOnboardingStatus } = useOnboarding();
 	const router = useRouter();
 	const [isRedirecting, setIsRedirecting] = useState(false);
+	const [isCheckingOnboarding, setIsCheckingOnboarding] = useState(false);
 
 	useEffect(() => {
-		// Wait for auth to finish loading
-		if (authLoading) return;
+		const checkUserAndOnboarding = async () => {
+			// Wait for auth to finish loading
+			if (authLoading) return;
 
-		// Debug logging
-		console.log("Dashboard redirect logic:", {
-			user: !!user,
-			userId: user?.id,
-			onboardingCompleted: onboardingData.completed,
-			onboardingCurrentStep: onboardingData.currentStep,
-			onboardingData: onboardingData
-		});
+			// If no user, redirect to login
+			if (!user) {
+				console.log("No user, redirecting to login");
+				setIsRedirecting(true);
+				router.replace("/login");
+				return;
+			}
 
-		// If no user, redirect to login
-		if (!user) {
-			console.log("No user, redirecting to login");
-			setIsRedirecting(true);
-			router.replace("/login");
-			return;
-		}
+			// Check onboarding status from backend
+			setIsCheckingOnboarding(true);
+			try {
+				const hasCompletedOnboarding = await checkOnboardingStatus();
 
-		// If user exists but onboarding not completed, redirect to onboarding
-		if (user && !onboardingData.completed) {
-			console.log("User exists but onboarding not completed, redirecting to onboarding");
-			setIsRedirecting(true);
-			router.push("/onboarding/step1");
-			return;
-		}
+				console.log("Dashboard redirect logic:", {
+					user: !!user,
+					userId: user?.id,
+					hasCompletedOnboarding,
+				});
 
-		// If user exists and onboarding completed, redirect to dashboard home
-		if (user && onboardingData.completed) {
-			console.log("User exists and onboarding completed, redirecting to dashboard home");
-			setIsRedirecting(true);
-			router.replace("/dashboard/home");
-			return;
-		}
-	}, [user, authLoading, onboardingData.completed, router]);
+				if (!hasCompletedOnboarding) {
+					console.log(
+						"User exists but onboarding not completed, redirecting to onboarding"
+					);
+					setIsRedirecting(true);
+					router.push("/onboarding/step1");
+					return;
+				}
 
-	// Show loading while auth is loading or while redirecting
-	if (authLoading || isRedirecting) {
+				// If user exists and onboarding completed, redirect to dashboard home
+				console.log(
+					"User exists and onboarding completed, redirecting to dashboard home"
+				);
+				setIsRedirecting(true);
+				router.replace("/dashboard/home");
+			} catch (error) {
+				console.error("Error checking onboarding status:", error);
+				// On error, assume onboarding not completed
+				setIsRedirecting(true);
+				router.push("/onboarding/step1");
+			} finally {
+				setIsCheckingOnboarding(false);
+			}
+		};
+
+		checkUserAndOnboarding();
+	}, [user, authLoading, router, checkOnboardingStatus]);
+
+	// Show loading while auth is loading, checking onboarding, or redirecting
+	if (authLoading || isCheckingOnboarding || isRedirecting) {
 		return (
 			<div className="min-h-screen flex flex-col items-center justify-center bg-background">
 				<div className="relative w-16 h-16">

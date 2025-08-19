@@ -88,8 +88,8 @@ export default function RegisterPage() {
 		try {
 			const success = await register(firstName, lastName, email, password);
 			if (success) {
-				// Redirect to onboarding after successful registration
-				router.push("/onboarding");
+				// Redirect to dashboard after successful registration
+				router.push("/dashboard");
 			}
 		} catch (err) {
 			setFormError(t("errors.registrationFailed"));
