@@ -4,6 +4,7 @@ import { AuthProvider } from "../lib/AuthContext";
 import { LanguageProvider } from "../lib/LanguageContext";
 import { OnboardingProvider } from "../lib/OnboardingContext";
 import { ThemeProvider } from "next-themes";
+import "../lib/localStorage-polyfill";
 import "./globals.css";
 
 const robotoSans = Roboto({

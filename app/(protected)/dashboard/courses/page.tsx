@@ -144,13 +144,11 @@ export default function CoursesPage() {
 
 	const filteredCourses = courses.filter((course) => {
 		const matchesSearch =
-			course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			(course.description?.toLowerCase() || "").includes(
-				searchQuery.toLowerCase()
-			);
+			course.title.toLowerCase().includes(searchQuery.toLowerCase());
 		const matchesCategory =
 			selectedCategory === "all" ||
-			course.category.name.toLowerCase() === selectedCategory.toLowerCase();
+			(course.category && course.category.name &&
+				course.category.name.toLowerCase() === selectedCategory.toLowerCase());
 		return matchesSearch && matchesCategory;
 	});
 
@@ -158,7 +156,11 @@ export default function CoursesPage() {
 	const categories = [
 		"all",
 		...Array.from(
-			new Set(courses.map((course) => course.category.name.toLowerCase()))
+			new Set(
+				courses
+					.filter((course) => course.category && course.category.name)
+					.map((course) => course.category.name.toLowerCase())
+			)
 		),
 	];
 
@@ -276,14 +278,16 @@ export default function CoursesPage() {
 											Enrolled
 										</Badge>
 									)}
-									<div className="absolute top-3 right-3">
-										<Badge
-											variant="secondary"
-											className="bg-black/50 text-white"
-										>
-											{course.category.name}
-										</Badge>
-									</div>
+									{course.category && course.category.name && (
+										<div className="absolute top-3 right-3">
+											<Badge
+												variant="secondary"
+												className="bg-black/50 text-white"
+											>
+												{course.category.name}
+											</Badge>
+										</div>
+									)}
 								</div>
 
 								<CardHeader className="pb-3">
