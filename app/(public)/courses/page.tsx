@@ -3,29 +3,19 @@
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 import { useAuth } from "@/lib/AuthContext";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import axios from "axios";
-import { format } from "date-fns";
 import {
-	BookOpenIcon,
 	StarIcon,
 	UsersIcon,
 	ClockIcon,
 	FilterIcon,
 	SearchIcon,
-	CalendarIcon,
 	ChevronLeftIcon,
 	ChevronRightIcon,
-	Loader2Icon,
 	XIcon,
-	SlidersHorizontalIcon,
-	TagIcon,
-	BarChartIcon,
-	CheckIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -153,8 +143,9 @@ export default function CoursesPage() {
 		setError(null);
 
 		try {
-			const apiUrl = url || `${COURSES_URL}?${buildQueryParams().toString()}`;
-			const response = await axios.get<CoursesResponse>(apiUrl);
+			const response = await api.get<CoursesResponse>(
+				url || "/api/courses/courses/"
+			);
 			const data = response.data;
 
 			setCourses(data.results);
@@ -417,6 +408,17 @@ export default function CoursesPage() {
 					</div>
 				</section>
 
+				{/* Results count */}
+				{!loading && !error && filteredCourses.length > 0 && (
+					<div className="mb-4 text-sm text-muted-foreground">
+						{t("courses.showing") || "Showing"} {filteredCourses.length}{" "}
+						{t("courses.of") || "of"} {totalCount}{" "}
+						{totalCount === 1
+							? t("courses.course") || "course"
+							: t("courses.coursesPlural") || "courses"}
+					</div>
+				)}
+
 				{/* Course Grid */}
 				<section className="mb-12">
 					{loading ? (
@@ -550,6 +552,36 @@ export default function CoursesPage() {
 									</CardFooter>
 								</Card>
 							))}
+						</div>
+					)}
+
+					{/* Pagination */}
+					{!loading && !error && totalPages > 1 && (
+						<div className="flex justify-center items-center gap-4 mt-8">
+							<Button
+								variant="outline"
+								size="sm"
+								onClick={goToPrevPage}
+								disabled={!prevPageUrl}
+								className="flex items-center gap-1"
+							>
+								<ChevronLeftIcon className="h-4 w-4" />
+								{t("courses.previous") || "Previous"}
+							</Button>
+							<span className="text-sm text-muted-foreground">
+								{t("courses.page") || "Page"} {currentPage}{" "}
+								{t("courses.of") || "of"} {totalPages}
+							</span>
+							<Button
+								variant="outline"
+								size="sm"
+								onClick={goToNextPage}
+								disabled={!nextPageUrl}
+								className="flex items-center gap-1"
+							>
+								{t("courses.next") || "Next"}
+								<ChevronRightIcon className="h-4 w-4" />
+							</Button>
 						</div>
 					)}
 				</section>

@@ -71,11 +71,11 @@ export default function ForTutors({
 	};
 
 	// Get translations for title, subtitle, and CTA text
-	const sectionTitle = title || t("forTutors.title");
-	const sectionSubtitle = subtitle || t("forTutors.subtitle");
-	const sectionJoinCtaText = joinCtaText || t("forTutors.joinCta");
+	const sectionTitle = title || t("landing.forTutors.title");
+	const sectionSubtitle = subtitle || t("landing.forTutors.subtitle");
+	const sectionJoinCtaText = joinCtaText || t("landing.forTutors.joinCta");
 	const sectionFeaturedTutorsTitle =
-		featuredTutorsTitle || t("forTutors.featuredTutors");
+		featuredTutorsTitle || t("landing.forTutors.featuredTutors");
 
 	// Use provided benefits or fallback to default ones if not provided
 	const displayBenefits =
@@ -84,18 +84,18 @@ export default function ForTutors({
 			: [
 					{
 						icon: <DollarSignIcon className="h-6 w-6" />,
-						title: t("forTutors.benefit1.title"),
-						description: t("forTutors.benefit1.description"),
+						title: t("landing.forTutors.benefit1.title"),
+						description: t("landing.forTutors.benefit1.description"),
 					},
 					{
 						icon: <GraduationCapIcon className="h-6 w-6" />,
-						title: t("forTutors.benefit2.title"),
-						description: t("forTutors.benefit2.description"),
+						title: t("landing.forTutors.benefit2.title"),
+						description: t("landing.forTutors.benefit2.description"),
 					},
 					{
 						icon: <CalendarIcon className="h-6 w-6" />,
-						title: t("forTutors.benefit3.title"),
-						description: t("forTutors.benefit3.description"),
+						title: t("landing.forTutors.benefit3.title"),
+						description: t("landing.forTutors.benefit3.description"),
 					},
 					{
 						icon: <BrainIcon className="h-6 w-6" />,

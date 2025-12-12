@@ -155,15 +155,14 @@ export default function LoginPage() {
 											variant="ghost"
 											size="icon"
 											type="button"
-											className="absolute right-3 top-2.5 cursor-pointer"
+											className="absolute right-1 top-1 h-8 w-8"
 											aria-label="Toggle password visibility"
 											onClick={() => setPasswordVisible(!passwordVisible)}
-											asChild
 										>
 											{passwordVisible ? (
-												<EyeIcon className="h-4 w-4 text-muted-foreground" />
-											) : (
 												<EyeOffIcon className="h-4 w-4 text-muted-foreground" />
+											) : (
+												<EyeIcon className="h-4 w-4 text-muted-foreground" />
 											)}
 										</Button>
 									</div>

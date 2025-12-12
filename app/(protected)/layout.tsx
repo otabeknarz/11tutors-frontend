@@ -42,7 +42,7 @@ export default function ProtectedLayout({
 		<div className="min-h-screen bg-background">
 			<AppNav />
 			<div className="md:pl-64 flex flex-col flex-1">
-				<main className="flex-1 pb-16 md:pb-0">
+				<main className="flex-1 pb-20 md:pb-0 pt-16 md:pt-0">
 					{/* Content area */}
 					<div className="py-6">
 						<div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">

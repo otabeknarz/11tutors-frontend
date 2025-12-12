@@ -143,11 +143,13 @@ export default function CoursesPage() {
 	};
 
 	const filteredCourses = courses.filter((course) => {
-		const matchesSearch =
-			course.title.toLowerCase().includes(searchQuery.toLowerCase());
+		const matchesSearch = course.title
+			.toLowerCase()
+			.includes(searchQuery.toLowerCase());
 		const matchesCategory =
 			selectedCategory === "all" ||
-			(course.category && course.category.name &&
+			(course.category &&
+				course.category.name &&
 				course.category.name.toLowerCase() === selectedCategory.toLowerCase());
 		return matchesSearch && matchesCategory;
 	});
@@ -236,7 +238,9 @@ export default function CoursesPage() {
 						<div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4">
 							<div className="flex items-center gap-2 text-destructive">
 								<CheckCircle className="h-4 w-4" />
-								<span className="font-medium">Error</span>
+								<span className="font-medium">
+									{t("dashboard.courses.error")}
+								</span>
 							</div>
 							<p className="text-sm text-destructive/80 mt-1">{error}</p>
 							<Button
@@ -245,7 +249,7 @@ export default function CoursesPage() {
 								className="mt-2"
 								onClick={() => setError(null)}
 							>
-								Dismiss
+								{t("dashboard.courses.dismiss")}
 							</Button>
 						</div>
 					</motion.div>
@@ -275,7 +279,7 @@ export default function CoursesPage() {
 									{course.is_enrolled && (
 										<Badge className="absolute top-3 left-3 bg-green-500 hover:bg-green-600">
 											<CheckCircle className="h-3 w-3 mr-1" />
-											Enrolled
+											{t("dashboard.courses.enrolled")}
 										</Badge>
 									)}
 									{course.category && course.category.name && (
@@ -309,7 +313,9 @@ export default function CoursesPage() {
 									{course.is_enrolled && course.progress !== undefined && (
 										<div className="space-y-2">
 											<div className="flex justify-between text-sm">
-												<span className="text-muted-foreground">Progress</span>
+												<span className="text-muted-foreground">
+													{t("dashboard.courses.progress")}
+												</span>
 												<span className="font-medium">{course.progress}%</span>
 											</div>
 											<Progress value={course.progress} className="h-2" />
@@ -320,11 +326,13 @@ export default function CoursesPage() {
 										<div className="flex items-center gap-4">
 											<div className="flex items-center gap-1">
 												<Clock className="h-4 w-4" />
-												{course.parts?.length || 0} parts
+												{course.parts?.length || 0}{" "}
+												{t("dashboard.courses.parts")}
 											</div>
 											<div className="flex items-center gap-1">
 												<Users className="h-4 w-4" />
-												{Math.floor(Math.random() * 100) + 10} students
+												{Math.floor(Math.random() * 100) + 10}{" "}
+												{t("dashboard.courses.students")}
 											</div>
 										</div>
 									</div>
@@ -360,7 +368,7 @@ export default function CoursesPage() {
 										{enrollmentLoading === course.id ? (
 											<>
 												<div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-												Loading...
+												{t("dashboard.courses.loading")}
 											</>
 										) : course.is_enrolled ? (
 											<>
@@ -384,10 +392,10 @@ export default function CoursesPage() {
 					<motion.div {...slideUp} className="text-center py-12">
 						<BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
 						<h3 className="text-xl font-semibold text-foreground mb-2">
-							No courses found
+							{t("dashboard.courses.noCoursesFound")}
 						</h3>
 						<p className="text-muted-foreground">
-							Try adjusting your search or filter criteria
+							{t("dashboard.courses.noCoursesDescription")}
 						</p>
 					</motion.div>
 				)}

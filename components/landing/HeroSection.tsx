@@ -21,7 +21,7 @@ const HeroIllustration = () => (
 			transition={{ duration: 0.5 }}
 			className="absolute inset-0"
 		>
-			<div className="absolute inset-0 bg-gradient-to-r from-indigo-500/30 to-purple-500/30 rounded-full blur-3xl" />
+			<div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full blur-3xl" />
 			<div className="relative z-10 w-full h-full flex items-center justify-center">
 				<div className="grid grid-cols-2 gap-4 transform rotate-12">
 					{[GraduationCap, BookOpen, Users, Brain].map((Icon, index) => (
@@ -87,7 +87,7 @@ const HeroSection = () => {
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ delay: 0.4 }}
-								className="bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text inline-block"
+								className="bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text inline-block"
 							>
 								{t("landing.heroSection.title").split(" ").slice(-1)[0]}
 							</motion.span>
@@ -113,7 +113,7 @@ const HeroSection = () => {
 								</Link>
 							</Button>
 							<Button size="lg" variant="outline" asChild>
-								<Link href="/become-tutor">
+								<Link href="/for-tutors">
 									{t("landing.heroSection.becomeTutor")}
 								</Link>
 							</Button>

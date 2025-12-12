@@ -1,0 +1,852 @@
+{
+	"profile": {
+		"title": "Configuración de Perfil",
+		"subtitle": "Administra la información y preferencias de tu cuenta",
+		"personalInfo": "Información Personal",
+		"updateInfo": "Actualiza tu información personal",
+		"firstName": "Nombre",
+		"firstNamePlaceholder": "Ingresa tu nombre",
+		"lastName": "Apellido",
+		"lastNamePlaceholder": "Ingresa tu apellido",
+		"emailPlaceholder": "Ingresa tu correo electrónico",
+		"phonePlaceholder": "Ingresa tu número de teléfono",
+		"usernamePlaceholder": "Ingresa tu nombre de usuario",
+		"preferences": "Preferencias",
+		"preferencesDescription": "Personaliza la configuración de tu cuenta",
+		"darkMode": "Modo Oscuro",
+		"darkModeDescription": "Alternar entre tema claro y oscuro",
+		"language": "Idioma",
+		"languageDescription": "Elige tu idioma preferido",
+		"phone": "Número de Teléfono",
+		"email": "Correo Electrónico",
+		"username": "Nombre de Usuario",
+		"saveChanges": "Guardar Cambios",
+		"tabs": {
+			"profile": "Perfil",
+			"preferences": "Preferencias"
+		}
+	},
+	"app": {
+		"name": "11Tutors",
+		"tagline": "Aprende cursos universitarios con los mejores tutores"
+	},
+	"common": {
+		"loading": "Cargando..."
+	},
+	"nav": {
+		"home": "Inicio",
+		"features": "Características",
+		"about": "Acerca de",
+		"courses": "Cursos",
+		"tutors": "Tutores",
+		"how_it_works": "Cómo Funciona",
+		"for_tutors": "Para Tutores",
+		"login": "Iniciar sesión",
+		"register": "Registrarse",
+		"dashboard": "Panel de control",
+		"my_courses": "Mis Cursos",
+		"logout": "Cerrar sesión",
+		"new": "Nuevo",
+		"profile": "Perfil",
+		"menu": "Menú"
+	},
+	"home": {
+		"hero": {
+			"title": "Aprende con los mejores tutores",
+			"subtitle": "Obtén tutoría personalizada de los mejores estudiantes y graduados universitarios",
+			"cta": "Comenzar",
+			"browseCourses": "Explorar Cursos",
+			"becomeTutor": "Conviértete en Tutor"
+		},
+		"welcome": "Bienvenido de vuelta",
+		"subtitle": "Continúa tu viaje de aprendizaje",
+		"enrolledCourses": "Tus Cursos Inscritos",
+		"viewAll": "Ver Todo",
+		"popularCourses": "Cursos Populares",
+		"completed": "Completado",
+		"continueButton": "Continuar",
+		"details": "Detalles",
+		"noCoursesYet": "Aún no tienes cursos inscritos",
+		"exploreAndEnroll": "Explora nuestro catálogo de cursos e inscríbete en tu primer curso",
+		"exploreCourses": "Explorar Cursos",
+		"features": {
+			"title": "¿Por qué elegir 11Tutors?"
+		},
+		"about": {
+			"title": "Sobre nosotros",
+			"description": "11Tutors conecta a estudiantes con tutores de primera categoría para experiencias de aprendizaje personalizadas."
+		}
+	},
+	"landing": {
+		"heroSection": {
+			"title": "Aprende de los mejores tutores universitarios",
+			"subtitle": "Obtén tutoría personalizada de estudiantes que recientemente aprobaron con excelencia los cursos que estás tomando",
+			"browseCourses": "Explorar Cursos",
+			"becomeTutor": "Conviértete en Tutor",
+			"stats": {
+				"courses": "Cursos",
+				"tutors": "Tutores",
+				"universities": "Universidades",
+				"students": "Estudiantes"
+			}
+		},
+		"ctaBanner": {
+			"title": "Comienza a aprender con 11tutors hoy",
+			"subtitle": "Únete a miles de estudiantes que aprenden con tutores universitarios de todo el mundo",
+			"discount": "Obtén un 20% de descuento en tu primer mes con el código",
+			"discountCode": "WELCOME20",
+			"browseCourses": "Explorar Cursos",
+			"becomeTutor": "Únete como Tutor",
+			"limitedOffer": "Oferta por Tiempo Limitado",
+			"stats": {
+				"title": "Estadísticas de la Plataforma",
+				"courses": "Cursos",
+				"students": "Estudiantes",
+				"tutors": "Tutores"
+			}
+		},
+		"scrollIndicator": {
+			"scrollToExplore": "Desplázate para explorar"
+		},
+		"sections": {
+			"howItWorks": {
+				"id": "how-it-works"
+			},
+			"courses": {
+				"id": "courses"
+			},
+			"whyChooseUs": {
+				"id": "why-choose-us"
+			},
+			"forTutors": {
+				"id": "for-tutors"
+			},
+			"testimonials": {
+				"id": "testimonials"
+			},
+			"joinCommunity": {
+				"id": "join"
+			}
+		},
+		"howItWorks": {
+			"title": "Cómo Funciona",
+			"description": "Nuestra plataforma conecta a estudiantes universitarios con compañeros que quieren aprender de ellos.",
+			"startLearning": "Empieza a Aprender Ahora",
+			"step1": {
+				"title": "Explora Cursos",
+				"description": "Elige de un catálogo creciente de cursos de nivel universitario."
+			},
+			"step2": {
+				"title": "Aprende de Tutores",
+				"description": "Estudiantes universitarios enseñando lo que mejor saben."
+			},
+			"step3": {
+				"title": "Flexible y Asequible",
+				"description": "Aprende en cualquier momento y lugar a precios accesibles para estudiantes."
+			},
+			"step4": {
+				"title": "Gana Como Tutor",
+				"description": "Los estudiantes universitarios ganan enseñando en lo que destacan."
+			}
+		},
+		"featuredCourses": {
+			"title": "Cursos Destacados",
+			"subtitle": "Explora nuestros cursos más populares en diferentes materias",
+			"viewAll": "Ver Todos los Cursos",
+			"category": {
+				"computerScience": "Informática",
+				"mathematics": "Matemáticas",
+				"business": "Negocios"
+			},
+			"courseCard": {
+				"courseBy": "Curso por",
+				"price": "Precio:",
+				"viewCourse": "Ver Curso"
+			}
+		},
+		"whyChooseUs": {
+			"title": "¿Por qué elegir 11Tutors?",
+			"subtitle": "La plataforma creada por estudiantes, para estudiantes",
+			"benefit1": {
+				"title": "Ventaja de aprendizaje entre pares",
+				"description": "Aprende de estudiantes que dominaron recientemente el material y entienden tus desafíos."
+			},
+			"benefit2": {
+				"title": "Precios asequibles",
+				"description": "Educación de calidad a precios accesibles para estudiantes, significativamente más bajos que las tutorías tradicionales."
+			},
+			"benefit3": {
+				"title": "Rápido, relevante y práctico",
+				"description": "Cursos enfocados en conocimientos prácticos y requisitos académicos actuales."
+			},
+			"benefit4": {
+				"title": "Tutores de universidades prestigiosas",
+				"description": "Aprende de estudiantes destacados de prestigiosas universidades de todo el mundo."
+			},
+			"benefit5": {
+				"title": "Horarios flexibles",
+				"description": "Reserva sesiones que se adapten a tu horario, con tutores disponibles en diferentes zonas horarias."
+			},
+			"benefit6": {
+				"title": "Resultados comprobados",
+				"description": "Nuestros estudiantes mejoran constantemente sus calificaciones y comprenden mejor temas complejos."
+			},
+			"trustedBy": "Nuestros tutores provienen de universidades prestigiosas",
+			"verifiedByStudents": "Verificado por estudiantes",
+			"viewAllUniversities": "Ver todas las universidades asociadas",
+			"stat1": {
+				"value": "95%",
+				"label": "Satisfacción estudiantil"
+			},
+			"stat2": {
+				"value": "4.8/5",
+				"label": "Calificación promedio de tutores"
+			},
+			"stat3": {
+				"value": "50,000+",
+				"label": "Estudiantes enseñados"
+			},
+			"stat4": {
+				"value": "100%",
+				"label": "Garantía de devolución de dinero"
+			}
+		},
+		"forTutors": {
+			"title": "Para Tutores",
+			"subtitle": "Comparte tu conocimiento y gana mientras estudias",
+			"benefit1": {
+				"title": "Gana Dinero",
+				"description": "Gana dinero compartiendo tu conocimiento y experiencia con otros estudiantes."
+			},
+			"benefit2": {
+				"title": "Construye tu CV",
+				"description": "Añade experiencia docente a tu currículum y desarrolla habilidades valiosas."
+			},
+			"benefit3": {
+				"title": "Horarios Flexibles",
+				"description": "Crea y enseña cursos en tu propio horario, desde cualquier lugar."
+			},
+			"benefit4": {
+				"title": "Profundiza tu Conocimiento",
+				"description": "Enseñar a otros es la mejor manera de dominar una materia y solidificar tu comprensión."
+			},
+			"benefit5": {
+				"title": "Alcance Global",
+				"description": "Conéctate con estudiantes de todo el mundo y construye un portafolio internacional de enseñanza."
+			},
+			"benefit6": {
+				"title": "Crecimiento Profesional",
+				"description": "Desarrolla habilidades de comunicación y liderazgo que beneficiarán tu futura carrera."
+			},
+			"joinCta": "Aplicar como Tutor",
+			"featuredTutors": "Tutores Destacados"
+		},
+		"testimonials": {
+			"title": "Historias de Éxito",
+			"subtitle": "Escucha a estudiantes que transformaron su trayectoria académica con 11tutors",
+			"videoSection": "Testimonios en Video",
+			"prevTestimonial": "Testimonio anterior",
+			"nextTestimonial": "Siguiente testimonio",
+			"viewCount": "visualizaciones"
+		},
+		"joinCommunity": {
+			"title": "Únete a Nuestra Comunidad",
+			"subtitle": "Manténte actualizado con nuevos cursos, recursos de aprendizaje y ofertas especiales",
+			"newsletter": {
+				"title": "Recibe actualizaciones sobre nuevos cursos",
+				"placeholder": "Ingresa tu correo electrónico",
+				"button": "Suscribirse",
+				"success": "¡Gracias por suscribirte! Recibirás actualizaciones sobre nuevos cursos pronto.",
+				"disclaimer": "Al suscribirte, aceptas nuestra Política de Privacidad y consientes recibir actualizaciones de 11tutors."
+			},
+			"social": {
+				"title": "Conéctate con nosotros",
+				"community": "Únete a más de 50,000 estudiantes en nuestra comunidad en línea"
+			}
+		},
+		"footer": {
+			"description": "Una plataforma que conecta a estudiantes universitarios con compañeros que quieren aprender de ellos.",
+			"company": "Empresa",
+			"resources": "Recursos",
+			"legal": "Legal",
+			"categories": "Categorías",
+			"allRightsReserved": "Todos los derechos reservados.",
+			"madeWithStudents": "Hecho con estudiantes para estudiantes",
+			"links": {
+				"aboutUs": "Acerca de nosotros",
+				"careers": "Carreras",
+				"blog": "Blog",
+				"press": "Prensa",
+				"helpCenter": "Centro de ayuda",
+				"contactUs": "Contáctanos",
+				"tutors": "Tutores",
+				"becomeTutor": "Conviértete en Tutor",
+				"termsOfService": "Términos de servicio",
+				"privacyPolicy": "Política de privacidad",
+				"cookiePolicy": "Política de cookies",
+				"accessibility": "Accesibilidad",
+				"computerScience": "Informática",
+				"mathematics": "Matemáticas",
+				"business": "Negocios",
+				"science": "Ciencia",
+				"languages": "Idiomas",
+				"artsHumanities": "Arte y Humanidades"
+			},
+			"social": {
+				"instagram": "Instagram",
+				"twitter": "Twitter",
+				"youtube": "YouTube",
+				"linkedin": "LinkedIn",
+				"facebook": "Facebook"
+			}
+		}
+	},
+	"auth": {
+		"signIn": "Inicia sesión en tu cuenta",
+		"orRegister": "O",
+		"register": "Registrarse",
+		"email": "Correo electrónico",
+		"emailPlaceholder": "Introduce tu correo electrónico",
+		"password": "Contraseña",
+		"passwordPlaceholder": "Introduce tu contraseña",
+		"passwordRequirements": "La contraseña debe tener al menos 8 caracteres",
+		"forgotPassword": "¿Olvidaste tu contraseña?",
+		"signingIn": "Iniciando sesión...",
+		"createAccount": "Crea tu cuenta",
+		"alreadyHaveAccount": "¿Ya tienes una cuenta?",
+		"firstName": "Nombre",
+		"firstNamePlaceholder": "Introduce tu nombre",
+		"lastName": "Apellido",
+		"lastNamePlaceholder": "Introduce tu apellido",
+		"confirmPassword": "Confirmar contraseña",
+		"confirmPasswordPlaceholder": "Confirma tu contraseña",
+		"registering": "Registrando..."
+	},
+	"login": {
+		"title": "Inicia sesión en tu cuenta",
+		"button": "Iniciar sesión",
+		"loading": "Iniciando sesión...",
+		"noAccount": "¿No tienes una cuenta?",
+		"register": "Regístrate ahora"
+	},
+	"register": {
+		"title": "Crea tu cuenta",
+		"button": "Crear cuenta",
+		"loading": "Creando cuenta...",
+		"haveAccount": "¿Ya tienes una cuenta?",
+		"login": "Iniciar sesión"
+	},
+	"dashboard": {
+		"welcome": "Bienvenido de nuevo",
+		"title": "Tu panel de control",
+		"profile": "Perfil",
+		"loading": "Cargando tu perfil...",
+		"userProfile": "Perfil de usuario",
+		"personalDetails": "Datos personales e información.",
+		"fullName": "Nombre completo",
+		"username": "Nombre de usuario",
+		"email": "Correo electrónico"
+	},
+	"errors": {
+		"required": "Este campo es obligatorio",
+		"invalid": "Este campo contiene datos inválidos",
+		"invalidEmail": "Por favor, introduce un correo electrónico válido",
+		"emailRequired": "El correo electrónico es obligatorio",
+		"passwordRequired": "La contraseña es obligatoria",
+		"firstNameRequired": "El nombre es obligatorio",
+		"lastNameRequired": "El apellido es obligatorio",
+		"passwordsDoNotMatch": "Las contraseñas no coinciden",
+		"passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
+		"loginFailed": "Error al iniciar sesión. Por favor, verifica tus credenciales.",
+		"registrationFailed": "Error al registrarse. Por favor, inténtalo de nuevo.",
+		"generalError": "Ha ocurrido un error. Por favor, inténtalo de nuevo."
+	},
+	"language": {
+		"english": "Inglés",
+		"russian": "Ruso",
+		"spanish": "Español",
+		"switch": "Cambiar idioma"
+	},
+	"footer": {
+		"rights": "Todos los derechos reservados."
+	},
+	"onboarding": {
+		"step": "Paso",
+		"of": "de",
+		"complete": "Completo",
+		"steps": {
+			"university": "Universidad",
+			"age": "Edad",
+			"degree": "Título",
+			"graduation": "Graduación",
+			"interests": "Intereses"
+		},
+		"buttons": {
+			"next": "Siguiente",
+			"back": "Atrás",
+			"skip": "Omitir",
+			"finish": "Finalizar"
+		},
+		"university": {
+			"title": "Tu Universidad",
+			"subtitle": "Dinos dónde estudias o enseñas",
+			"select": "Selecciona tu universidad",
+			"placeholder": "Selecciona una universidad",
+			"other": "Ingresa tu universidad",
+			"otherPlaceholder": "Ingresa el nombre de tu universidad"
+		},
+		"age": {
+			"title": "Tu Edad",
+			"subtitle": "Esto nos ayuda a personalizar tu experiencia",
+			"label": "¿Cuántos años tienes?",
+			"placeholder": "Ingresa tu edad",
+			"invalid": "Por favor ingresa una edad válida entre 16 y 100"
+		},
+		"degree": {
+			"title": "Tu Título",
+			"subtitle": "¿Qué título estás cursando o enseñando?",
+			"select": "Selecciona tu título",
+			"placeholder": "Selecciona un título",
+			"other": "Ingresa tu título",
+			"otherPlaceholder": "Ingresa el nombre de tu título"
+		},
+		"graduationYear": {
+			"title": "Tu Año de Graduación",
+			"subtitle": "¿Cuándo esperas graduarte?",
+			"label": "Año de graduación esperado",
+			"placeholder": "Selecciona tu año de graduación",
+			"classOf": "Clase de",
+			"invalid": "Por favor selecciona un año de graduación válido"
+		},
+		"interests": {
+			"title": "Tus Intereses",
+			"subtitle": "Selecciona asignaturas que te interesen aprender o enseñar",
+			"select": "Selecciona tus intereses",
+			"selectMultiple": "selecciona varios",
+			"required": "Por favor selecciona al menos un interés"
+		}
+	},
+	"courses": {
+		"title": "Explora Nuestros Cursos",
+		"subtitle": "Descubre el curso perfecto para tu viaje de aprendizaje",
+		"description": "Navega por nuestra amplia selección de cursos de nivel universitario impartidos por tutores expertos.",
+		"searchPlaceholder": "Buscar cursos...",
+		"filterByCategory": "Filtrar por Categoría",
+		"allCategories": "Todas las Categorías",
+		"categories": {
+			"mathematics": "Matemáticas",
+			"science": "Ciencia",
+			"literature": "Literatura",
+			"technology": "Tecnología",
+			"history": "Historia"
+		},
+		"sortBy": "Ordenar Por",
+		"sortOptions": {
+			"popular": "Más Populares",
+			"newest": "Más Recientes",
+			"priceAsc": "Precio: De Menor a Mayor",
+			"priceDesc": "Precio: De Mayor a Menor"
+		},
+		"course": "Curso",
+		"coursesPlural": "Cursos",
+		"viewCourse": "Ver Curso",
+		"noCoursesFound": "No se encontraron cursos",
+		"tryDifferentSearch": "Intenta con un término de búsqueda o categoría diferente",
+		"clearFilters": "Limpiar Filtros",
+		"previous": "Anterior",
+		"next": "Siguiente",
+		"ctaTitle": "¿Listo para Empezar a Aprender?",
+		"ctaDescription": "Únete a miles de estudiantes que ya están aprendiendo con 11Tutors. Encuentra el curso perfecto o conviértete en tutor.",
+		"startLearning": "Comenzar a Aprender",
+		"becomeTutor": "Conviértete en Tutor",
+		"showing": "Mostrando",
+		"of": "de",
+		"page": "Página",
+		"free": "Gratis",
+		"paid": "De pago",
+		"allPrices": "Todos los precios",
+		"priceFilter": "Precio",
+		"priceLowToHigh": "Precio: De menor a mayor",
+		"priceHighToLow": "Precio: De mayor a menor",
+		"filters": "Filtros",
+		"filtersDescription": "Refina tu búsqueda de cursos",
+		"resetFilters": "Restablecer filtros",
+		"applyFilters": "Aplicar",
+		"errorTitle": "¡Ups! Algo salió mal",
+		"tryAgain": "Intentar de nuevo",
+		"noResults": "No se encontraron cursos",
+		"noResultsDescription": "Intenta ajustar tu búsqueda o criterios de filtro",
+		"details": "Detalles",
+		"enroll": "Inscribirse",
+		"continue": "Continuar",
+		"category": {
+			"mathematics": "Matemáticas",
+			"science": "Ciencias",
+			"technology": "Tecnología",
+			"language": "Idiomas",
+			"arts": "Artes",
+			"business": "Negocios"
+		},
+		"level": {
+			"beginner": "Principiante",
+			"intermediate": "Intermedio",
+			"advanced": "Avanzado"
+		},
+		"duration": {
+			"weeks": "{{count}} semanas"
+		},
+		"mockData": {
+			"math": {
+				"title": "Introducción a las Matemáticas",
+				"description": "Domina los fundamentos de las matemáticas con este curso completo.",
+				"instructor": "Dra. Sarah Johnson"
+			},
+			"physics": {
+				"title": "Física Avanzada",
+				"description": "Explora el fascinante mundo de la física desde la mecánica clásica hasta la teoría cuántica.",
+				"instructor": "Prof. Michael Chen"
+			},
+			"literature": {
+				"title": "Clásicos de la Literatura Inglesa",
+				"description": "Analiza y aprecia las mejores obras de la literatura inglesa a lo largo de la historia.",
+				"instructor": "Dra. Emily Williams"
+			},
+			"cs": {
+				"title": "Fundamentos de Informática",
+				"description": "Aprende los conceptos fundamentales de la informática y la programación.",
+				"instructor": "Prof. David Miller"
+			},
+			"history": {
+				"title": "Historia Mundial: Era Moderna",
+				"description": "Explora los principales acontecimientos y desarrollos que dieron forma a nuestro mundo moderno.",
+				"instructor": "Dr. Robert Thompson"
+			},
+			"chemistry": {
+				"title": "Química Orgánica",
+				"description": "Domina los principios y aplicaciones de la química orgánica.",
+				"instructor": "Prof. Lisa Anderson"
+			}
+		}
+	},
+	"courseDetail": {
+		"loading": "Cargando curso...",
+		"error": "Error",
+		"notFound": "Curso no encontrado",
+		"notFoundMessage": "El curso que estás buscando no existe o ha sido eliminado.",
+		"goBack": "Volver",
+		"lessons": "Lecciones",
+		"updated": "Actualizado",
+		"instructors": "Instructores",
+		"noDescription": "No hay descripción disponible para este curso.",
+		"free": "Gratis",
+		"fullAccess": "Acceso completo a todo el contenido del curso",
+		"enroll": "Inscribirse ahora",
+		"enrolled": "Inscrito",
+		"duration": "Duración",
+		"continue": "Continuar",
+		"totalLength": "duración total",
+		"lifetime": "Acceso de por vida",
+		"certificate": "Certificado de finalización",
+		"courseContent": "Contenido del curso",
+		"overview": "Descripción general",
+		"reviews": "Reseñas",
+		"aboutCourse": "Acerca de este curso",
+		"noReviews": "Aún no hay reseñas",
+		"beFirst": "Sé el primero en dejar una reseña para este curso",
+		"writeReview": "Escribir una reseña",
+		"relatedCourses": "Cursos relacionados",
+		"comingSoon": "Próximamente",
+		"errorFetching": "Error al cargar los detalles del curso"
+	},
+	"lessonDetail": {
+		"loading": "Cargando lección...",
+		"error": "Error",
+		"errorFetching": "Error al cargar los detalles de la lección",
+		"goBack": "Volver",
+		"notFound": "Lección no encontrada",
+		"notFoundMessage": "La lección que estás buscando no existe o ha sido eliminada.",
+		"backToCourse": "Volver al curso",
+		"freePreview": "Vista previa gratuita",
+		"premium": "Premium",
+		"premiumContent": "Contenido Premium",
+		"enrollToUnlock": "Inscríbete en este curso para desbloquear esta lección y todo el contenido premium.",
+		"enrollNow": "Inscribirse ahora",
+		"noVideo": "No hay video disponible",
+		"about": "Acerca de esta lección",
+		"noDescription": "No hay descripción disponible para esta lección.",
+		"discussion": "Discusión",
+		"notes": "Notas",
+		"noComments": "Aún no hay comentarios",
+		"beFirstComment": "Sé el primero en comentar esta lección",
+		"addComment": "Añadir un comentario",
+		"noNotes": "Aún no hay notas",
+		"addNoteDescription": "Toma notas mientras ves la lección para ayudarte a recordar puntos clave",
+		"addNote": "Añadir una nota",
+		"courseNavigation": "Navegación del curso",
+		"navigationDescription": "Navega por las lecciones del curso",
+		"updated": "Actualizado",
+		"totalLength": "duración total",
+		"lifetime": "Acceso de por vida",
+		"certificate": "Certificado de finalización",
+		"fullAccess": "Acceso completo a todo el contenido de la lección",
+		"benefits": "Lo que obtendrás"
+	},
+	"payment": {
+		"success": {
+			"title": "¡Pago exitoso!",
+			"subtitle": "¡Felicidades! Tu inscripción fue exitosa.",
+			"enrollmentComplete": "Inscripción completada",
+			"accessMessage": "Ahora tienes acceso completo a todos los materiales del curso, lecciones y recursos.",
+			"viewCourses": "Ver Cursos",
+			"startCourse": "Comenzar curso",
+			"backToDashboard": "Volver al panel",
+			"supportMessage": "¿Necesitas ayuda? Contacta a nuestro equipo de soporte en cualquier momento.",
+			"contactSupport": "Contactar soporte"
+		}
+	},
+	"forTutors": {
+		"title": "Conviértete en Tutor",
+		"description": "Comparte tu conocimiento y gana mientras estudias",
+		"points": {
+			"point1": "Gana dinero enseñando materias en las que sobresales",
+			"point2": "Crea tu propio horario y trabaja remotamente",
+			"point3": "Mejora tu currículum con experiencia docente"
+		},
+		"applyNow": "Aplicar Ahora",
+		"earningsTitle": "Ganancias Potenciales",
+		"averageRate": "$25-45",
+		"perHour": "por hora",
+		"potentialEarnings": {
+			"weekly": "$250-450",
+			"monthly": "$1,000-1,800"
+		},
+		"weeklyHours": "10 horas/semana",
+		"monthlyHours": "40 horas/mes",
+		"benefitsTitle": "Beneficios de Enseñar",
+		"benefitsDescription": "¿Por qué convertirse en tutor con 11tutors?",
+		"benefits": {
+			"students": {
+				"title": "Estudiantes de Calidad",
+				"description": "Conéctate con estudiantes universitarios motivados y ansiosos por aprender de sus compañeros"
+			},
+			"earnings": {
+				"title": "Pago Competitivo",
+				"description": "Gana más que en trabajos típicos de medio tiempo con horarios flexibles"
+			},
+			"flexibility": {
+				"title": "Flexibilidad Total",
+				"description": "Crea tu propio horario y enseña desde cualquier lugar"
+			},
+			"tools": {
+				"title": "Herramientas de Enseñanza",
+				"description": "Accede a recursos de enseñanza, materiales y soporte de nuestra plataforma"
+			}
+		},
+		"stepsTitle": "Cómo Convertirse en Tutor",
+		"stepsDescription": "Nuestro simple proceso de aplicación",
+		"steps": {
+			"apply": {
+				"title": "Aplica en Línea",
+				"description": "Completa nuestro simple formulario de solicitud con tus calificaciones"
+			},
+			"interview": {
+				"title": "Breve Entrevista",
+				"description": "Reúnete con nuestro equipo para discutir tu estilo de enseñanza y experiencia"
+			},
+			"onboarding": {
+				"title": "Completa la Incorporación",
+				"description": "Aprende a usar nuestra plataforma y crea tu perfil de tutor"
+			},
+			"teaching": {
+				"title": "Comienza a Enseñar",
+				"description": "Empieza a conectar con estudiantes y a ganar dinero"
+			}
+		},
+		"testimonialsTitle": "Historias de Éxito de Tutores",
+		"testimonialsDescription": "Escucha a los tutores actuales en nuestra plataforma",
+		"testimonials": {
+			"testimonial1": {
+				"name": "Alex Johnson",
+				"subject": "Informática",
+				"quote": "Enseñar en 11tutors ha sido increíblemente gratificante. He mejorado mi propia comprensión de temas complejos mientras gano lo suficiente para cubrir mis gastos de vida."
+			},
+			"testimonial2": {
+				"name": "María Rodríguez",
+				"subject": "Economía",
+				"quote": "La flexibilidad me permite equilibrar mis estudios de posgrado mientras obtengo ingresos significativos. La plataforma hace que la programación y los pagos sean sencillos."
+			},
+			"testimonial3": {
+				"name": "David Chen",
+				"subject": "Matemáticas",
+				"quote": "Me he conectado con estudiantes de todo el mundo y he construido mi portafolio de enseñanza. La experiencia ha sido invaluable para mi carrera académica."
+			}
+		},
+		"applyTitle": "¿Listo para Aplicar?",
+		"applyDescription": "Únete a nuestra comunidad de tutores y comienza a ganar",
+		"requirements": {
+			"requirement1": {
+				"title": "Excelencia Académica",
+				"description": "Actualmente matriculado o graduado con un fuerte rendimiento académico"
+			},
+			"requirement2": {
+				"title": "Experiencia en la Materia",
+				"description": "Conocimiento profundo en tus materias de enseñanza con cursos relevantes"
+			},
+			"requirement3": {
+				"title": "Habilidades de Comunicación",
+				"description": "Capacidad para explicar conceptos complejos con claridad y relacionarse con los estudiantes"
+			}
+		},
+		"applicationFormTitle": "Solicitud de Tutor",
+		"form": {
+			"firstName": "Nombre",
+			"firstNamePlaceholder": "Ingresa tu nombre",
+			"lastName": "Apellido",
+			"lastNamePlaceholder": "Ingresa tu apellido",
+			"email": "Correo Electrónico",
+			"emailPlaceholder": "Ingresa tu correo electrónico",
+			"subjects": "Materias que Puedes Enseñar",
+			"subjectsPlaceholder": "ej., Cálculo, Microeconomía, Informática",
+			"experience": "Experiencia en Enseñanza",
+			"experiencePlaceholder": "Describe brevemente cualquier experiencia relevante en enseñanza o tutoría",
+			"submit": "Enviar Solicitud"
+		},
+		"faqTitle": "Preguntas Frecuentes",
+		"faqDescription": "Preguntas comunes sobre convertirse en tutor",
+		"faqs": {
+			"faq1": {
+				"question": "¿Cuánto puedo ganar realmente como tutor?",
+				"answer": "Las ganancias varían según tus materias, experiencia y horas. La mayoría de los tutores ganan entre $25-45 por hora, con los mejores tutores ganando más de $50 por hora para materias especializadas."
+			},
+			"faq2": {
+				"question": "¿Qué materias tienen más demanda?",
+				"answer": "Las materias STEM (matemáticas, estadística, informática), economía y cursos de negocios suelen tener la mayor demanda, pero necesitamos tutores en todas las disciplinas."
+			},
+			"faq3": {
+				"question": "¿Cuántas horas puedo esperar enseñar?",
+				"answer": "Esto depende completamente de ti. Algunos tutores enseñan 5-10 horas semanales, mientras que otros enseñan más de 20 horas. Tú estableces tu propia disponibilidad y puedes ajustarla en cualquier momento."
+			},
+			"faq4": {
+				"question": "¿Necesito experiencia previa en enseñanza?",
+				"answer": "No se requiere experiencia formal en enseñanza, pero debes poder explicar conceptos con claridad y tener un conocimiento sólido en tus áreas temáticas."
+			}
+		},
+		"ctaTitle": "Comparte tu Conocimiento, Gana Mientras Aprendes",
+		"ctaDescription": "Únete a nuestra creciente comunidad de tutores universitarios hoy",
+		"ctaButton": "Solicita Convertirte en Tutor"
+	},
+	"tutors": {
+		"title": "Encuentra tu Tutor Perfecto",
+		"description": "Conéctate con tutores expertos que te ayudarán a sobresalir en tus estudios. Explora nuestra comunidad de instructores universitarios verificados.",
+		"searchPlaceholder": "Buscar tutores por nombre, materia o experiencia...",
+		"filterBySubject": "Filtrar por Materia",
+		"allSubjects": "Todas las Materias",
+		"subjects": {
+			"mathematics": "Matemáticas",
+			"physics": "Física",
+			"computerScience": "Ciencias de la Computación",
+			"englishLiterature": "Literatura Inglesa",
+			"history": "Historia",
+			"chemistry": "Química",
+			"economics": "Economía",
+			"biology": "Biología",
+			"business": "Negocios",
+			"creativeWriting": "Escritura Creativa",
+			"politicalScience": "Ciencias Políticas",
+			"dataScience": "Ciencia de Datos"
+		},
+		"tutor": "tutor encontrado",
+		"tutorsPlural": "tutores encontrados",
+		"sortBy": "Ordenar por",
+		"sortOptions": {
+			"rating": "Calificación más Alta",
+			"priceAsc": "Precio: Menor a Mayor",
+			"priceDesc": "Precio: Mayor a Menor",
+			"experience": "Más Experiencia"
+		},
+		"noTutorsFound": "No se encontraron tutores",
+		"tryDifferentSearch": "Intenta ajustar tus criterios de búsqueda o explora todos los tutores.",
+		"clearFilters": "Limpiar Filtros",
+		"verified": "Verificado",
+		"perHour": "por hora",
+		"experience": "Experiencia",
+		"availability": "Disponibilidad",
+		"viewProfile": "Ver Perfil",
+		"bookSession": "Reservar Sesión",
+		"previous": "Anterior",
+		"next": "Siguiente",
+		"becomeTitle": "Conviértete en Tutor",
+		"becomeDescription": "Comparte tu conocimiento y gana dinero enseñando a estudiantes de todo el mundo. Únete a nuestra comunidad de tutores expertos hoy.",
+		"benefits": {
+			"flexible": "Horario flexible - enseña cuando quieras",
+			"earnings": "Ganancias competitivas - $25-60+ por hora",
+			"impact": "Causa un impacto real en el éxito académico de los estudiantes"
+		},
+		"applyNow": "Aplicar Ahora",
+		"joinTitle": "Únete a 11tutors",
+		"joinSubtitle": "Comienza tu viaje como tutor",
+		"joinBenefits": {
+			"students": "Conéctate con estudiantes motivados de todo el mundo",
+			"tools": "Accede a herramientas y recursos profesionales de enseñanza",
+			"community": "Únete a una comunidad solidaria de educadores"
+		}
+	},
+	"howItWorks": {
+		"title": "Cómo Funciona 11tutors",
+		"description": "Descubre cómo nuestra plataforma conecta estudiantes con tutores expertos para experiencias de aprendizaje personalizadas. Comienza en solo unos simples pasos.",
+		"exploreCourses": "Explorar Cursos",
+		"findTutor": "Encontrar un Tutor",
+		"stepsTitle": "Pasos Simples al Éxito",
+		"stepsDescription": "Sigue estos pasos fáciles para comenzar tu viaje de aprendizaje con 11tutors",
+		"videoTitle": "Ve Cómo Funciona",
+		"videoDescription": "Mira nuestro resumen rápido para entender cómo 11tutors hace que el aprendizaje sea accesible y efectivo para todos.",
+		"videoPoints": {
+			"point1": {
+				"title": "Aprendizaje Interactivo",
+				"description": "Interactúa con tutores a través de sesiones en vivo y contenido interactivo"
+			},
+			"point2": {
+				"title": "Enfoque Personalizado",
+				"description": "Obtén planes de aprendizaje personalizados adaptados a tus necesidades"
+			},
+			"point3": {
+				"title": "Seguimiento del Progreso",
+				"description": "Monitorea tu progreso de aprendizaje con análisis detallados"
+			}
+		},
+		"benefitsTitle": "Por qué Elegir 11tutors",
+		"benefitsDescription": "Descubre las ventajas que nos convierten en la mejor opción para el aprendizaje en línea",
+		"benefits": {
+			"flexibility": {
+				"title": "Flexibilidad Completa",
+				"description": "Aprende a tu propio ritmo, en tu propio horario, desde cualquier lugar del mundo"
+			},
+			"quality": {
+				"title": "Tutores Expertos",
+				"description": "Aprende de instructores verificados de nivel universitario con experiencia comprobada"
+			},
+			"technology": {
+				"title": "Tecnología Avanzada",
+				"description": "Utiliza herramientas de vanguardia para el aprendizaje interactivo y la comunicación fluida"
+			},
+			"support": {
+				"title": "Soporte 24/7",
+				"description": "Obtén ayuda cuando la necesites con nuestro equipo de soporte dedicado"
+			}
+		},
+		"faqsTitle": "Preguntas Frecuentes",
+		"faqsDescription": "Encuentra respuestas a las preguntas más comunes sobre nuestra plataforma",
+		"faqs": {
+			"question1": "¿Cómo empiezo con 11tutors?",
+			"answer1": "Simplemente crea una cuenta, explora nuestros cursos o tutores, y reserva tu primera sesión. ¡Es así de fácil!",
+			"question2": "¿Qué materias están disponibles?",
+			"answer2": "Ofrecemos tutorías en matemáticas, ciencias, idiomas, negocios y muchas otras materias de nivel universitario.",
+			"question3": "¿Cuánto cuesta la tutoría?",
+			"answer3": "Los precios varían según el tutor y la materia, generalmente oscilan entre $25-60 por hora. Puedes ver las tarifas exactas antes de reservar.",
+			"question4": "¿Puedo cancelar o reprogramar sesiones?",
+			"answer4": "Sí, puedes cancelar o reprogramar sesiones hasta 24 horas antes sin ninguna penalización.",
+			"question5": "¿Hay garantía de devolución de dinero?",
+			"answer5": "Sí, si no estás satisfecho con tu primera sesión, ofrecemos un reembolso completo dentro de las 48 horas."
+		}
+	}
+}

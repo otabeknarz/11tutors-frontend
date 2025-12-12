@@ -116,7 +116,7 @@ export default function WhyChooseUs(props: WhyChooseUsProps) {
 
 	// University data with colors and initials
 	const universities = [
-		{ name: "Harvard Universitys", initial: "H", color: "bg-crimson-700" },
+		{ name: "Harvard University", initial: "H", color: "bg-red-800" },
 		{ name: "Stanford University", initial: "S", color: "bg-red-600" },
 		{ name: "MIT", initial: "M", color: "bg-gray-800" },
 		{ name: "Oxford University", initial: "O", color: "bg-blue-800" },
