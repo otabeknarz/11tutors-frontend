@@ -165,11 +165,15 @@ export default function CourseAnalytics({ courseSlug }: CourseAnalyticsProps) {
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 				<Card>
 					<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-						<CardTitle className="text-sm font-medium">Total Enrollments</CardTitle>
+						<CardTitle className="text-sm font-medium">
+							Total Enrollments
+						</CardTitle>
 						<Users className="h-4 w-4 text-muted-foreground" />
 					</CardHeader>
 					<CardContent>
-						<div className="text-2xl font-bold">{analytics.totalEnrollments}</div>
+						<div className="text-2xl font-bold">
+							{analytics.totalEnrollments}
+						</div>
 						<p className="text-xs text-green-600 flex items-center gap-1">
 							<TrendingUp className="h-3 w-3" /> +12% from last period
 						</p>
@@ -182,7 +186,9 @@ export default function CourseAnalytics({ courseSlug }: CourseAnalyticsProps) {
 						<DollarSign className="h-4 w-4 text-muted-foreground" />
 					</CardHeader>
 					<CardContent>
-						<div className="text-2xl font-bold">${analytics.totalRevenue.toLocaleString()}</div>
+						<div className="text-2xl font-bold">
+							${analytics.totalRevenue.toLocaleString()}
+						</div>
 						<p className="text-xs text-green-600 flex items-center gap-1">
 							<TrendingUp className="h-3 w-3" /> +8% from last period
 						</p>
@@ -191,24 +197,35 @@ export default function CourseAnalytics({ courseSlug }: CourseAnalyticsProps) {
 
 				<Card>
 					<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-						<CardTitle className="text-sm font-medium">Average Rating</CardTitle>
+						<CardTitle className="text-sm font-medium">
+							Average Rating
+						</CardTitle>
 						<Star className="h-4 w-4 text-muted-foreground" />
 					</CardHeader>
 					<CardContent>
 						<div className="text-2xl font-bold">{analytics.averageRating}</div>
 						<p className="text-xs text-muted-foreground">
-							Based on {analytics.ratingDistribution.reduce((a: number, b: any) => a + b.count, 0)} reviews
+							Based on{" "}
+							{analytics.ratingDistribution.reduce(
+								(a: number, b: any) => a + b.count,
+								0,
+							)}{" "}
+							reviews
 						</p>
 					</CardContent>
 				</Card>
 
 				<Card>
 					<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-						<CardTitle className="text-sm font-medium">Completion Rate</CardTitle>
+						<CardTitle className="text-sm font-medium">
+							Completion Rate
+						</CardTitle>
 						<Target className="h-4 w-4 text-muted-foreground" />
 					</CardHeader>
 					<CardContent>
-						<div className="text-2xl font-bold">{analytics.completionRate}%</div>
+						<div className="text-2xl font-bold">
+							{analytics.completionRate}%
+						</div>
 						<p className="text-xs text-muted-foreground">
 							{analytics.totalViews} total views
 						</p>
@@ -260,7 +277,11 @@ export default function CourseAnalytics({ courseSlug }: CourseAnalyticsProps) {
 								<XAxis dataKey="name" />
 								<YAxis />
 								<Tooltip formatter={(value) => [`${value}%`, "Completion"]} />
-								<Bar dataKey="completion" fill="#10b981" radius={[4, 4, 0, 0]} />
+								<Bar
+									dataKey="completion"
+									fill="#10b981"
+									radius={[4, 4, 0, 0]}
+								/>
 							</BarChart>
 						</ResponsiveContainer>
 					</CardContent>
@@ -286,7 +307,10 @@ export default function CourseAnalytics({ courseSlug }: CourseAnalyticsProps) {
 									label={({ stars, count }) => `${stars}: ${count}`}
 								>
 									{analytics.ratingDistribution.map((_: any, index: number) => (
-										<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+										<Cell
+											key={`cell-${index}`}
+											fill={COLORS[index % COLORS.length]}
+										/>
 									))}
 								</Pie>
 								<Tooltip />

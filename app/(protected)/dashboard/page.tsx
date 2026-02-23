@@ -40,7 +40,7 @@ export default function DashboardPage() {
 
 				if (!hasCompletedOnboarding) {
 					console.log(
-						"User exists but onboarding not completed, redirecting to onboarding"
+						"User exists but onboarding not completed, redirecting to onboarding",
 					);
 					setIsRedirecting(true);
 					router.push("/onboarding/step1");
@@ -49,7 +49,7 @@ export default function DashboardPage() {
 
 				// If user exists and onboarding completed, redirect to dashboard home
 				console.log(
-					"User exists and onboarding completed, redirecting to dashboard home"
+					"User exists and onboarding completed, redirecting to dashboard home",
 				);
 				setIsRedirecting(true);
 				router.replace("/dashboard/home");

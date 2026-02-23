@@ -56,7 +56,7 @@ export default function CourseBasicInfo({
 	const { t } = useLanguage();
 	const fileInputRef = useRef<HTMLInputElement>(null);
 	const [thumbnailPreview, setThumbnailPreview] = useState<string | null>(
-		thumbnailUrl || null
+		thumbnailUrl || null,
 	);
 
 	// Update preview when thumbnailUrl changes (e.g., when editing existing course)
@@ -166,9 +166,7 @@ export default function CourseBasicInfo({
 						step="0.01"
 						placeholder="0.00"
 						value={price || ""}
-						onChange={(e) =>
-							onUpdate("price", parseFloat(e.target.value) || 0)
-						}
+						onChange={(e) => onUpdate("price", parseFloat(e.target.value) || 0)}
 					/>
 					<p className="text-xs text-muted-foreground">
 						Set to 0 for a free course
@@ -212,9 +210,7 @@ export default function CourseBasicInfo({
 							>
 								<ImageIcon className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
 								<div className="space-y-2">
-									<p className="text-sm font-medium">
-										Upload course thumbnail
-									</p>
+									<p className="text-sm font-medium">Upload course thumbnail</p>
 									<p className="text-xs text-muted-foreground">
 										Recommended: 1280x720px, JPG or PNG (Max 5MB)
 									</p>

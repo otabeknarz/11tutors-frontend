@@ -143,35 +143,35 @@ export default function HowItWorksPage() {
 				{/* Background gradient */}
 				<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
 				<div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
-				
+
 				{/* Animated background elements */}
 				<div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-					<motion.div 
-						animate={{ 
+					<motion.div
+						animate={{
 							rotate: 360,
-							scale: [1, 1.1, 1]
+							scale: [1, 1.1, 1],
 						}}
-						transition={{ 
-							duration: 20, 
-							repeat: Infinity, 
-							ease: "linear" 
+						transition={{
+							duration: 20,
+							repeat: Infinity,
+							ease: "linear",
 						}}
 						className="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl"
 					/>
-					<motion.div 
-						animate={{ 
+					<motion.div
+						animate={{
 							rotate: -360,
-							scale: [1, 1.2, 1]
+							scale: [1, 1.2, 1],
 						}}
-						transition={{ 
-							duration: 25, 
-							repeat: Infinity, 
-							ease: "linear" 
+						transition={{
+							duration: 25,
+							repeat: Infinity,
+							ease: "linear",
 						}}
 						className="absolute -bottom-24 -left-24 w-80 h-80 bg-gradient-to-r from-secondary/10 to-primary/10 rounded-full blur-3xl"
 					/>
 				</div>
-				
+
 				<div className="container mx-auto px-4 relative">
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
@@ -184,54 +184,57 @@ export default function HowItWorksPage() {
 							animate={{ opacity: 1, scale: 1 }}
 							transition={{ duration: 0.6, delay: 0.2 }}
 						>
-							<Badge variant="secondary" className="mb-6 px-4 py-2 text-sm font-medium">
+							<Badge
+								variant="secondary"
+								className="mb-6 px-4 py-2 text-sm font-medium"
+							>
 								✨ Discover Our Platform
 							</Badge>
 						</motion.div>
-						
-						<motion.h1 
+
+						<motion.h1
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.3 }}
 							className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent leading-tight"
 						>
-							{t('howItWorks.title')}
+							{t("howItWorks.title")}
 						</motion.h1>
-						
-						<motion.p 
+
+						<motion.p
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.4 }}
 							className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed max-w-3xl mx-auto"
 						>
-							{t('howItWorks.description')}
+							{t("howItWorks.description")}
 						</motion.p>
-						
-						<motion.div 
+
+						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.5 }}
 							className="flex flex-col sm:flex-row gap-4 justify-center"
 						>
-							<Button 
-								size="lg" 
+							<Button
+								size="lg"
 								asChild
 								className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-6 text-lg"
 							>
 								<Link href="/courses">
 									<BookOpenIcon className="mr-2 h-5 w-5" />
-									{t('howItWorks.exploreCourses')}
+									{t("howItWorks.exploreCourses")}
 								</Link>
 							</Button>
-							<Button 
-								variant="outline" 
-								size="lg" 
+							<Button
+								variant="outline"
+								size="lg"
 								asChild
 								className="border-2 hover:bg-primary/5 px-8 py-6 text-lg backdrop-blur-sm"
 							>
 								<Link href="/tutors">
 									<UsersIcon className="mr-2 h-5 w-5" />
-									{t('howItWorks.findTutor')}
+									{t("howItWorks.findTutor")}
 								</Link>
 							</Button>
 						</motion.div>
@@ -450,30 +453,34 @@ export default function HowItWorksPage() {
 						</p>
 					</motion.div>
 
-					<motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="max-w-3xl mx-auto"
-          >
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="border border-border/50 rounded-lg bg-card/50 backdrop-blur-sm px-6 data-[state=open]:bg-card/80 transition-all duration-200"
-                >
-                  <AccordionTrigger className="text-left hover:no-underline py-6">
-                    <span className="text-lg font-semibold pr-4">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-6 pt-2">
-                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </motion.div>
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5, delay: 0.2 }}
+						className="max-w-3xl mx-auto"
+					>
+						<Accordion type="single" collapsible className="space-y-4">
+							{faqs.map((faq, index) => (
+								<AccordionItem
+									key={index}
+									value={`item-${index}`}
+									className="border border-border/50 rounded-lg bg-card/50 backdrop-blur-sm px-6 data-[state=open]:bg-card/80 transition-all duration-200"
+								>
+									<AccordionTrigger className="text-left hover:no-underline py-6">
+										<span className="text-lg font-semibold pr-4">
+											{faq.question}
+										</span>
+									</AccordionTrigger>
+									<AccordionContent className="pb-6 pt-2">
+										<p className="text-muted-foreground leading-relaxed">
+											{faq.answer}
+										</p>
+									</AccordionContent>
+								</AccordionItem>
+							))}
+						</Accordion>
+					</motion.div>
 
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}

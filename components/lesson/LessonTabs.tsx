@@ -15,9 +15,7 @@ export const LessonTabs = () => {
 					<TabsTrigger value="discussion">
 						{t("lessonDetail.discussion")}
 					</TabsTrigger>
-					<TabsTrigger value="notes">
-						{t("lessonDetail.notes")}
-					</TabsTrigger>
+					<TabsTrigger value="notes">{t("lessonDetail.notes")}</TabsTrigger>
 				</TabsList>
 
 				<TabsContent value="discussion" className="py-4">
@@ -36,9 +34,7 @@ export const LessonTabs = () => {
 				<TabsContent value="notes" className="py-4">
 					<div className="text-center py-8">
 						<FileText className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-						<h3 className="text-lg font-medium">
-							{t("lessonDetail.noNotes")}
-						</h3>
+						<h3 className="text-lg font-medium">{t("lessonDetail.noNotes")}</h3>
 						<p className="text-muted-foreground mb-4">
 							{t("lessonDetail.addNoteDescription")}
 						</p>

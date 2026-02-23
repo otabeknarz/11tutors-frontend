@@ -51,7 +51,7 @@ export class EnrollmentManager {
 	 * - Provides proper error handling and loading states
 	 */
 	static async handleEnrollment(
-		options: EnrollmentOptions
+		options: EnrollmentOptions,
 	): Promise<EnrollmentResult> {
 		const { user, router, course, onError, onLoadingChange, t } = options;
 
@@ -106,7 +106,7 @@ export class EnrollmentManager {
 		courseId: string,
 		courseSlug: string,
 		user: User | null,
-		router: AppRouterInstance
+		router: AppRouterInstance,
 	): Promise<EnrollmentResult> {
 		// Check if user is authenticated
 		if (!user) {
@@ -161,7 +161,7 @@ export class EnrollmentManager {
 	 */
 	static getEnrollmentButtonText(
 		course: EnrollmentCourse,
-		t: (key: string) => string
+		t: (key: string) => string,
 	): string {
 		const isEnrolled = course.is_enrolled || course.isEnrolled;
 		if (isEnrolled) {
@@ -183,7 +183,7 @@ export class EnrollmentManager {
 	 */
 	static getEnrollmentStatus(
 		course: EnrollmentCourse,
-		t: (key: string) => string
+		t: (key: string) => string,
 	): string | null {
 		const isEnrolled = course.is_enrolled || course.isEnrolled;
 		if (isEnrolled) {

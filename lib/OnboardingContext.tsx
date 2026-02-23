@@ -42,7 +42,7 @@ const defaultOnboardingData: OnboardingData = {
 };
 
 const OnboardingContext = createContext<OnboardingContextType | undefined>(
-	undefined
+	undefined,
 );
 
 export function useOnboarding() {
@@ -106,7 +106,7 @@ export function OnboardingProvider({ children }: OnboardingProviderProps) {
 				} catch (error) {
 					console.error(
 						"Failed to parse onboarding data from localStorage",
-						error
+						error,
 					);
 					localStorage.removeItem("11tutors-onboarding");
 				}
@@ -120,7 +120,7 @@ export function OnboardingProvider({ children }: OnboardingProviderProps) {
 		if (typeof window !== "undefined") {
 			localStorage.setItem(
 				"11tutors-onboarding",
-				JSON.stringify(onboardingData)
+				JSON.stringify(onboardingData),
 			);
 		}
 	}, [onboardingData]);

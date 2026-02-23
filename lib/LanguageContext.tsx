@@ -23,7 +23,7 @@ export const useLanguage = () => {
 				router.refresh();
 			});
 		},
-		[router]
+		[router],
 	);
 
 	// Wrapper function to match old t() signature
@@ -37,7 +37,7 @@ export const useLanguage = () => {
 				return key;
 			}
 		},
-		[t]
+		[t],
 	);
 
 	return {

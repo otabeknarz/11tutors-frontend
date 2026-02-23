@@ -1,5 +1,5 @@
-import { API_ENDPOINTS } from '@/lib/constants';
-import api from '../api';
+import { API_ENDPOINTS } from "@/lib/constants";
+import api from "../api";
 
 // Types based on Django models
 export interface Category {
@@ -96,7 +96,10 @@ class CourseApiService {
 		return response.data;
 	}
 
-	async updateCourse(slug: string, data: Partial<CreateCourseData>): Promise<Course> {
+	async updateCourse(
+		slug: string,
+		data: Partial<CreateCourseData>,
+	): Promise<Course> {
 		const response = await api.patch(`${API_ENDPOINTS.COURSES}${slug}/`, data);
 		return response.data;
 	}
@@ -107,7 +110,7 @@ class CourseApiService {
 
 	// Course Parts
 	async getCourseParts(courseId?: string): Promise<CoursePart[]> {
-		const url = courseId 
+		const url = courseId
 			? `${API_ENDPOINTS.COURSE_PARTS}?course=${courseId}`
 			: API_ENDPOINTS.COURSE_PARTS;
 		const response = await api.get(url);
@@ -119,8 +122,14 @@ class CourseApiService {
 		return response.data;
 	}
 
-	async updateCoursePart(slug: string, data: Partial<CreateCoursePartData>): Promise<CoursePart> {
-		const response = await api.patch(`${API_ENDPOINTS.COURSE_PARTS}${slug}/`, data);
+	async updateCoursePart(
+		slug: string,
+		data: Partial<CreateCoursePartData>,
+	): Promise<CoursePart> {
+		const response = await api.patch(
+			`${API_ENDPOINTS.COURSE_PARTS}${slug}/`,
+			data,
+		);
 		return response.data;
 	}
 
@@ -130,7 +139,7 @@ class CourseApiService {
 
 	// Lessons
 	async getLessons(partId?: string): Promise<Lesson[]> {
-		const url = partId 
+		const url = partId
 			? `${API_ENDPOINTS.LESSONS}?part=${partId}`
 			: API_ENDPOINTS.LESSONS;
 		const response = await api.get(url);
@@ -142,7 +151,10 @@ class CourseApiService {
 		return response.data;
 	}
 
-	async updateLesson(slug: string, data: Partial<CreateLessonData>): Promise<Lesson> {
+	async updateLesson(
+		slug: string,
+		data: Partial<CreateLessonData>,
+	): Promise<Lesson> {
 		const response = await api.patch(`${API_ENDPOINTS.LESSONS}${slug}/`, data);
 		return response.data;
 	}
@@ -154,12 +166,16 @@ class CourseApiService {
 	// Upload course thumbnail
 	async uploadCourseThumbnail(courseSlug: string, file: File): Promise<Course> {
 		const formData = new FormData();
-		formData.append('thumbnail', file);
-		const response = await api.patch(`${API_ENDPOINTS.COURSES}${courseSlug}/`, formData, {
-			headers: {
-				'Content-Type': 'multipart/form-data',
+		formData.append("thumbnail", file);
+		const response = await api.patch(
+			`${API_ENDPOINTS.COURSES}${courseSlug}/`,
+			formData,
+			{
+				headers: {
+					"Content-Type": "multipart/form-data",
+				},
 			},
-		});
+		);
 		return response.data;
 	}
 }

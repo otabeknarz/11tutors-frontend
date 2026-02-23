@@ -64,10 +64,12 @@ export default function EditCoursePage() {
 				setIsLoading(true);
 
 				const categoriesResponse = await api.get(API_ENDPOINTS.CATEGORIES);
-				setCategories(categoriesResponse.data.results || categoriesResponse.data);
+				setCategories(
+					categoriesResponse.data.results || categoriesResponse.data,
+				);
 
 				const courseResponse = await api.get(
-					API_ENDPOINTS.COURSE_DETAIL(slug as string)
+					API_ENDPOINTS.COURSE_DETAIL(slug as string),
 				);
 				const course = courseResponse.data;
 
@@ -228,10 +230,10 @@ export default function EditCoursePage() {
 							{saveStatus === "saving"
 								? "Saving..."
 								: saveStatus === "saved"
-								? "Saved!"
-								: saveStatus === "error"
-								? "Error"
-								: "Save"}
+									? "Saved!"
+									: saveStatus === "error"
+										? "Error"
+										: "Save"}
 						</Button>
 					</div>
 				</div>
@@ -252,11 +254,7 @@ export default function EditCoursePage() {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ delay: 0.1 }}
 			>
-				<Tabs
-					value={activeTab}
-					onValueChange={setActiveTab}
-					className="w-full"
-				>
+				<Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
 					<div className="border-b bg-muted/30 p-6 rounded-t-xl">
 						<TabsList className="grid w-full grid-cols-5 h-auto p-1 bg-background/60 backdrop-blur-sm">
 							<TabsTrigger

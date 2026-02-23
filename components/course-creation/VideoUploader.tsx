@@ -54,7 +54,7 @@ export default function VideoUploader({
 	const [videoDuration, setVideoDuration] = useState<number>(0);
 	const [uploadError, setUploadError] = useState<string | null>(null);
 	const [selectedFile, setSelectedFile] = useState<File | null>(
-		lesson.videoFile
+		lesson.videoFile,
 	);
 
 	// Sync selectedFile with lesson.videoFile prop
@@ -105,7 +105,7 @@ export default function VideoUploader({
 			};
 			video.src = videoUrl;
 		},
-		[onVideoUpload]
+		[onVideoUpload],
 	);
 
 	// Handle drag and drop
@@ -129,19 +129,27 @@ export default function VideoUploader({
 				handleVideoSelect(e.dataTransfer.files[0]);
 			}
 		},
-		[handleVideoSelect]
+		[handleVideoSelect],
 	);
 
 	// Upload to VdoCipher via Django backend
 	const uploadToVdoCipher = async () => {
 		const videoFile = selectedFile || lesson.videoFile;
-		
+
 		if (!videoFile) {
-			console.error("No video file selected", { selectedFile, lessonVideoFile: lesson.videoFile });
+			console.error("No video file selected", {
+				selectedFile,
+				lessonVideoFile: lesson.videoFile,
+			});
 			return;
 		}
 
-		console.log("Starting VdoCipher upload for:", lesson.title, "File:", videoFile.name);
+		console.log(
+			"Starting VdoCipher upload for:",
+			lesson.title,
+			"File:",
+			videoFile.name,
+		);
 		onVideoUpload({ uploadStatus: "uploading", uploadProgress: 0 });
 		setUploadError(null);
 
@@ -151,7 +159,7 @@ export default function VideoUploader({
 				typeof window !== "undefined"
 					? localStorage.getItem("accessToken")
 					: null;
-			
+
 			console.log("Requesting upload credentials from backend...");
 			const credentialsResponse = await fetch(
 				`${API_BASE_URL}/api/courses/vdocipher/upload-credentials/`,
@@ -165,7 +173,7 @@ export default function VideoUploader({
 						title: lesson.title || "Untitled Lesson",
 						folderId: "root",
 					}),
-				}
+				},
 			);
 
 			if (!credentialsResponse.ok) {
@@ -179,14 +187,15 @@ export default function VideoUploader({
 
 			// Step 2: Upload video directly to VdoCipher using the credentials
 			const payload = credentials.clientPayload || credentials;
-			const uploadUrl = payload.uploadLink || credentials.uploadLink || credentials.uploadUrl;
-			
+			const uploadUrl =
+				payload.uploadLink || credentials.uploadLink || credentials.uploadUrl;
+
 			console.log("Upload URL:", uploadUrl);
-			
+
 			if (!uploadUrl) {
 				throw new Error("Upload URL not found in credentials");
 			}
-			
+
 			const formData = new FormData();
 			formData.append("policy", payload.policy);
 			formData.append("key", payload.key);
@@ -210,7 +219,7 @@ export default function VideoUploader({
 
 			xhr.addEventListener("load", () => {
 				console.log("Upload response status:", xhr.status);
-				
+
 				if (xhr.status === 201 || xhr.status === 200) {
 					try {
 						const parser = new DOMParser();
@@ -243,7 +252,9 @@ export default function VideoUploader({
 					}
 				} else {
 					console.error("Upload failed. Status:", xhr.status);
-					throw new Error(`Upload failed with status: ${xhr.status}. ${xhr.responseText}`);
+					throw new Error(
+						`Upload failed with status: ${xhr.status}. ${xhr.responseText}`,
+					);
 				}
 			});
 
@@ -413,7 +424,7 @@ export default function VideoUploader({
 										<div className="flex items-center space-x-3 text-sm text-muted-foreground">
 											<span>
 												{formatFileSize(
-													(selectedFile || lesson.videoFile)?.size || 0
+													(selectedFile || lesson.videoFile)?.size || 0,
 												)}
 											</span>
 											{videoDuration > 0 && (
@@ -460,24 +471,28 @@ export default function VideoUploader({
 							)}
 
 							{/* Upload Button */}
-							{(lesson.uploadStatus === "idle" || !lesson.uploadStatus) && (selectedFile || lesson.videoFile) && !lesson.videoServiceId && (
-								<div className="space-y-2">
-									<Button
-										onClick={uploadToVdoCipher}
-										className="w-full"
-										disabled={!lesson.title}
-										variant={lesson.title ? "default" : "outline"}
-									>
-										<Upload className="h-4 w-4 mr-2" />
-										{lesson.title ? "Upload to VdoCipher" : "Add Title to Upload"}
-									</Button>
-									{!lesson.title && (
-										<p className="text-xs text-center text-muted-foreground">
-											Lesson title is required before uploading
-										</p>
-									)}
-								</div>
-							)}
+							{(lesson.uploadStatus === "idle" || !lesson.uploadStatus) &&
+								(selectedFile || lesson.videoFile) &&
+								!lesson.videoServiceId && (
+									<div className="space-y-2">
+										<Button
+											onClick={uploadToVdoCipher}
+											className="w-full"
+											disabled={!lesson.title}
+											variant={lesson.title ? "default" : "outline"}
+										>
+											<Upload className="h-4 w-4 mr-2" />
+											{lesson.title
+												? "Upload to VdoCipher"
+												: "Add Title to Upload"}
+										</Button>
+										{!lesson.title && (
+											<p className="text-xs text-center text-muted-foreground">
+												Lesson title is required before uploading
+											</p>
+										)}
+									</div>
+								)}
 
 							{/* Re-upload Button */}
 							{lesson.uploadStatus === "error" && (

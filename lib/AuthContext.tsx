@@ -34,7 +34,7 @@ interface AuthContextType {
 		firstName: string,
 		lastName: string,
 		email: string,
-		password: string
+		password: string,
 	) => Promise<boolean>;
 	logout: () => void;
 	updateUserProfile: (userData: Partial<User>) => Promise<boolean>;
@@ -125,7 +125,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 				return true;
 			} else {
 				setError(
-					typeof result.error === "string" ? result.error : "Login failed"
+					typeof result.error === "string" ? result.error : "Login failed",
 				);
 				return false;
 			}
@@ -142,7 +142,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 		firstName: string,
 		lastName: string,
 		email: string,
-		password: string
+		password: string,
 	): Promise<boolean> => {
 		setLoading(true);
 		setError(null);
@@ -157,7 +157,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 				setError(
 					typeof result.error === "string"
 						? result.error
-						: "Registration failed"
+						: "Registration failed",
 				);
 				return false;
 			}
@@ -183,7 +183,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
 	// Update user profile
 	const updateUserProfile = async (
-		userData: Partial<User>
+		userData: Partial<User>,
 	): Promise<boolean> => {
 		setLoading(true);
 		setError(null);
@@ -193,12 +193,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
 			if (result.success) {
 				setUser((prevUser) =>
-					prevUser ? { ...prevUser, ...result.data } : result.data
+					prevUser ? { ...prevUser, ...result.data } : result.data,
 				);
 				return true;
 			} else {
 				setError(
-					typeof result.error === "string" ? result.error : "Update failed"
+					typeof result.error === "string" ? result.error : "Update failed",
 				);
 				return false;
 			}

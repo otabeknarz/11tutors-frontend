@@ -23,8 +23,8 @@ export default function PublicLayout({
 				isOnboarding
 					? "pt-24 sm:pt-28"
 					: isFullScreenPage
-					? ""
-					: "pt-20 md:pt-24"
+						? ""
+						: "pt-20 md:pt-24"
 			}
 		>
 			{children}

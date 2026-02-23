@@ -112,7 +112,7 @@ export default function ForTutors({
 						title: t("landing.forTutors.benefit6.title"),
 						description: t("landing.forTutors.benefit6.description"),
 					},
-			  ];
+				];
 
 	// Function to get icon based on benefit title if not provided
 	const getIconForBenefit = (benefitTitle: string) => {

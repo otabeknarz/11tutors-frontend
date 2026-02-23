@@ -84,7 +84,7 @@ export default function CreateCoursePage() {
 			courseData.parts.length > 0,
 			courseData.parts.some((part) => part.lessons.length > 0),
 			courseData.parts.every((part) =>
-				part.lessons.every((lesson) => lesson.uploadStatus === "completed")
+				part.lessons.every((lesson) => lesson.uploadStatus === "completed"),
 			) && courseData.parts.length > 0,
 		];
 
@@ -127,7 +127,10 @@ export default function CreateCoursePage() {
 
 			// Upload thumbnail if provided
 			if (courseData.thumbnail) {
-				await courseApi.uploadCourseThumbnail(course.slug, courseData.thumbnail);
+				await courseApi.uploadCourseThumbnail(
+					course.slug,
+					courseData.thumbnail,
+				);
 			}
 
 			// Create course parts and lessons
@@ -162,7 +165,8 @@ export default function CreateCoursePage() {
 			}, 1500);
 		} catch (error) {
 			console.error("Error saving course:", error);
-			const errorMessage = error instanceof Error ? error.message : "Failed to save course";
+			const errorMessage =
+				error instanceof Error ? error.message : "Failed to save course";
 			setError(errorMessage);
 			toast.error(errorMessage);
 			setSaveStatus("error");
@@ -192,7 +196,8 @@ export default function CreateCoursePage() {
 			}, 1500);
 		} catch (error) {
 			console.error("Error publishing course:", error);
-			const errorMessage = error instanceof Error ? error.message : "Failed to publish course";
+			const errorMessage =
+				error instanceof Error ? error.message : "Failed to publish course";
 			setError(errorMessage);
 			toast.error(errorMessage);
 		} finally {
@@ -241,7 +246,10 @@ export default function CreateCoursePage() {
 				<div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
 					<div className="flex items-center space-x-4">
 						<Button variant="ghost" size="sm" asChild>
-							<Link href="/dashboard/creator/courses" className="flex items-center">
+							<Link
+								href="/dashboard/creator/courses"
+								className="flex items-center"
+							>
 								<ArrowLeft className="h-4 w-4 mr-2" />
 								Back to Courses
 							</Link>
@@ -277,8 +285,8 @@ export default function CreateCoursePage() {
 							{saveStatus === "saving"
 								? "Saving..."
 								: saveStatus === "saved"
-								? "Saved!"
-								: "Save Draft"}
+									? "Saved!"
+									: "Save Draft"}
 						</Button>
 						<Button
 							size="sm"
@@ -314,11 +322,7 @@ export default function CreateCoursePage() {
 				transition={{ delay: 0.1 }}
 				className="bg-card rounded-xl border shadow-sm overflow-hidden"
 			>
-				<Tabs
-					value={activeTab}
-					onValueChange={setActiveTab}
-					className="w-full"
-				>
+				<Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
 					{/* Tab Navigation */}
 					<div className="border-b bg-muted/30 p-6">
 						<TabsList className="grid w-full grid-cols-3 h-auto p-1 bg-background/60 backdrop-blur-sm">

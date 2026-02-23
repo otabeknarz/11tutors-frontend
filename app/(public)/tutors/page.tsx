@@ -143,7 +143,7 @@ export default function TutorsPage() {
 				tutor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
 				tutor.bio.toLowerCase().includes(searchQuery.toLowerCase()) ||
 				tutor.subjects.some((subject) =>
-					subject.toLowerCase().includes(searchQuery.toLowerCase())
+					subject.toLowerCase().includes(searchQuery.toLowerCase()),
 				);
 
 			const matchesSubject =
@@ -152,7 +152,7 @@ export default function TutorsPage() {
 					subject
 						.toLowerCase()
 						.replace(" ", "")
-						.includes(subjectFilter.toLowerCase())
+						.includes(subjectFilter.toLowerCase()),
 				);
 
 			return matchesSearch && matchesSubject;

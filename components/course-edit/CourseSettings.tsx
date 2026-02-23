@@ -199,7 +199,10 @@ export default function CourseSettings({
 								placeholder="0 for unlimited"
 								value={settings.maxStudents}
 								onChange={(e) =>
-									handleSettingChange("maxStudents", parseInt(e.target.value) || 0)
+									handleSettingChange(
+										"maxStudents",
+										parseInt(e.target.value) || 0,
+									)
 								}
 							/>
 						</div>
@@ -210,7 +213,10 @@ export default function CourseSettings({
 								type="number"
 								value={settings.refundPeriod}
 								onChange={(e) =>
-									handleSettingChange("refundPeriod", parseInt(e.target.value) || 30)
+									handleSettingChange(
+										"refundPeriod",
+										parseInt(e.target.value) || 30,
+									)
 								}
 							/>
 						</div>
@@ -457,8 +463,9 @@ export default function CourseSettings({
 										</AlertDialogTitle>
 										<AlertDialogDescription>
 											This action cannot be undone. This will permanently delete
-											the course &quot;{courseData.title}&quot; and remove all associated
-											data including student progress, comments, and analytics.
+											the course &quot;{courseData.title}&quot; and remove all
+											associated data including student progress, comments, and
+											analytics.
 										</AlertDialogDescription>
 									</AlertDialogHeader>
 									<AlertDialogFooter>

@@ -97,7 +97,10 @@ export const CommentsSection = ({ lesson }: CommentsSectionProps) => {
 					{t("lessonDetail.addComment") || "Add a comment"}
 				</h3>
 				<Textarea
-					placeholder={t("lessonDetail.commentPlaceholder") || "Share your thoughts about this lesson..."}
+					placeholder={
+						t("lessonDetail.commentPlaceholder") ||
+						"Share your thoughts about this lesson..."
+					}
 					className="min-h-[100px]"
 				/>
 				<div className="flex justify-end">

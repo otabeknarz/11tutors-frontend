@@ -112,7 +112,7 @@ export default function WhyChooseUs(props: WhyChooseUsProps) {
 						emoji: "📈",
 						color: "from-red-500 to-rose-500",
 					},
-			  ];
+				];
 
 	// University data with colors and initials
 	const universities = [

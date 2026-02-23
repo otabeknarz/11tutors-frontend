@@ -86,7 +86,7 @@ function CoursePartsManager({
 
 				const response = await api.post(
 					API_ENDPOINTS.COURSE_PARTS,
-					newPartData
+					newPartData,
 				);
 
 				const updatedPart: CoursePartData = {
@@ -125,7 +125,7 @@ function CoursePartsManager({
 
 	const updatePart = async (
 		partId: string,
-		updates: Partial<CoursePartData>
+		updates: Partial<CoursePartData>,
 	) => {
 		if (isEditMode && partId && !partId.startsWith("temp-")) {
 			const part = courseData.parts.find((p) => p.id === partId);
@@ -145,7 +145,7 @@ function CoursePartsManager({
 		setCourseData((prev) => ({
 			...prev,
 			parts: prev.parts.map((part) =>
-				part.id === partId ? { ...part, ...updates } : part
+				part.id === partId ? { ...part, ...updates } : part,
 			),
 		}));
 	};
@@ -202,7 +202,7 @@ function CoursePartsManager({
 	const updateLesson = async (
 		partId: string,
 		lessonId: string,
-		updates: Partial<LessonData>
+		updates: Partial<LessonData>,
 	) => {
 		if (isEditMode && !lessonId.startsWith("temp-")) {
 			const part = courseData.parts.find((p) => p.id === partId);
@@ -227,7 +227,7 @@ function CoursePartsManager({
 		if (!part) return;
 
 		const updatedLessons = part.lessons.map((lesson) =>
-			lesson.id === lessonId ? { ...lesson, ...updates } : lesson
+			lesson.id === lessonId ? { ...lesson, ...updates } : lesson,
 		);
 
 		updatePart(partId, { lessons: updatedLessons });
@@ -242,7 +242,12 @@ function CoursePartsManager({
 			const part = courseData.parts.find((p) => p.id === partId);
 			const lesson = part?.lessons.find((l) => l.id === lessonId);
 			if (!part || !lesson) {
-				console.error("Part or lesson not found", { partId, lessonId, part, lesson });
+				console.error("Part or lesson not found", {
+					partId,
+					lessonId,
+					part,
+					lesson,
+				});
 				return;
 			}
 
@@ -267,8 +272,8 @@ function CoursePartsManager({
 								id: response.data.id,
 								slug: response.data.slug,
 								uploadStatus: "completed" as const,
-						  }
-						: l
+							}
+						: l,
 				);
 
 				updatePart(partId, { lessons: updatedLessons });
@@ -287,7 +292,7 @@ function CoursePartsManager({
 			if (!part) return;
 
 			const updatedLessons = part.lessons.filter(
-				(lesson) => lesson.id !== lessonId
+				(lesson) => lesson.id !== lessonId,
 			);
 			updatePart(partId, { lessons: updatedLessons });
 		}
@@ -345,16 +350,16 @@ function CoursePartsManager({
 				total +
 				part.lessons.reduce(
 					(partTotal, lesson) => partTotal + lesson.duration,
-					0
+					0,
 				),
-			0
+			0,
 		);
 	};
 
 	const getTotalLessons = () => {
 		return courseData.parts.reduce(
 			(total, part) => total + part.lessons.length,
-			0
+			0,
 		);
 	};
 
@@ -364,7 +369,7 @@ function CoursePartsManager({
 				total +
 				part.lessons.filter((lesson) => lesson.uploadStatus === "completed")
 					.length,
-			0
+			0,
 		);
 	};
 
@@ -475,12 +480,12 @@ function CoursePartsManager({
 															{formatDuration(
 																part.lessons.reduce(
 																	(acc, lesson) => acc + lesson.duration,
-																	0
-																)
+																	0,
+																),
 															)}
 														</Badge>
 														{part.lessons.some(
-															(lesson) => lesson.uploadStatus === "error"
+															(lesson) => lesson.uploadStatus === "error",
 														) && (
 															<Badge variant="destructive" className="text-xs">
 																<AlertCircle className="h-3 w-3 mr-1" />
@@ -583,12 +588,12 @@ function CoursePartsManager({
 																	<VideoUploader
 																		lesson={lesson}
 																		onVideoUpload={(
-																			videoData: Partial<LessonData>
+																			videoData: Partial<LessonData>,
 																		) => {
 																			updateLesson(
 																				part.id!,
 																				lesson.id!,
-																				videoData
+																				videoData,
 																			);
 																		}}
 																	/>

@@ -47,7 +47,11 @@ interface CourseNavigationProps {
 	courseSlug: string;
 }
 
-export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNavigationProps) => {
+export const CourseNavigation = ({
+	course,
+	currentLesson,
+	courseSlug,
+}: CourseNavigationProps) => {
 	const { t } = useLanguage();
 
 	// Format duration helper
@@ -58,7 +62,7 @@ export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNa
 			const hours = parseInt(parts[0]);
 			const minutes = parseInt(parts[1]);
 			const seconds = parseInt(parts[2]);
-			
+
 			if (hours > 0) {
 				return `${hours}h ${minutes}m`;
 			} else {
@@ -71,11 +75,12 @@ export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNa
 	// Get all lessons for navigation
 	const allLessons = course.parts
 		.sort((a, b) => a.order - b.order)
-		.flatMap(part => part.lessons.sort((a, b) => a.order - b.order));
-	
-	const currentIndex = allLessons.findIndex(l => l.id === currentLesson.id);
+		.flatMap((part) => part.lessons.sort((a, b) => a.order - b.order));
+
+	const currentIndex = allLessons.findIndex((l) => l.id === currentLesson.id);
 	const previousLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
-	const nextLesson = currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
+	const nextLesson =
+		currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
 
 	return (
 		<Card className="h-fit">
@@ -99,21 +104,27 @@ export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNa
 						{course.parts
 							.sort((a, b) => a.order - b.order)
 							.map((part) => {
-								const sortedLessons = part.lessons.sort((a, b) => a.order - b.order);
-								
+								const sortedLessons = part.lessons.sort(
+									(a, b) => a.order - b.order,
+								);
+
 								return (
 									<div key={part.id} className="space-y-2">
 										{/* Part Title */}
 										<div className="font-medium text-sm text-muted-foreground px-2 py-1">
 											{part.title}
 										</div>
-										
+
 										{/* Lessons in this part */}
 										{sortedLessons.map((lessonItem) => {
-											const isCurrentLesson = lessonItem.id === currentLesson.id;
+											const isCurrentLesson =
+												lessonItem.id === currentLesson.id;
 											const isAccessible = lessonItem.is_free_preview || true; // TODO: Add enrollment check
-											const lessonSlugFromTitle = lessonItem.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-											
+											const lessonSlugFromTitle = lessonItem.title
+												.toLowerCase()
+												.replace(/[^a-z0-9]+/g, "-")
+												.replace(/(^-|-$)/g, "");
+
 											return (
 												<Link
 													key={lessonItem.id}
@@ -123,8 +134,8 @@ export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNa
 														isCurrentLesson
 															? "bg-primary/10 border border-primary/20 shadow-sm"
 															: isAccessible
-															? "hover:bg-muted/50 border border-transparent hover:border-border/50"
-															: "opacity-60 cursor-not-allowed"
+																? "hover:bg-muted/50 border border-transparent hover:border-border/50"
+																: "opacity-60 cursor-not-allowed",
 													)}
 													onClick={(e) => {
 														if (!isAccessible) {
@@ -150,15 +161,19 @@ export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNa
 																	</div>
 																)}
 															</div>
-															
+
 															{/* Lesson Info */}
 															<div className="flex-1 min-w-0">
 																<div className="flex items-center justify-between">
 																	<div className="min-w-0 flex-1">
-																		<p className={cn(
-																			"text-sm font-medium truncate",
-																			isCurrentLesson ? "text-primary" : "text-foreground"
-																		)}>
+																		<p
+																			className={cn(
+																				"text-sm font-medium truncate",
+																				isCurrentLesson
+																					? "text-primary"
+																					: "text-foreground",
+																			)}
+																		>
 																			{lessonItem.title}
 																		</p>
 																		<div className="flex items-center space-x-2 mt-1">
@@ -166,8 +181,12 @@ export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNa
 																				{formatDuration(lessonItem.duration)}
 																			</span>
 																			{lessonItem.is_free_preview && (
-																				<Badge variant="outline" className="text-xs px-1.5 py-0.5 h-auto bg-green-50 text-green-700 border-green-200">
-																					{t("lessonDetail.freePreview") || "Free"}
+																				<Badge
+																					variant="outline"
+																					className="text-xs px-1.5 py-0.5 h-auto bg-green-50 text-green-700 border-green-200"
+																				>
+																					{t("lessonDetail.freePreview") ||
+																						"Free"}
 																				</Badge>
 																			)}
 																		</div>
@@ -183,22 +202,32 @@ export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNa
 								);
 							})}
 					</div>
-					
+
 					{/* Lesson Navigation Buttons */}
 					<div className="mt-6 pt-6 border-t border-border">
 						<div className="flex justify-between gap-3">
 							{/* Previous Lesson */}
 							{previousLesson ? (
 								<Link
-									href={`/courses/${courseSlug}/${previousLesson.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+									href={`/courses/${courseSlug}/${previousLesson.title
+										.toLowerCase()
+										.replace(/[^a-z0-9]+/g, "-")
+										.replace(/(^-|-$)/g, "")}`}
 									className="flex-1 group"
 								>
-									<Button variant="outline" className="w-full justify-start p-3 h-auto group-hover:bg-muted/50">
+									<Button
+										variant="outline"
+										className="w-full justify-start p-3 h-auto group-hover:bg-muted/50"
+									>
 										<div className="flex items-center gap-2">
 											<ChevronLeft className="h-4 w-4" />
 											<div className="text-left">
-												<div className="text-xs text-muted-foreground">{t("lessonDetail.previous") || "Previous"}</div>
-												<div className="text-sm font-medium truncate max-w-[120px]">{previousLesson.title}</div>
+												<div className="text-xs text-muted-foreground">
+													{t("lessonDetail.previous") || "Previous"}
+												</div>
+												<div className="text-sm font-medium truncate max-w-[120px]">
+													{previousLesson.title}
+												</div>
 											</div>
 										</div>
 									</Button>
@@ -206,18 +235,28 @@ export const CourseNavigation = ({ course, currentLesson, courseSlug }: CourseNa
 							) : (
 								<div className="flex-1" />
 							)}
-							
+
 							{/* Next Lesson */}
 							{nextLesson ? (
 								<Link
-									href={`/courses/${courseSlug}/${nextLesson.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+									href={`/courses/${courseSlug}/${nextLesson.title
+										.toLowerCase()
+										.replace(/[^a-z0-9]+/g, "-")
+										.replace(/(^-|-$)/g, "")}`}
 									className="flex-1 group"
 								>
-									<Button variant="outline" className="w-full justify-end p-3 h-auto group-hover:bg-muted/50">
+									<Button
+										variant="outline"
+										className="w-full justify-end p-3 h-auto group-hover:bg-muted/50"
+									>
 										<div className="flex items-center gap-2">
 											<div className="text-right">
-												<div className="text-xs text-muted-foreground">{t("lessonDetail.next") || "Next"}</div>
-												<div className="text-sm font-medium truncate max-w-[120px]">{nextLesson.title}</div>
+												<div className="text-xs text-muted-foreground">
+													{t("lessonDetail.next") || "Next"}
+												</div>
+												<div className="text-sm font-medium truncate max-w-[120px]">
+													{nextLesson.title}
+												</div>
 											</div>
 											<ChevronRight className="h-4 w-4" />
 										</div>

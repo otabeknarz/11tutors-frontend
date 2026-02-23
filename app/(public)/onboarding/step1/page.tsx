@@ -52,7 +52,7 @@ export default function UniversityStep() {
 	const [university, setUniversity] = useState(
 		typeof onboardingData.university === "string"
 			? onboardingData.university
-			: onboardingData.university?.name || ""
+			: onboardingData.university?.name || "",
 	);
 	const [error, setError] = useState("");
 	const [universities, setUniversities] = useState<University[]>([]);
@@ -96,7 +96,7 @@ export default function UniversityStep() {
 
 		// Find the selected university object
 		const selectedUniversity = universities.find(
-			(uni) => uni.name === university
+			(uni) => uni.name === university,
 		);
 
 		if (!selectedUniversity) {
@@ -167,7 +167,7 @@ export default function UniversityStep() {
 										isLoading
 											? "Loading universities..."
 											: t("onboarding.university.placeholder") ||
-											  "Choose your university"
+												"Choose your university"
 									}
 								/>
 							</SelectTrigger>

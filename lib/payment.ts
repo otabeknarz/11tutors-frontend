@@ -9,7 +9,7 @@ import api from "./api";
 // Initialize Stripe with your publishable key
 // You should add this to your environment variables
 const stripePromise = loadStripe(
-	process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
+	process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "",
 );
 
 export interface CreateCheckoutSessionRequest {
@@ -26,14 +26,14 @@ export interface CreateCheckoutSessionResponse {
  * @returns Promise with checkout session ID
  */
 export const createCheckoutSession = async (
-	courseId: string
+	courseId: string,
 ): Promise<CreateCheckoutSessionResponse> => {
 	try {
 		const response = await api.post<CreateCheckoutSessionResponse>(
 			PAYMENT_ENDPOINTS.CREATE_CHECKOUT,
 			{
 				course_id: courseId,
-			}
+			},
 		);
 
 		return response.data;
@@ -48,7 +48,7 @@ export const createCheckoutSession = async (
  * @param checkoutSessionId - The checkout session ID from Stripe
  */
 export const redirectToCheckout = async (
-	checkoutSessionId: string
+	checkoutSessionId: string,
 ): Promise<void> => {
 	try {
 		const stripe = await stripePromise;
