@@ -73,7 +73,7 @@ export default function CoursesPage() {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [selectedCategory, setSelectedCategory] = useState("all");
 	const [enrollmentLoading, setEnrollmentLoading] = useState<string | null>(
-		null
+		null,
 	);
 	const [error, setError] = useState<string | null>(null);
 
@@ -92,17 +92,7 @@ export default function CoursesPage() {
 		const fetchCourses = async () => {
 			try {
 				const response = await api.get("/api/courses/courses/");
-				// Add random progress for enrolled courses for demo purposes
-				const coursesWithProgress = response.data.results.map(
-					(course: Course) => ({
-						...course,
-						progress: course.is_enrolled
-							? Math.floor(Math.random() * 100)
-							: undefined,
-						rating: parseFloat((3 + Math.random() * 2).toFixed(1)), // Random rating between 3-5
-					})
-				);
-				setCourses(coursesWithProgress);
+				setCourses(response.data.results);
 				setLoading(false);
 			} catch (error) {
 				console.error("Error fetching courses:", error);
@@ -161,8 +151,8 @@ export default function CoursesPage() {
 			new Set(
 				courses
 					.filter((course) => course.category && course.category.name)
-					.map((course) => course.category.name.toLowerCase())
-			)
+					.map((course) => course.category.name.toLowerCase()),
+			),
 		),
 	];
 
@@ -299,10 +289,12 @@ export default function CoursesPage() {
 										<CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
 											{course.title}
 										</CardTitle>
-										<div className="flex items-center gap-1 text-sm text-muted-foreground">
-											<Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-											{course.rating}
-										</div>
+										{course.rating && (
+											<div className="flex items-center gap-1 text-sm text-muted-foreground">
+												<Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+												{course.rating}
+											</div>
+										)}
 									</div>
 									<CardDescription className="line-clamp-2">
 										{course.description}
@@ -328,11 +320,6 @@ export default function CoursesPage() {
 												<Clock className="h-4 w-4" />
 												{course.parts?.length || 0}{" "}
 												{t("dashboard.courses.parts")}
-											</div>
-											<div className="flex items-center gap-1">
-												<Users className="h-4 w-4" />
-												{Math.floor(Math.random() * 100) + 10}{" "}
-												{t("dashboard.courses.students")}
 											</div>
 										</div>
 									</div>

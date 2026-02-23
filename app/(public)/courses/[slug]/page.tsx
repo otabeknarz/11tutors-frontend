@@ -156,7 +156,7 @@ export default function CourseDetailPage() {
 		return (
 			<div className="min-h-screen bg-background">
 				<Navbar />
-				<ErrorState error={error} onRetry={() => window.location.reload()} />
+				<ErrorState error={error} onRetry={() => router.refresh()} />
 				<Footer />
 			</div>
 		);

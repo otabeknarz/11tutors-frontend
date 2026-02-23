@@ -238,17 +238,39 @@ export default function AppNav() {
 								</div>
 							)}
 
-							<div className="flex-1">
-								<SheetClose asChild>
-									<button
-										onClick={handleLogout}
-										className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200 w-full cursor-pointer"
-									>
-										<LogOutIcon className="h-[18px] w-[18px]" />
-										<span>{t("nav.logout") || "Logout"}</span>
-									</button>
-								</SheetClose>
-							</div>
+							<nav className="flex-1 space-y-1">
+								{navItems.map((item) => {
+									const active = isItemActive(item.href);
+									return (
+										<SheetClose asChild key={item.href}>
+											<Link
+												href={item.href}
+												className={cn(
+													"flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+													active
+														? "bg-accent text-accent-foreground"
+														: "text-muted-foreground hover:text-foreground hover:bg-muted/60",
+												)}
+											>
+												{item.icon}
+												<span>{t(item.label) || item.label}</span>
+											</Link>
+										</SheetClose>
+									);
+								})}
+
+								<div className="pt-4 mt-4 border-t border-border/50">
+									<SheetClose asChild>
+										<button
+											onClick={handleLogout}
+											className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200 w-full cursor-pointer"
+										>
+											<LogOutIcon className="h-[18px] w-[18px]" />
+											<span>{t("nav.logout") || "Logout"}</span>
+										</button>
+									</SheetClose>
+								</div>
+							</nav>
 						</div>
 					</SheetContent>
 				</Sheet>

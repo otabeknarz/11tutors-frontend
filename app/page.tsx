@@ -64,7 +64,7 @@ export default function Home() {
 								variant="secondary"
 								className="mb-6 px-4 py-1.5 text-xs font-medium"
 							>
-								Trusted by 1000+ students
+								{t("landing.trustedBadge")}
 							</Badge>
 							<h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-[1.1]">
 								{t("landing.heroSection.title")}

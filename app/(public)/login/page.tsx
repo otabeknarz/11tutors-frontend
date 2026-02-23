@@ -97,13 +97,12 @@ export default function LoginPage() {
 						</span>
 					</div>
 					<h2 className="font-heading text-4xl font-bold tracking-tight leading-[1.15] mb-4">
-						Learn from the best,
+						{t("auth.loginHeroTitle")}
 						<br />
-						<span className="text-primary">become the best.</span>
+						<span className="text-primary">{t("auth.loginHeroHighlight")}</span>
 					</h2>
 					<p className="text-white/60 text-base leading-relaxed">
-						Join thousands of students learning from top university tutors.
-						Personalized courses, real progress.
+						{t("auth.loginHeroDescription")}
 					</p>
 				</div>
 			</div>

@@ -115,13 +115,14 @@ export default function RegisterPage() {
 						</span>
 					</div>
 					<h2 className="font-heading text-4xl font-bold tracking-tight leading-[1.15] mb-4">
-						Start your journey
+						{t("auth.registerHeroTitle")}
 						<br />
-						<span className="text-primary">today.</span>
+						<span className="text-primary">
+							{t("auth.registerHeroHighlight")}
+						</span>
 					</h2>
 					<p className="text-white/60 text-base leading-relaxed">
-						Create your account and get access to personalized courses from top
-						university tutors.
+						{t("auth.registerHeroDescription")}
 					</p>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Facebook, Linkedin, Send, MessageCircle } from "lucide-react";
@@ -40,16 +40,23 @@ interface ShareOptionsProps {
 export const ShareOptions = ({ lesson, course }: ShareOptionsProps) => {
 	const { t } = useLanguage();
 	const [copied, setCopied] = useState(false);
+	const [currentUrl, setCurrentUrl] = useState("");
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			setCurrentUrl(window.location.href);
+		}
+	}, []);
 
 	// Copy URL to clipboard
 	const copyToClipboard = () => {
-		navigator.clipboard.writeText(window.location.href);
+		navigator.clipboard.writeText(currentUrl);
 		setCopied(true);
 		setTimeout(() => setCopied(false), 2000);
 	};
 
 	const shareText = `Check out this lesson: "${lesson.title}" from the course "${course.title}"`;
-	const shareUrl = encodeURIComponent(window.location.href);
+	const shareUrl = encodeURIComponent(currentUrl);
 	const encodedText = encodeURIComponent(shareText);
 
 	return (
@@ -57,19 +64,14 @@ export const ShareOptions = ({ lesson, course }: ShareOptionsProps) => {
 			<h3 className="font-medium">
 				{t("lessonDetail.shareLesson") || "Share this lesson"}
 			</h3>
-			
+
 			{/* Copy Link */}
 			<div className="flex gap-2">
-				<Input
-					value={window.location.href}
-					readOnly
-					className="flex-1"
-				/>
+				<Input value={currentUrl} readOnly className="flex-1" />
 				<Button onClick={copyToClipboard} variant="outline">
-					{copied 
-						? t("lessonDetail.copied") || "Copied!" 
-						: t("lessonDetail.copy") || "Copy"
-					}
+					{copied
+						? t("lessonDetail.copied") || "Copied!"
+						: t("lessonDetail.copy") || "Copy"}
 				</Button>
 			</div>
 
@@ -87,14 +89,14 @@ export const ShareOptions = ({ lesson, course }: ShareOptionsProps) => {
 							window.open(
 								`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
 								"_blank",
-								"width=600,height=400"
+								"width=600,height=400",
 							);
 						}}
 					>
 						<Facebook className="h-4 w-4 mr-2" />
 						Facebook
 					</Button>
-					
+
 					<Button
 						variant="outline"
 						size="sm"
@@ -103,14 +105,14 @@ export const ShareOptions = ({ lesson, course }: ShareOptionsProps) => {
 							window.open(
 								`https://twitter.com/intent/tweet?text=${encodedText}&url=${shareUrl}`,
 								"_blank",
-								"width=600,height=400"
+								"width=600,height=400",
 							);
 						}}
 					>
 						<Send className="h-4 w-4 mr-2" />
 						Twitter
 					</Button>
-					
+
 					<Button
 						variant="outline"
 						size="sm"
@@ -119,14 +121,14 @@ export const ShareOptions = ({ lesson, course }: ShareOptionsProps) => {
 							window.open(
 								`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,
 								"_blank",
-								"width=600,height=400"
+								"width=600,height=400",
 							);
 						}}
 					>
 						<Linkedin className="h-4 w-4 mr-2" />
 						LinkedIn
 					</Button>
-					
+
 					<Button
 						variant="outline"
 						size="sm"
@@ -135,7 +137,7 @@ export const ShareOptions = ({ lesson, course }: ShareOptionsProps) => {
 							window.open(
 								`https://t.me/share/url?url=${shareUrl}&text=${encodedText}`,
 								"_blank",
-								"width=600,height=400"
+								"width=600,height=400",
 							);
 						}}
 					>

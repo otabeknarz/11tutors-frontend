@@ -93,7 +93,14 @@ export default function ProfilePage() {
 	if (authLoading) {
 		return (
 			<div className="min-h-screen flex items-center justify-center">
-				<div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+				<div className="flex flex-col items-center gap-4">
+					<div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center animate-pulse">
+						<span className="text-primary font-bold text-sm">11</span>
+					</div>
+					<div className="h-1 w-24 rounded-full bg-muted overflow-hidden">
+						<div className="h-full w-1/2 rounded-full bg-primary animate-[shimmer_1.5s_ease-in-out_infinite]" />
+					</div>
+				</div>
 			</div>
 		);
 	}

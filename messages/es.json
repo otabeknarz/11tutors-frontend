@@ -61,6 +61,11 @@
 		},
 		"welcome": "Bienvenido de vuelta",
 		"subtitle": "Continúa tu viaje de aprendizaje",
+		"pickUpWhereYouLeftOff": "Continúa donde lo dejaste",
+		"trendingInCommunity": "Tendencias en nuestra comunidad",
+		"avgProgress": "Progreso Prom.",
+		"popularCoursesEmpty": "Los cursos populares aparecerán aquí pronto.",
+		"tryAgain": "Intentar de nuevo",
 		"enrolledCourses": "Tus Cursos Inscritos",
 		"viewAll": "Ver Todo",
 		"popularCourses": "Cursos Populares",
@@ -79,6 +84,7 @@
 		}
 	},
 	"landing": {
+		"trustedBadge": "Más de 1000 estudiantes confían en nosotros",
 		"heroSection": {
 			"title": "Aprende de los mejores tutores universitarios",
 			"subtitle": "Obtén tutoría personalizada de estudiantes que recientemente aprobaron con excelencia los cursos que estás tomando",
@@ -304,6 +310,12 @@
 	},
 	"auth": {
 		"signIn": "Inicia sesión en tu cuenta",
+		"loginHeroTitle": "Aprende de los mejores,",
+		"loginHeroHighlight": "sé el mejor.",
+		"loginHeroDescription": "Únete a miles de estudiantes que aprenden de los mejores tutores universitarios. Cursos personalizados, progreso real.",
+		"registerHeroTitle": "Comienza tu camino",
+		"registerHeroHighlight": "hoy.",
+		"registerHeroDescription": "Crea tu cuenta y obtén acceso a cursos personalizados de los mejores tutores universitarios.",
 		"orRegister": "O",
 		"register": "Registrarse",
 		"email": "Correo electrónico",

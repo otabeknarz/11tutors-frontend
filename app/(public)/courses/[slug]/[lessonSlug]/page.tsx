@@ -95,19 +95,19 @@ export default function LessonPageRefactored() {
 
 				// Fetch lesson data
 				const lessonResponse = await api.get(
-					`${COURSE_ENDPOINTS.LESSONS}${lessonSlug}/`
+					`${COURSE_ENDPOINTS.LESSONS}${lessonSlug}/`,
 				);
 				setLesson(lessonResponse.data);
 
 				// Fetch course data
 				const courseResponse = await api.get(
-					`${COURSE_ENDPOINTS.COURSES}${slug}/`
+					`${COURSE_ENDPOINTS.COURSES}${slug}/`,
 				);
 				setCourse(courseResponse.data);
 			} catch (err) {
 				console.error("Error fetching data:", err);
 				setError(
-					t("lessonDetail.errorFetching") || "Error fetching lesson details"
+					t("lessonDetail.errorFetching") || "Error fetching lesson details",
 				);
 			} finally {
 				setLoading(false);
@@ -208,9 +208,17 @@ export default function LessonPageRefactored() {
 		return (
 			<div className="min-h-screen bg-background">
 				<Navbar />
-				<main className="container mx-auto px-4 py-8">
-					<div className="text-center">
-						<p>{t("lessonDetail.loading") || "Loading lesson..."}</p>
+				<main className="container mx-auto px-4 pt-32 pb-12">
+					<div className="flex flex-col items-center justify-center gap-4">
+						<div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center animate-pulse">
+							<span className="text-primary font-bold text-sm">11</span>
+						</div>
+						<div className="h-1 w-24 rounded-full bg-muted overflow-hidden">
+							<div className="h-full w-1/2 rounded-full bg-primary animate-[shimmer_1.5s_ease-in-out_infinite]" />
+						</div>
+						<p className="text-sm text-muted-foreground mt-2">
+							{t("lessonDetail.loading")}
+						</p>
 					</div>
 				</main>
 				<Footer />
@@ -223,13 +231,16 @@ export default function LessonPageRefactored() {
 		return (
 			<div className="min-h-screen bg-background">
 				<Navbar />
-				<main className="container mx-auto px-4 py-8">
-					<div className="text-center">
-						<h1 className="text-2xl font-bold mb-4">
-							{t("lessonDetail.error") || "Error"}
+				<main className="container mx-auto px-4 pt-32 pb-12">
+					<div className="max-w-md mx-auto text-center">
+						<div className="mx-auto w-14 h-14 rounded-xl bg-destructive/10 flex items-center justify-center mb-4">
+							<span className="text-destructive font-bold text-lg">!</span>
+						</div>
+						<h1 className="text-xl font-bold mb-2">
+							{t("lessonDetail.error")}
 						</h1>
-						<p className="text-muted-foreground mb-4">
-							{error || t("lessonDetail.notFound") || "Lesson not found"}
+						<p className="text-muted-foreground text-sm">
+							{error || t("lessonDetail.notFound")}
 						</p>
 					</div>
 				</main>

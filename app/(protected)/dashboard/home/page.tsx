@@ -299,6 +299,32 @@ export default function Home() {
 			}));
 
 			setEnrolledCourses(transformedEnrollments);
+
+			// Fetch popular/all courses (excluding already enrolled)
+			const enrolledIds = new Set(
+				transformedEnrollments.map((c: Course) => c.id),
+			);
+			const coursesResponse = await api.get("/api/courses/courses/");
+			const allCourses = coursesResponse.data.results || [];
+			const popular = allCourses
+				.filter((c: any) => !enrolledIds.has(c.id))
+				.slice(0, 6)
+				.map((c: any) => ({
+					id: c.id,
+					title: c.title,
+					description: c.description,
+					thumbnail: c.thumbnail,
+					slug: c.slug,
+					price: c.price,
+					is_free: Number(c.price) === 0,
+					tutor: c.tutors?.[0]
+						? {
+								name: `${c.tutors[0].first_name} ${c.tutors[0].last_name}`,
+								avatar: null,
+							}
+						: undefined,
+				}));
+			setPopularCourses(popular);
 		} catch (err) {
 			console.error("Error fetching courses:", err);
 			setError("Failed to load courses");
@@ -390,7 +416,9 @@ export default function Home() {
 									: 0}
 								%
 							</p>
-							<p className="text-xs text-muted-foreground">Avg. Progress</p>
+							<p className="text-xs text-muted-foreground">
+								{t("home.avgProgress")}
+							</p>
 						</div>
 					</CardContent>
 				</Card>
@@ -408,7 +436,7 @@ export default function Home() {
 							{t("home.enrolledCourses") || "My Courses"}
 						</h2>
 						<p className="text-sm text-muted-foreground mt-0.5">
-							Pick up where you left off
+							{t("home.pickUpWhereYouLeftOff")}
 						</p>
 					</div>
 					<Button
@@ -443,7 +471,7 @@ export default function Home() {
 								className="mt-3"
 								onClick={() => fetchCourses()}
 							>
-								Try again
+								{t("home.tryAgain")}
 							</Button>
 						</CardContent>
 					</Card>
@@ -494,7 +522,7 @@ export default function Home() {
 							{t("home.popularCourses") || "Popular Courses"}
 						</h2>
 						<p className="text-sm text-muted-foreground mt-0.5">
-							Trending in our community
+							{t("home.trendingInCommunity")}
 						</p>
 					</div>
 					<Button
@@ -526,7 +554,7 @@ export default function Home() {
 					<Card className="card-premium">
 						<CardContent className="py-12 text-center">
 							<p className="text-muted-foreground text-sm">
-								Popular courses will appear here soon.
+								{t("home.popularCoursesEmpty")}
 							</p>
 						</CardContent>
 					</Card>
