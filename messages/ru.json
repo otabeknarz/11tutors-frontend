@@ -873,5 +873,88 @@
 			"question5": "Есть ли гарантия возврата денег?",
 			"answer5": "Да, если вы не удовлетворены своей первой сессией, мы предлагаем полный возврат средств в течение 48 часов."
 		}
+	},
+	"tutor": {
+		"welcome": "Панель создателя",
+		"welcomeSubtitle": "С возвращением! Управляйте курсами и отслеживайте результаты.",
+		"tabs": {
+			"analytics": "Аналитика",
+			"courses": "Курсы",
+			"earnings": "Доходы",
+			"payments": "Платежи"
+		},
+		"analytics": {
+			"totalEarnings": "Общий доход",
+			"activeStudents": "Активные студенты",
+			"coursesCreated": "Созданные курсы",
+			"averageRating": "Средний рейтинг",
+			"monthlyEarnings": "Месячные доходы",
+			"coursePerformance": "Производительность курсов",
+			"weeklyHours": "Недельные часы преподавания",
+			"studentGrowth": "Рост студентов",
+			"noRecentEnrollments": "Нет недавних записей",
+			"newEnrollments": "новых записей",
+			"noNewStudents": "Нет новых студентов",
+			"thisWeek": "на этой неделе",
+			"totalRevenue": "Общий доход со всех курсов",
+			"acrossAllCourses": "По всем курсам",
+			"published": "опубликовано",
+			"inDraft": "в черновике",
+			"reviews": "отзывов",
+			"basedOnFeedback": "На основе отзывов студентов",
+			"noStatistics": "Статистика недоступна",
+			"failedToLoad": "Не удалось загрузить статистику",
+			"weeklyHoursComingSoon": "Отслеживание часов скоро появится",
+			"chartEarnings": "Доходы",
+			"chartStudents": "Студенты"
+		},
+		"courses": {
+			"title": "Управление курсами",
+			"description": "Управляйте курсами, отслеживайте производительность и анализируйте доходы",
+			"createCourse": "Создать курс",
+			"publishedCourses": "Опубликованные курсы",
+			"totalStudents": "Всего студентов",
+			"totalEarnings": "Общие доходы",
+			"thisMonth": "В этом месяце",
+			"inDraft": "в черновике",
+			"acrossAllCourses": "По всем курсам",
+			"allCourses": "Все курсы",
+			"published": "Опубликованные",
+			"drafts": "Черновики",
+			"students": "студентов",
+			"lessons": "уроков",
+			"viewCourse": "Посмотреть курс",
+			"editCourse": "Редактировать курс",
+			"deleteCourse": "Удалить курс",
+			"viewAnalytics": "Аналитика",
+			"manageCourse": "Управлять",
+			"noCourses": "Курсы не найдены",
+			"noCoursesDescription": "Создайте свой первый курс, чтобы начать обучать студентов",
+			"createFirstCourse": "Создайте свой первый курс",
+			"updated": "Обновлено",
+			"failedToLoad": "Не удалось загрузить курсы"
+		},
+		"earnings": {
+			"title": "Доходы и выплаты",
+			"comingSoon": "Скоро",
+			"comingSoonDescription": "Подробное отслеживание доходов, управление выплатами и финансовые отчёты скоро будут доступны.",
+			"payoutTracking": "Отслеживание выплат",
+			"payoutTrackingDescription": "Следите за доходами и выплатами",
+			"financialReports": "Финансовые отчёты",
+			"financialReportsDescription": "Подробная аналитика доходов",
+			"payoutMethods": "Способы выплат",
+			"payoutMethodsDescription": "Управление платёжными настройками"
+		},
+		"payments": {
+			"title": "История платежей",
+			"comingSoon": "Скоро",
+			"comingSoonDescription": "Подробная история платежей, отслеживание транзакций и финансовые отчёты скоро будут доступны.",
+			"transactionHistory": "История транзакций",
+			"transactionHistoryDescription": "Просмотр всех платёжных транзакций",
+			"paymentStatus": "Статус платежа",
+			"paymentStatusDescription": "Отслеживание статусов платежей",
+			"exportReports": "Экспорт отчётов",
+			"exportReportsDescription": "Скачать финансовые отчёты"
+		}
 	}
 }

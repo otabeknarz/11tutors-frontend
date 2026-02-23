@@ -861,5 +861,88 @@
 			"question5": "¿Hay garantía de devolución de dinero?",
 			"answer5": "Sí, si no estás satisfecho con tu primera sesión, ofrecemos un reembolso completo dentro de las 48 horas."
 		}
+	},
+	"tutor": {
+		"welcome": "Panel de Creador",
+		"welcomeSubtitle": "¡Bienvenido de vuelta! Gestiona tus cursos y rastrea tu rendimiento.",
+		"tabs": {
+			"analytics": "Analíticas",
+			"courses": "Cursos",
+			"earnings": "Ganancias",
+			"payments": "Pagos"
+		},
+		"analytics": {
+			"totalEarnings": "Ganancias Totales",
+			"activeStudents": "Estudiantes Activos",
+			"coursesCreated": "Cursos Creados",
+			"averageRating": "Calificación Promedio",
+			"monthlyEarnings": "Ganancias Mensuales",
+			"coursePerformance": "Rendimiento de Cursos",
+			"weeklyHours": "Horas de Enseñanza Semanales",
+			"studentGrowth": "Crecimiento de Estudiantes",
+			"noRecentEnrollments": "Sin inscripciones recientes",
+			"newEnrollments": "nuevas inscripciones",
+			"noNewStudents": "Sin nuevos estudiantes",
+			"thisWeek": "esta semana",
+			"totalRevenue": "Ingresos totales de todos los cursos",
+			"acrossAllCourses": "En todos los cursos",
+			"published": "publicados",
+			"inDraft": "en borrador",
+			"reviews": "reseñas",
+			"basedOnFeedback": "Basado en comentarios de estudiantes",
+			"noStatistics": "No hay estadísticas disponibles",
+			"failedToLoad": "Error al cargar estadísticas",
+			"weeklyHoursComingSoon": "Seguimiento de horas próximamente",
+			"chartEarnings": "Ganancias",
+			"chartStudents": "Estudiantes"
+		},
+		"courses": {
+			"title": "Gestión de Cursos",
+			"description": "Gestiona tus cursos, rastrea rendimiento y analiza ganancias",
+			"createCourse": "Crear Curso",
+			"publishedCourses": "Cursos Publicados",
+			"totalStudents": "Total de Estudiantes",
+			"totalEarnings": "Ganancias Totales",
+			"thisMonth": "Este mes",
+			"inDraft": "en borrador",
+			"acrossAllCourses": "En todos los cursos",
+			"allCourses": "Todos los Cursos",
+			"published": "Publicados",
+			"drafts": "Borradores",
+			"students": "estudiantes",
+			"lessons": "lecciones",
+			"viewCourse": "Ver Curso",
+			"editCourse": "Editar Curso",
+			"deleteCourse": "Eliminar Curso",
+			"viewAnalytics": "Analíticas",
+			"manageCourse": "Gestionar",
+			"noCourses": "No se encontraron cursos",
+			"noCoursesDescription": "Crea tu primer curso para comenzar a enseñar estudiantes",
+			"createFirstCourse": "Crea Tu Primer Curso",
+			"updated": "Actualizado",
+			"failedToLoad": "Error al cargar cursos"
+		},
+		"earnings": {
+			"title": "Ganancias y Pagos",
+			"comingSoon": "Próximamente",
+			"comingSoonDescription": "El seguimiento detallado de ganancias, gestión de pagos e informes financieros estarán disponibles pronto.",
+			"payoutTracking": "Seguimiento de Pagos",
+			"payoutTrackingDescription": "Monitorea tus ganancias y pagos",
+			"financialReports": "Informes Financieros",
+			"financialReportsDescription": "Analíticas detalladas de ganancias",
+			"payoutMethods": "Métodos de Pago",
+			"payoutMethodsDescription": "Gestiona preferencias de pago"
+		},
+		"payments": {
+			"title": "Historial de Pagos",
+			"comingSoon": "Próximamente",
+			"comingSoonDescription": "El historial detallado de pagos, seguimiento de transacciones e informes financieros estarán disponibles pronto.",
+			"transactionHistory": "Historial de Transacciones",
+			"transactionHistoryDescription": "Ver todas las transacciones de pago",
+			"paymentStatus": "Estado de Pago",
+			"paymentStatusDescription": "Rastrear estados de pagos",
+			"exportReports": "Exportar Informes",
+			"exportReportsDescription": "Descargar informes financieros"
+		}
 	}
 }

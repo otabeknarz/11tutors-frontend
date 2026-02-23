@@ -2,12 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
 	BarChart,
 	Bar,
@@ -47,7 +42,14 @@ interface StatCardProps {
 	description?: string;
 }
 
-function StatCard({ title, value, change, changeType, icon, description }: StatCardProps) {
+function StatCard({
+	title,
+	value,
+	change,
+	changeType,
+	icon,
+	description,
+}: StatCardProps) {
 	const changeColor = {
 		positive: "text-green-600 dark:text-green-400",
 		negative: "text-red-600 dark:text-red-400",
@@ -91,8 +93,8 @@ export default function AnalyticsOverview() {
 			const data = await tutorApi.getQuickStatistics();
 			setStatistics(data);
 		} catch (error) {
-			console.error('Failed to load statistics:', error);
-			toast.error('Failed to load statistics');
+			console.error("Failed to load statistics:", error);
+			toast.error(t("tutor.analytics.failedToLoad"));
 		} finally {
 			setLoading(false);
 		}
@@ -133,7 +135,9 @@ export default function AnalyticsOverview() {
 	if (!statistics) {
 		return (
 			<div className="flex flex-col items-center justify-center py-12">
-				<p className="text-muted-foreground">No statistics available</p>
+				<p className="text-muted-foreground">
+					{t("tutor.analytics.noStatistics")}
+				</p>
 			</div>
 		);
 	}
@@ -148,36 +152,50 @@ export default function AnalyticsOverview() {
 				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
 			>
 				<StatCard
-					title={t("tutor.analytics.totalEarnings") || "Total Earnings"}
+					title={t("tutor.analytics.totalEarnings")}
 					value={`$${statistics.total_earnings.toLocaleString()}`}
-					change={statistics.recent_enrollments > 0 ? `+${statistics.recent_enrollments} new enrollments` : "No recent enrollments"}
-					changeType={statistics.recent_enrollments > 0 ? "positive" : "neutral"}
+					change={
+						statistics.recent_enrollments > 0
+							? `+${statistics.recent_enrollments} ${t("tutor.analytics.newEnrollments")}`
+							: t("tutor.analytics.noRecentEnrollments")
+					}
+					changeType={
+						statistics.recent_enrollments > 0 ? "positive" : "neutral"
+					}
 					icon={<DollarSign className="h-4 w-4" />}
-					description="Total revenue from all courses"
+					description={t("tutor.analytics.totalRevenue")}
 				/>
 				<StatCard
-					title={t("tutor.analytics.activeStudents") || "Active Students"}
+					title={t("tutor.analytics.activeStudents")}
 					value={statistics.active_students.toString()}
-					change={statistics.recent_enrollments > 0 ? `+${statistics.recent_enrollments} this week` : "No new students"}
-					changeType={statistics.recent_enrollments > 0 ? "positive" : "neutral"}
+					change={
+						statistics.recent_enrollments > 0
+							? `+${statistics.recent_enrollments} ${t("tutor.analytics.thisWeek")}`
+							: t("tutor.analytics.noNewStudents")
+					}
+					changeType={
+						statistics.recent_enrollments > 0 ? "positive" : "neutral"
+					}
 					icon={<Users className="h-4 w-4" />}
-					description="Across all courses"
+					description={t("tutor.analytics.acrossAllCourses")}
 				/>
 				<StatCard
-					title={t("tutor.analytics.coursesCreated") || "Courses Created"}
-					value={(statistics.published_courses + statistics.draft_courses).toString()}
-					change={`${statistics.published_courses} published`}
+					title={t("tutor.analytics.coursesCreated")}
+					value={(
+						statistics.published_courses + statistics.draft_courses
+					).toString()}
+					change={`${statistics.published_courses} ${t("tutor.analytics.published")}`}
 					changeType="positive"
 					icon={<BookOpen className="h-4 w-4" />}
-					description={`${statistics.draft_courses} in draft`}
+					description={`${statistics.draft_courses} ${t("tutor.analytics.inDraft")}`}
 				/>
 				<StatCard
-					title={t("tutor.analytics.averageRating") || "Average Rating"}
+					title={t("tutor.analytics.averageRating")}
 					value={statistics.average_rating.toFixed(1)}
-					change={`${statistics.total_reviews} reviews`}
+					change={`${statistics.total_reviews} ${t("tutor.analytics.reviews")}`}
 					changeType="positive"
 					icon={<Star className="h-4 w-4" />}
-					description="Based on student feedback"
+					description={t("tutor.analytics.basedOnFeedback")}
 				/>
 			</motion.div>
 
@@ -193,7 +211,7 @@ export default function AnalyticsOverview() {
 						<CardHeader>
 							<CardTitle className="flex items-center gap-2">
 								<TrendingUp className="h-5 w-5" />
-								{t("tutor.analytics.monthlyEarnings") || "Monthly Earnings"}
+								{t("tutor.analytics.monthlyEarnings")}
 							</CardTitle>
 						</CardHeader>
 						<CardContent>
@@ -205,10 +223,16 @@ export default function AnalyticsOverview() {
 									<Tooltip
 										formatter={(value, name) => [
 											name === "earnings" ? `$${value}` : value,
-											name === "earnings" ? "Earnings" : "Students",
+											name === "earnings"
+												? t("tutor.analytics.chartEarnings")
+												: t("tutor.analytics.chartStudents"),
 										]}
 									/>
-									<Bar dataKey="earnings" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+									<Bar
+										dataKey="earnings"
+										fill="#3b82f6"
+										radius={[4, 4, 0, 0]}
+									/>
 								</BarChart>
 							</ResponsiveContainer>
 						</CardContent>
@@ -225,18 +249,27 @@ export default function AnalyticsOverview() {
 						<CardHeader>
 							<CardTitle className="flex items-center gap-2">
 								<Award className="h-5 w-5" />
-								{t("tutor.analytics.coursePerformance") || "Course Performance"}
+								{t("tutor.analytics.coursePerformance")}
 							</CardTitle>
 						</CardHeader>
 						<CardContent>
 							<ResponsiveContainer width="100%" height={300}>
 								<PieChart>
 									<Pie
-										data={statistics.course_performance.map((course, index) => ({
-											...course,
-											name: course.title,
-											color: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'][index % 6]
-										}))}
+										data={statistics.course_performance.map(
+											(course, index) => ({
+												...course,
+												name: course.title,
+												color: [
+													"#3b82f6",
+													"#10b981",
+													"#f59e0b",
+													"#ef4444",
+													"#8b5cf6",
+													"#ec4899",
+												][index % 6],
+											}),
+										)}
 										cx="50%"
 										cy="50%"
 										outerRadius={80}
@@ -244,7 +277,19 @@ export default function AnalyticsOverview() {
 										label={({ name, students }) => `${name}: ${students}`}
 									>
 										{statistics.course_performance.map((entry, index) => (
-											<Cell key={`cell-${index}`} fill={['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'][index % 6]} />
+											<Cell
+												key={`cell-${index}`}
+												fill={
+													[
+														"#3b82f6",
+														"#10b981",
+														"#f59e0b",
+														"#ef4444",
+														"#8b5cf6",
+														"#ec4899",
+													][index % 6]
+												}
+											/>
 										))}
 									</Pie>
 									<Tooltip />
@@ -264,13 +309,15 @@ export default function AnalyticsOverview() {
 						<CardHeader>
 							<CardTitle className="flex items-center gap-2">
 								<Clock className="h-5 w-5" />
-								{t("tutor.analytics.weeklyHours") || "Weekly Teaching Hours"}
+								{t("tutor.analytics.weeklyHours")}
 							</CardTitle>
 						</CardHeader>
 						<CardContent>
 							<div className="flex flex-col items-center justify-center h-[300px] text-center">
 								<Clock className="h-12 w-12 text-muted-foreground mb-4" />
-								<p className="text-muted-foreground">Weekly hours tracking coming soon</p>
+								<p className="text-muted-foreground">
+									{t("tutor.analytics.weeklyHoursComingSoon")}
+								</p>
 							</div>
 						</CardContent>
 					</Card>
@@ -286,7 +333,7 @@ export default function AnalyticsOverview() {
 						<CardHeader>
 							<CardTitle className="flex items-center gap-2">
 								<Target className="h-5 w-5" />
-								{t("tutor.analytics.studentGrowth") || "Student Growth"}
+								{t("tutor.analytics.studentGrowth")}
 							</CardTitle>
 						</CardHeader>
 						<CardContent>
@@ -295,7 +342,12 @@ export default function AnalyticsOverview() {
 									<CartesianGrid strokeDasharray="3 3" />
 									<XAxis dataKey="month" />
 									<YAxis />
-									<Tooltip formatter={(value) => [`${value}`, "Students"]} />
+									<Tooltip
+										formatter={(value) => [
+											`${value}`,
+											t("tutor.analytics.chartStudents"),
+										]}
+									/>
 									<Line
 										type="monotone"
 										dataKey="students"

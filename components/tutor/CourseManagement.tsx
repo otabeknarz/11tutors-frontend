@@ -61,7 +61,9 @@ function CourseCard({ course }: CourseCardProps) {
 				)}
 				<div className="absolute top-2 left-2">
 					<Badge className={getStatusColor(course.is_published)}>
-						{course.is_published ? "Published" : "Draft"}
+						{course.is_published
+							? t("tutor.courses.published")
+							: t("tutor.courses.drafts")}
 					</Badge>
 				</div>
 				<div className="absolute top-2 right-2">
@@ -137,11 +139,13 @@ function CourseCard({ course }: CourseCardProps) {
 							</span>
 						</div>
 						<div className="text-xs text-muted-foreground">
-							{t("tutor.courses.totalEarnings") || "Total Earnings"}
+							{t("tutor.courses.totalEarnings")}
 						</div>
 					</div>
 					<div className="text-right space-y-1">
-						<div className="text-xs text-muted-foreground">Updated</div>
+						<div className="text-xs text-muted-foreground">
+							{t("tutor.courses.updated")}
+						</div>
 						<div className="text-xs">
 							{new Date(course.updated_at).toLocaleDateString()}
 						</div>
@@ -183,7 +187,7 @@ export default function CourseManagement() {
 			setCourses(data);
 		} catch (error) {
 			console.error("Failed to load courses:", error);
-			toast.error("Failed to load courses");
+			toast.error(t("tutor.courses.failedToLoad"));
 		} finally {
 			setLoading(false);
 		}

@@ -2,17 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import {
-	Card,
-	CardContent,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-	CreditCard,
-	CheckCircle,
-	Clock,
-	Download,
-} from "lucide-react";
+import { CreditCard, CheckCircle, Clock, Download } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 export default function PaymentHistory() {
@@ -36,28 +28,40 @@ export default function PaymentHistory() {
 								{t("tutor.payments.title") || "Payment History"}
 							</h2>
 							<Badge variant="secondary" className="mb-4">
-								Coming Soon
+								{t("tutor.payments.comingSoon")}
 							</Badge>
 							<p className="text-muted-foreground text-lg max-w-md mx-auto">
-								Detailed payment history, transaction tracking, and financial reports will be available soon.
+								{t("tutor.payments.comingSoonDescription")}
 							</p>
 						</div>
 
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-xl mx-auto">
 							<div className="p-4 border rounded-lg">
 								<CheckCircle className="h-8 w-8 mx-auto mb-2 text-primary" />
-								<h3 className="font-semibold mb-1">Transaction History</h3>
-								<p className="text-sm text-muted-foreground">View all payment transactions</p>
+								<h3 className="font-semibold mb-1">
+									{t("tutor.payments.transactionHistory")}
+								</h3>
+								<p className="text-sm text-muted-foreground">
+									{t("tutor.payments.transactionHistoryDescription")}
+								</p>
 							</div>
 							<div className="p-4 border rounded-lg">
 								<Clock className="h-8 w-8 mx-auto mb-2 text-primary" />
-								<h3 className="font-semibold mb-1">Payment Status</h3>
-								<p className="text-sm text-muted-foreground">Track payment statuses</p>
+								<h3 className="font-semibold mb-1">
+									{t("tutor.payments.paymentStatus")}
+								</h3>
+								<p className="text-sm text-muted-foreground">
+									{t("tutor.payments.paymentStatusDescription")}
+								</p>
 							</div>
 							<div className="p-4 border rounded-lg">
 								<Download className="h-8 w-8 mx-auto mb-2 text-primary" />
-								<h3 className="font-semibold mb-1">Export Reports</h3>
-								<p className="text-sm text-muted-foreground">Download financial reports</p>
+								<h3 className="font-semibold mb-1">
+									{t("tutor.payments.exportReports")}
+								</h3>
+								<p className="text-sm text-muted-foreground">
+									{t("tutor.payments.exportReportsDescription")}
+								</p>
 							</div>
 						</div>
 					</CardContent>

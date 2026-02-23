@@ -28,34 +28,39 @@ export default function EarningsTracker() {
 								{t("tutor.earnings.title") || "Earnings & Payouts"}
 							</h2>
 							<Badge variant="secondary" className="mb-4">
-								Coming Soon
+								{t("tutor.earnings.comingSoon")}
 							</Badge>
 							<p className="text-muted-foreground text-lg max-w-md mx-auto">
-								Detailed earnings tracking, payout management, and financial
-								reports will be available soon.
+								{t("tutor.earnings.comingSoonDescription")}
 							</p>
 						</div>
 
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-xl mx-auto">
 							<div className="p-4 border rounded-lg">
 								<Wallet className="h-8 w-8 mx-auto mb-2 text-primary" />
-								<h3 className="font-semibold mb-1">Payout Tracking</h3>
+								<h3 className="font-semibold mb-1">
+									{t("tutor.earnings.payoutTracking")}
+								</h3>
 								<p className="text-sm text-muted-foreground">
-									Monitor your earnings and payouts
+									{t("tutor.earnings.payoutTrackingDescription")}
 								</p>
 							</div>
 							<div className="p-4 border rounded-lg">
 								<TrendingUp className="h-8 w-8 mx-auto mb-2 text-primary" />
-								<h3 className="font-semibold mb-1">Financial Reports</h3>
+								<h3 className="font-semibold mb-1">
+									{t("tutor.earnings.financialReports")}
+								</h3>
 								<p className="text-sm text-muted-foreground">
-									Detailed earnings analytics
+									{t("tutor.earnings.financialReportsDescription")}
 								</p>
 							</div>
 							<div className="p-4 border rounded-lg">
 								<CreditCard className="h-8 w-8 mx-auto mb-2 text-primary" />
-								<h3 className="font-semibold mb-1">Payout Methods</h3>
+								<h3 className="font-semibold mb-1">
+									{t("tutor.earnings.payoutMethods")}
+								</h3>
 								<p className="text-sm text-muted-foreground">
-									Manage payment preferences
+									{t("tutor.earnings.payoutMethodsDescription")}
 								</p>
 							</div>
 						</div>
