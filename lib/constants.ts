@@ -22,14 +22,46 @@ export const AUTH_ENDPOINTS = {
 	USER_INFO: `${API_BASE_URL}/api/auth/users/me/`,
 };
 
-// Course endpoints
+// Course endpoints (detailed, used by creator API services)
+export const API_ENDPOINTS = {
+	// Categories
+	CATEGORIES: `${API_BASE_URL}/api/courses/categories/`,
+	CATEGORY_DETAIL: (slug: string) =>
+		`${API_BASE_URL}/api/courses/categories/${slug}/`,
+
+	// Courses (use slug for detail endpoints)
+	COURSES: `${API_BASE_URL}/api/courses/courses/`,
+	COURSE_DETAIL: (slug: string) =>
+		`${API_BASE_URL}/api/courses/courses/${slug}/`,
+
+	// Course Parts (use slug for detail endpoints)
+	COURSE_PARTS: `${API_BASE_URL}/api/courses/course-parts/`,
+	COURSE_PART_DETAIL: (slug: string) =>
+		`${API_BASE_URL}/api/courses/course-parts/${slug}/`,
+
+	// Lessons (use slug for detail endpoints)
+	LESSONS: `${API_BASE_URL}/api/courses/lessons/`,
+	LESSON_DETAIL: (slug: string) =>
+		`${API_BASE_URL}/api/courses/lessons/${slug}/`,
+
+	// Comments
+	COMMENTS: `${API_BASE_URL}/api/courses/comments/`,
+	COMMENT_DETAIL: (id: string) => `${API_BASE_URL}/api/courses/comments/${id}/`,
+
+	// Enrollments
+	ENROLLMENTS: `${API_BASE_URL}/api/courses/enrollments/`,
+	ENROLLMENT_DETAIL: (id: string) =>
+		`${API_BASE_URL}/api/courses/enrollments/${id}/`,
+};
+
+// Legacy course endpoints (for backward compatibility)
 export const COURSE_ENDPOINTS = {
 	// Get all courses with pagination
-	COURSES: `${API_BASE_URL}/api/courses/courses/`,
-	CATEGORIES: `${API_BASE_URL}/api/courses/categories/`,
-	LESSONS: `${API_BASE_URL}/api/courses/lessons/`,
+	COURSES: API_ENDPOINTS.COURSES,
+	CATEGORIES: API_ENDPOINTS.CATEGORIES,
+	LESSONS: API_ENDPOINTS.LESSONS,
 	// Get a specific course by ID
-	COURSE_DETAIL: (id: string) => `${API_BASE_URL}/api/courses/courses/${id}/`,
+	COURSE_DETAIL: API_ENDPOINTS.COURSE_DETAIL,
 };
 
 // Payment endpoints

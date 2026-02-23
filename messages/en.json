@@ -1,843 +1,844 @@
 {
-  "profile": {
-    "title": "Profile",
-    "subtitle": "Manage your account information and preferences",
-    "personalInfo": "Personal Information",
-    "updateInfo": "Update your personal information",
-    "firstName": "First Name",
-    "firstNamePlaceholder": "Enter your first name",
-    "lastName": "Last Name",
-    "lastNamePlaceholder": "Enter your last name",
-    "emailPlaceholder": "Enter your email address",
-    "phonePlaceholder": "Enter your phone number",
-    "usernamePlaceholder": "Enter your username",
-    "preferences": "Preferences",
-    "preferencesDescription": "Customize your account settings and preferences",
-    "darkMode": "Dark Mode",
-    "darkModeDescription": "Toggle between light and dark theme",
-    "language": "Language",
-    "languageDescription": "Choose your preferred language",
-    "phone": "Phone Number",
-    "email": "Email Address",
-    "username": "Username",
-    "saveChanges": "Save Changes",
-    "tabs": {
-      "profile": "Profile",
-      "preferences": "Preferences"
-    }
-  },
-  "app": {
-    "name": "11Tutors",
-    "tagline": "Learn university courses from the best tutors"
-  },
-  "common": {
-    "loading": "Loading..."
-  },
-  "nav": {
-    "home": "Home",
-    "features": "Features",
-    "about": "About",
-    "courses": "Courses",
-    "tutors": "Tutors",
-    "how_it_works": "How It Works",
-    "for_tutors": "For Tutors",
-    "login": "Login",
-    "register": "Register",
-    "dashboard": "Dashboard",
-    "my_courses": "My Courses",
-    "logout": "Logout",
-    "new": "New",
-    "profile": "Profile",
-    "menu": "Menu"
-  },
-  "home": {
-    "hero": {
-      "title": "Learn with the Best Tutors",
-      "subtitle": "Get personalized tutoring from top university students and graduates",
-      "cta": "Get Started",
-      "browseCourses": "Browse Courses",
-      "becomeTutor": "Become a Tutor"
-    },
-    "welcome": "Welcome back",
-    "subtitle": "Continue your learning journey",
-    "enrolledCourses": "Your Enrolled Courses",
-    "viewAll": "View All",
-    "popularCourses": "Popular Courses",
-    "completed": "Completed",
-    "continueButton": "Continue",
-    "details": "Details",
-    "noCoursesYet": "No courses enrolled yet",
-    "exploreAndEnroll": "Explore our course catalog and enroll in your first course",
-    "exploreCourses": "Explore Courses",
-    "features": {
-      "title": "Why Choose 11Tutors?"
-    },
-    "about": {
-      "title": "About Us",
-      "description": "11Tutors connects students with top-rated tutors for personalized learning experiences."
-    }
-  },
-  "landing": {
-    "heroSection": {
-      "title": "Learn from Top University Tutors",
-      "subtitle": "Get personalized tutoring from students who recently aced the courses you're taking",
-      "browseCourses": "Browse Courses",
-      "becomeTutor": "Become a Tutor",
-      "stats": {
-        "courses": "Courses",
-        "tutors": "Tutors",
-        "universities": "Universities",
-        "students": "Students"
-      }
-    },
-    "scrollIndicator": {
-      "scrollToExplore": "Scroll to explore"
-    },
-    "sections": {
-      "howItWorks": {
-        "id": "how-it-works"
-      },
-      "courses": {
-        "id": "courses"
-      },
-      "whyChooseUs": {
-        "id": "why-choose-us"
-      },
-      "forTutors": {
-        "id": "for-tutors"
-      },
-      "testimonials": {
-        "id": "testimonials"
-      },
-      "joinCommunity": {
-        "id": "join"
-      }
-    },
-    "howItWorks": {
-      "title": "How It Works",
-      "description": "Our platform connects university students with peers who want to learn from them.",
-      "startLearning": "Start Learning Now",
-      "step1": {
-        "title": "Browse Courses",
-        "description": "Pick from a growing catalog of university-level courses."
-      },
-      "step2": {
-        "title": "Learn from Tutors",
-        "description": "University students teaching what they know best."
-      },
-      "step3": {
-        "title": "Flexible & Affordable",
-        "description": "Learn anytime, anywhere at student-friendly prices."
-      },
-      "step4": {
-        "title": "Earn As a Tutor",
-        "description": "University students earn by teaching what they excel at."
-      }
-    },
-    "featuredCourses": {
-      "title": "Featured Courses",
-      "subtitle": "Explore our most popular courses across different subjects",
-      "viewAll": "View All Courses",
-      "category": {
-        "computerScience": "Computer Science",
-        "mathematics": "Mathematics",
-        "business": "Business"
-      },
-      "courseCard": {
-        "courseBy": "Course by",
-        "price": "Price:",
-        "viewCourse": "View Course"
-      }
-    },
-    "whyChooseUs": {
-      "title": "Why Choose 11Tutors?",
-      "subtitle": "The platform built by students, for students",
-      "benefit1": {
-        "title": "Peer-to-peer learning advantage",
-        "description": "Learn from students who recently mastered the material and understand your challenges."
-      },
-      "benefit2": {
-        "title": "Affordable pricing",
-        "description": "Quality education at student-friendly prices, significantly lower than traditional tutoring."
-      },
-      "benefit3": {
-        "title": "Fast, relevant & practical",
-        "description": "Courses focused on practical knowledge and current academic requirements."
-      },
-      "benefit4": {
-        "title": "Tutors from top universities",
-        "description": "Learn from high-achieving students from prestigious universities worldwide."
-      },
-      "benefit5": {
-        "title": "Flexible scheduling",
-        "description": "Book sessions that fit your schedule, with tutors available across different time zones."
-      },
-      "benefit6": {
-        "title": "Proven results",
-        "description": "Our students consistently improve their grades and understanding of complex subjects."
-      },
-      "trustedBy": "Our Tutors Come From Top Universities",
-      "verifiedByStudents": "Verified by students",
-      "viewAllUniversities": "View all partner universities",
-      "stat1": {
-        "value": "95%",
-        "label": "Student satisfaction"
-      },
-      "stat2": {
-        "value": "4.8/5",
-        "label": "Average tutor rating"
-      },
-      "stat3": {
-        "value": "50,000+",
-        "label": "Students taught"
-      },
-      "stat4": {
-        "value": "100%",
-        "label": "Money-back guarantee"
-      }
-    },
-    "forTutors": {
-      "title": "For Tutors",
-      "subtitle": "Share your knowledge and earn while studying",
-      "benefit1": {
-        "title": "Earn Money",
-        "description": "Make money sharing your knowledge and expertise with other students."
-      },
-      "benefit2": {
-        "title": "Build Your CV",
-        "description": "Add teaching experience to your resume and develop valuable skills."
-      },
-      "benefit3": {
-        "title": "Flexible Hours",
-        "description": "Create and teach courses on your own schedule, from anywhere."
-      },
-      "benefit4": {
-        "title": "Deepen Knowledge",
-        "description": "Teaching others is the best way to master a subject and solidify your understanding."
-      },
-      "benefit5": {
-        "title": "Global Reach",
-        "description": "Connect with students worldwide and build an international teaching portfolio."
-      },
-      "benefit6": {
-        "title": "Career Growth",
-        "description": "Develop communication and leadership skills that will benefit your future career."
-      },
-      "joinCta": "Apply as a Tutor",
-      "featuredTutors": "Top Tutor"
-    },
-    "testimonials": {
-      "title": "Success Stories",
-      "subtitle": "Hear from students who transformed their academic journey with 11tutors",
-      "videoSection": "Video Testimonials",
-      "prevTestimonial": "Previous testimonial",
-      "nextTestimonial": "Next testimonial",
-      "viewCount": "views"
-    },
-    "joinCommunity": {
-      "title": "Join Our Community",
-      "subtitle": "Stay updated with new courses, learning resources, and special offers",
-      "newsletter": {
-        "title": "Get updates on new courses",
-        "placeholder": "Enter your email",
-        "button": "Subscribe",
-        "success": "Thank you for subscribing! You'll receive updates on new courses soon.",
-        "disclaimer": "By subscribing, you agree to our Privacy Policy and consent to receive updates from 11tutors."
-      },
-      "social": {
-        "title": "Connect with us",
-        "community": "Join over 50,000 students in our online community"
-      }
-    },
-    "ctaBanner": {
-      "title": "Start learning with 11tutors today",
-      "subtitle": "Join thousands of students learning from university tutors around the world",
-      "discount": "Get 20% off your first month with code",
-      "discountCode": "WELCOME20",
-      "browseCourses": "Browse Courses",
-      "becomeTutor": "Join as Tutor",
-      "limitedOffer": "Limited Time Offer",
-      "stats": {
-        "title": "Platform Stats",
-        "courses": "Courses",
-        "students": "Students",
-        "tutors": "Tutors"
-      }
-    },
-    "footer": {
-      "description": "A platform connecting university students with peers who want to learn from them.",
-      "company": "Company",
-      "resources": "Resources",
-      "legal": "Legal",
-      "categories": "Categories",
-      "allRightsReserved": "All rights reserved.",
-      "madeWithStudents": "Made with students for students",
-      "links": {
-        "aboutUs": "About Us",
-        "careers": "Careers",
-        "blog": "Blog",
-        "press": "Press",
-        "helpCenter": "Help Center",
-        "contactUs": "Contact Us",
-        "tutors": "Tutors",
-        "becomeTutor": "Become a Tutor",
-        "termsOfService": "Terms of Service",
-        "privacyPolicy": "Privacy Policy",
-        "cookiePolicy": "Cookie Policy",
-        "accessibility": "Accessibility",
-        "computerScience": "Computer Science",
-        "mathematics": "Mathematics",
-        "business": "Business",
-        "science": "Science",
-        "languages": "Languages",
-        "artsHumanities": "Arts & Humanities"
-      },
-      "social": {
-        "instagram": "Instagram",
-        "twitter": "Twitter",
-        "youtube": "YouTube",
-        "linkedin": "LinkedIn",
-        "facebook": "Facebook"
-      }
-    }
-  },
-  "auth": {
-    "signIn": "Sign in to your account",
-    "orRegister": "Or",
-    "register": "Register",
-    "email": "Email address",
-    "emailPlaceholder": "Enter your email",
-    "password": "Password",
-    "passwordPlaceholder": "Enter your password",
-    "passwordRequirements": "Password must be at least 8 characters long",
-    "forgotPassword": "Forgot password?",
-    "signingIn": "Signing in...",
-    "createAccount": "Create your account",
-    "alreadyHaveAccount": "Already have an account?",
-    "firstName": "First Name",
-    "firstNamePlaceholder": "Enter your first name",
-    "lastName": "Last Name",
-    "lastNamePlaceholder": "Enter your last name",
-    "confirmPassword": "Confirm Password",
-    "confirmPasswordPlaceholder": "Confirm your password",
-    "registering": "Registering..."
-  },
-  "login": {
-    "title": "Sign in to your account",
-    "button": "Sign in",
-    "loading": "Signing in...",
-    "noAccount": "Don't have an account?",
-    "register": "Register now"
-  },
-  "register": {
-    "title": "Create your account",
-    "button": "Create account",
-    "loading": "Creating account...",
-    "haveAccount": "Already have an account?",
-    "login": "Sign in"
-  },
-  "dashboard": {
-    "welcome": "Welcome back",
-    "title": "Your Dashboard",
-    "profile": "Profile",
-    "loading": "Loading your profile...",
-    "userProfile": "User Profile",
-    "personalDetails": "Personal details and information.",
-    "fullName": "Full name",
-    "username": "Username",
-    "email": "Email address",
-    "courses": {
-      "enrolled": "Enrolled",
-      "progress": "Progress",
-      "parts": "parts",
-      "students": "students",
-      "loading": "Loading...",
-      "error": "Error",
-      "dismiss": "Dismiss",
-      "noCoursesFound": "No courses found",
-      "noCoursesDescription": "Try adjusting your search or filter criteria",
-      "all": "All"
-    }
-  },
-  "errors": {
-    "required": "This field is required",
-    "invalid": "This field is invalid",
-    "invalidEmail": "Please enter a valid email address",
-    "emailRequired": "Email is required",
-    "passwordRequired": "Password is required",
-    "firstNameRequired": "First name is required",
-    "lastNameRequired": "Last name is required",
-    "passwordsDoNotMatch": "Passwords do not match",
-    "passwordTooShort": "Password must be at least 8 characters",
-    "loginFailed": "Login failed. Please check your credentials.",
-    "registrationFailed": "Registration failed. Please try again.",
-    "generalError": "An error occurred. Please try again."
-  },
-  "language": {
-    "english": "English",
-    "russian": "Russian",
-    "spanish": "Spanish",
-    "switch": "Switch language"
-  },
-  "footer": {
-    "rights": "All rights reserved."
-  },
-  "onboarding": {
-    "step": "Step",
-    "of": "of",
-    "complete": "Complete",
-    "steps": {
-      "university": "University",
-      "age": "Age",
-      "degree": "Degree",
-      "graduation": "Graduation",
-      "interests": "Interests"
-    },
-    "buttons": {
-      "next": "Next",
-      "back": "Back",
-      "skip": "Skip",
-      "finish": "Finish"
-    },
-    "university": {
-      "title": "Your University",
-      "subtitle": "Tell us where you're studying or teaching",
-      "select": "Select your university",
-      "placeholder": "Select a university",
-      "other": "Enter your university",
-      "otherPlaceholder": "Enter the name of your university"
-    },
-    "age": {
-      "title": "Your Age",
-      "subtitle": "This helps us personalize your experience",
-      "label": "How old are you?",
-      "placeholder": "Enter your age",
-      "invalid": "Please enter a valid age between 16 and 100"
-    },
-    "degree": {
-      "title": "Your Degree",
-      "subtitle": "What degree are you pursuing or teaching?",
-      "select": "Select your degree",
-      "placeholder": "Select a degree",
-      "other": "Enter your degree",
-      "otherPlaceholder": "Enter the name of your degree"
-    },
-    "graduationYear": {
-      "title": "Your Graduation Year",
-      "subtitle": "When do you expect to graduate?",
-      "label": "Expected graduation year",
-      "placeholder": "Select your graduation year",
-      "classOf": "Class of",
-      "invalid": "Please select a valid graduation year"
-    },
-    "interests": {
-      "title": "Your Interests",
-      "subtitle": "Select subjects you're interested in learning or teaching",
-      "select": "Select your interests",
-      "selectMultiple": "select multiple",
-      "required": "Please select at least one interest"
-    }
-  },
-  "courses": {
-    "title": "Explore Our Courses",
-    "subtitle": "Discover the perfect course for your learning journey",
-    "description": "Browse our comprehensive selection of university-level courses taught by expert tutors.",
-    "searchPlaceholder": "Search for courses...",
-    "filterByCategory": "Filter by Category",
-    "allCategories": "All Categories",
-    "categories": "Categories",
-    "sortBy": "Sort By",
-    "sortOptions": {
-      "popular": "Most Popular",
-      "newest": "Newest",
-      "priceAsc": "Price: Low to High",
-      "priceDesc": "Price: High to Low"
-    },
-    "course": "Course",
-    "coursesPlural": "Courses",
-    "viewCourse": "View Course",
-    "noCoursesFound": "No courses found",
-    "tryDifferentSearch": "Try a different search term or category",
-    "clearFilters": "Clear Filters",
-    "previous": "Previous",
-    "next": "Next",
-    "ctaTitle": "Ready to Start Learning?",
-    "ctaDescription": "Join thousands of students already learning with 11Tutors. Find the perfect course or become a tutor yourself.",
-    "startLearning": "Start Learning",
-    "becomeTutor": "Become a Tutor",
-    "level": "Level",
-    "duration": {
-      "weeks": "{{count}} weeks"
-    },
-    "showing": "Showing",
-    "of": "of",
-    "page": "Page",
-    "free": "Free",
-    "paid": "Paid",
-    "allPrices": "All Prices",
-    "priceFilter": "Price",
-    "priceLowToHigh": "Price: Low to High",
-    "priceHighToLow": "Price: High to Low",
-    "filters": "Filters",
-    "filtersDescription": "Refine your course search",
-    "resetFilters": "Reset Filters",
-    "applyFilters": "Apply",
-    "errorTitle": "Oops! Something went wrong",
-    "tryAgain": "Try Again",
-    "noResults": "No courses found",
-    "noResultsDescription": "Try adjusting your search or filter criteria",
-    "details": "Details",
-    "enroll": "Enroll",
-    "continue": "Continue",
-    "category": {
-      "mathematics": "Mathematics",
-      "science": "Science",
-      "technology": "Technology",
-      "language": "Language",
-      "arts": "Arts",
-      "business": "Business"
-    }
-  },
-  "courseDetail": {
-    "loading": "Loading course...",
-    "error": "Error",
-    "errorFetching": "Error fetching course details",
-    "goBack": "Go Back",
-    "notFound": "Course Not Found",
-    "notFoundMessage": "The course you're looking for doesn't exist or has been removed.",
-    "lessons": "Lessons",
-    "updated": "Updated",
-    "instructors": "Instructors",
-    "free": "Free",
-    "fullAccess": "Full access to all course content",
-    "enroll": "Enroll Now",
-    "enrolled": "Enrolled",
-    "duration": "Duration",
-    "continue": "Continue",
-    "totalLength": "total length",
-    "lifetime": "Lifetime access",
-    "certificate": "Certificate of completion",
-    "courseContent": "Course Content",
-    "overview": "Overview",
-    "reviews": "Reviews",
-    "aboutCourse": "About This Course",
-    "noDescription": "No description available for this course.",
-    "noReviews": "No Reviews Yet",
-    "beFirst": "Be the first to review this course",
-    "writeReview": "Write a Review",
-    "relatedCourses": "Related Courses",
-    "comingSoon": "Coming Soon",
-    "content": "Content"
-  },
-  "payment": {
-    "success": {
-      "title": "Payment Successful!",
-      "subtitle": "Congratulations! Your enrollment was successful.",
-      "enrollmentComplete": "Enrollment Complete",
-      "accessMessage": "You now have full access to all course materials, lessons, and resources.",
-      "viewCourses": "View Courses",
-      "startCourse": "Start Course",
-      "backToDashboard": "Back to Dashboard",
-      "supportMessage": "Need help? Contact our support team anytime.",
-      "contactSupport": "Contact Support"
-    }
-  },
-  "lessonDetail": {
-    "loading": "Loading lesson...",
-    "error": "Error",
-    "errorFetching": "Error fetching lesson details",
-    "notFound": "Lesson Not Found",
-    "notFoundMessage": "The lesson you're looking for doesn't exist or has been removed.",
-    "backToCourse": "Back to Course",
-    "courseNavigation": "Course Navigation",
-    "curriculum": "Curriculum",
-    "freePreview": "Free Preview",
-    "freePreviewDescription": "This is a free preview of the lesson",
-    "watchPreview": "Watch Preview",
-    "premium": "Premium",
-    "premiumContent": "Premium Content",
-    "enrollToWatch": "Enroll in this course to watch this lesson",
-    "enrollToUnlock": "Enroll in this course to unlock this lesson and all other premium content.",
-    "processing": "Processing...",
-    "enrollNow": "Enroll Now",
-    "noVideo": "No Video Available",
-    "like": "Like",
-    "comments": "Comments",
-    "share": "Share",
-    "about": "About this lesson",
-    "noDescription": "No description available",
-    "discussion": "Discussion",
-    "notes": "Notes",
-    "noComments": "No comments yet",
-    "beFirstComment": "Be the first to comment!",
-    "addComment": "Add Comment",
-    "noNotes": "No notes yet",
-    "addNoteDescription": "Add your personal notes for this lesson",
-    "addNote": "Add Note",
-    "previous": "Previous",
-    "next": "Next",
-    "commentPlaceholder": "Share your thoughts about this lesson...",
-    "postComment": "Post Comment",
-    "noCommentsYet": "No comments yet. Be the first to comment!",
-    "reply": "Reply",
-    "shareLesson": "Share this lesson",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "shareOn": "Share on social media",
-    "commentsDescription": "Share your thoughts about this lesson",
-    "shareDescription": "Share this lesson with others",
-    "benefits": "What You'll Get"
-  },
-  "forTutors": {
-    "title": "Become a Tutor",
-    "description": "Share your knowledge and earn while studying",
-    "points": {
-      "point1": "Earn money teaching subjects you excel at",
-      "point2": "Create your own schedule and work remotely",
-      "point3": "Build your resume with teaching experience"
-    },
-    "applyNow": "Apply Now",
-    "earningsTitle": "Potential Earnings",
-    "averageRate": "$25-45",
-    "perHour": "per hour",
-    "potentialEarnings": {
-      "weekly": "$250-450",
-      "monthly": "$1,000-1,800"
-    },
-    "weeklyHours": "10 hours/week",
-    "monthlyHours": "40 hours/month",
-    "benefitsTitle": "Benefits of Teaching",
-    "benefitsDescription": "Why become a tutor with 11tutors?",
-    "benefits": {
-      "students": {
-        "title": "Quality Students",
-        "description": "Connect with motivated university students eager to learn from peers"
-      },
-      "earnings": {
-        "title": "Competitive Pay",
-        "description": "Earn more than typical part-time jobs with flexible scheduling"
-      },
-      "flexibility": {
-        "title": "Complete Flexibility",
-        "description": "Create your own schedule and teach from anywhere"
-      },
-      "tools": {
-        "title": "Teaching Tools",
-        "description": "Access our platform's teaching resources, materials and support"
-      }
-    },
-    "stepsTitle": "How to Become a Tutor",
-    "stepsDescription": "Our simple application process",
-    "steps": {
-      "apply": {
-        "title": "Apply Online",
-        "description": "Fill out our simple application form with your qualifications"
-      },
-      "interview": {
-        "title": "Brief Interview",
-        "description": "Meet with our team to discuss your teaching style and expertise"
-      },
-      "onboarding": {
-        "title": "Complete Onboarding",
-        "description": "Learn how to use our platform and create your tutor profile"
-      },
-      "teaching": {
-        "title": "Start Teaching",
-        "description": "Begin connecting with students and earning money"
-      }
-    },
-    "testimonialsTitle": "Tutor Success Stories",
-    "testimonialsDescription": "Hear from current tutors on our platform",
-    "testimonials": {
-      "testimonial1": {
-        "name": "Alex Johnson",
-        "subject": "Computer Science",
-        "quote": "Teaching on 11tutors has been incredibly rewarding. I've improved my own understanding of complex topics while earning enough to cover my living expenses."
-      },
-      "testimonial2": {
-        "name": "Maria Rodriguez",
-        "subject": "Economics",
-        "quote": "The flexibility allows me to balance my graduate studies while earning a meaningful income. The platform makes scheduling and payments seamless."
-      },
-      "testimonial3": {
-        "name": "David Chen",
-        "subject": "Mathematics",
-        "quote": "I've connected with students from around the world and built my teaching portfolio. The experience has been invaluable for my academic career."
-      }
-    },
-    "applyTitle": "Ready to Apply?",
-    "applyDescription": "Join our community of tutors and start earning",
-    "requirements": {
-      "requirement1": {
-        "title": "Academic Excellence",
-        "description": "Currently enrolled or graduated with strong academic performance"
-      },
-      "requirement2": {
-        "title": "Subject Expertise",
-        "description": "Deep knowledge in your teaching subjects with relevant coursework"
-      },
-      "requirement3": {
-        "title": "Communication Skills",
-        "description": "Ability to explain complex concepts clearly and engage with students"
-      }
-    },
-    "applicationFormTitle": "Tutor Application",
-    "form": {
-      "firstName": "First Name",
-      "firstNamePlaceholder": "Enter your first name",
-      "lastName": "Last Name",
-      "lastNamePlaceholder": "Enter your last name",
-      "email": "Email Address",
-      "emailPlaceholder": "Enter your email address",
-      "subjects": "Subjects You Can Teach",
-      "subjectsPlaceholder": "e.g., Calculus, Microeconomics, Computer Science",
-      "experience": "Teaching Experience",
-      "experiencePlaceholder": "Briefly describe any relevant teaching or tutoring experience",
-      "submit": "Submit Application"
-    },
-    "faqTitle": "Frequently Asked Questions",
-    "faqDescription": "Common questions about becoming a tutor",
-    "faqs": {
-      "faq1": {
-        "question": "How much can I really earn as a tutor?",
-        "answer": "Earnings vary based on your subjects, experience, and hours. Most tutors earn $25-45 per hour, with top tutors earning $50+ per hour for specialized subjects."
-      },
-      "faq2": {
-        "question": "What subjects are most in demand?",
-        "answer": "STEM subjects (mathematics, statistics, computer science), economics, and business courses typically have the highest demand, but we need tutors across all disciplines."
-      },
-      "faq3": {
-        "question": "How many hours can I expect to teach?",
-        "answer": "This is entirely up to you. Some tutors teach 5-10 hours weekly, while others teach 20+ hours. You set your own availability and can adjust it anytime."
-      },
-      "faq4": {
-        "question": "Do I need previous teaching experience?",
-        "answer": "No formal teaching experience is required, but you should be able to explain concepts clearly and have strong knowledge in your subject areas."
-      }
-    },
-    "ctaTitle": "Share Your Knowledge, Earn While Learning",
-    "ctaDescription": "Join our growing community of university tutors today",
-    "ctaButton": "Apply to Become a Tutor"
-  },
-  "tutors": {
-    "title": "Find Your Perfect Tutor",
-    "description": "Connect with expert tutors who will help you excel in your studies. Browse our community of verified university-level instructors.",
-    "searchPlaceholder": "Search tutors by name, subject, or expertise...",
-    "filterBySubject": "Filter by Subject",
-    "allSubjects": "All Subjects",
-    "subjects": {
-      "mathematics": "Mathematics",
-      "physics": "Physics",
-      "computerScience": "Computer Science",
-      "englishLiterature": "English Literature",
-      "history": "History",
-      "chemistry": "Chemistry",
-      "economics": "Economics",
-      "biology": "Biology",
-      "business": "Business",
-      "creativeWriting": "Creative Writing",
-      "politicalScience": "Political Science",
-      "dataScience": "Data Science"
-    },
-    "tutor": "tutor found",
-    "tutorsPlural": "tutors found",
-    "sortBy": "Sort by",
-    "sortOptions": {
-      "rating": "Highest Rating",
-      "priceAsc": "Price: Low to High",
-      "priceDesc": "Price: High to Low",
-      "experience": "Most Experience"
-    },
-    "noTutorsFound": "No tutors found",
-    "tryDifferentSearch": "Try adjusting your search criteria or browse all tutors.",
-    "clearFilters": "Clear Filters",
-    "verified": "Verified",
-    "perHour": "per hour",
-    "experience": "Experience",
-    "availability": "Availability",
-    "viewProfile": "View Profile",
-    "bookSession": "Book Session",
-    "previous": "Previous",
-    "next": "Next",
-    "becomeTitle": "Become a Tutor",
-    "becomeDescription": "Share your knowledge and earn money by teaching students from around the world. Join our community of expert tutors today.",
-    "benefits": {
-      "flexible": "Flexible schedule - teach when you want",
-      "earnings": "Competitive earnings - $25-60+ per hour",
-      "impact": "Make a real impact on students' academic success"
-    },
-    "applyNow": "Apply Now",
-    "joinTitle": "Join 11tutors",
-    "joinSubtitle": "Start your tutoring journey",
-    "joinBenefits": {
-      "students": "Connect with motivated students worldwide",
-      "tools": "Access professional teaching tools and resources",
-      "community": "Join a supportive community of educators"
-    }
-  },
-  "howItWorks": {
-    "title": "How 11tutors Works",
-    "description": "Discover how our platform connects students with expert tutors for personalized learning experiences. Get started in just a few simple steps.",
-    "exploreCourses": "Explore Courses",
-    "findTutor": "Find a Tutor",
-    "stepsTitle": "Simple Steps to Success",
-    "stepsDescription": "Follow these easy steps to start your learning journey with 11tutors",
-    "videoTitle": "See How It Works",
-    "videoDescription": "Watch our quick overview to understand how 11tutors makes learning accessible and effective for everyone.",
-    "videoPoints": {
-      "point1": {
-        "title": "Interactive Learning",
-        "description": "Engage with tutors through live sessions and interactive content"
-      },
-      "point2": {
-        "title": "Personalized Approach",
-        "description": "Get customized learning plans tailored to your needs"
-      },
-      "point3": {
-        "title": "Progress Tracking",
-        "description": "Monitor your learning progress with detailed analytics"
-      }
-    },
-    "getStarted": "Get Started Today",
-    "benefitsTitle": "Why Choose 11tutors?",
-    "benefitsDescription": "Experience the advantages of personalized online tutoring with our comprehensive platform",
-    "benefits": {
-      "flexibility": {
-        "title": "Complete Flexibility",
-        "description": "Learn at your own pace, on your own schedule, from anywhere in the world"
-      },
-      "quality": {
-        "title": "Expert Tutors",
-        "description": "Learn from verified university-level instructors with proven expertise"
-      },
-      "technology": {
-        "title": "Advanced Technology",
-        "description": "Use cutting-edge tools for interactive learning and seamless communication"
-      },
-      "support": {
-        "title": "24/7 Support",
-        "description": "Get help whenever you need it with our dedicated support team"
-      }
-    },
-    "faqsTitle": "Frequently Asked Questions",
-    "faqsDescription": "Find answers to common questions about using 11tutors",
-    "faqs": {
-      "question1": "How do I get started with 11tutors?",
-      "answer1": "Simply create an account, browse our courses or tutors, and book your first session. It's that easy!",
-      "question2": "What subjects are available?",
-      "answer2": "We offer tutoring in mathematics, sciences, languages, business, and many other university-level subjects.",
-      "question3": "How much does tutoring cost?",
-      "answer3": "Pricing varies by tutor and subject, typically ranging from $25-60 per hour. You can see exact rates before booking.",
-      "question4": "Can I cancel or reschedule sessions?",
-      "answer4": "Yes, you can cancel or reschedule sessions up to 24 hours in advance without any penalty.",
-      "question5": "Is there a money-back guarantee?",
-      "answer5": "Yes, if you're not satisfied with your first session, we offer a full refund within 48 hours."
-    },
-    "moreQuestions": "Have more questions? We're here to help!",
-    "contactSupport": "Contact Support",
-    "ctaTitle": "Ready to Start Learning?",
-    "ctaDescription": "Join thousands of students who are already achieving their academic goals with 11tutors",
-    "startLearning": "Start Learning Now",
-    "becomeTutor": "Become a Tutor"
-  }
+	"profile": {
+		"title": "Profile",
+		"subtitle": "Manage your account information and preferences",
+		"personalInfo": "Personal Information",
+		"updateInfo": "Update your personal information",
+		"firstName": "First Name",
+		"firstNamePlaceholder": "Enter your first name",
+		"lastName": "Last Name",
+		"lastNamePlaceholder": "Enter your last name",
+		"emailPlaceholder": "Enter your email address",
+		"phonePlaceholder": "Enter your phone number",
+		"usernamePlaceholder": "Enter your username",
+		"preferences": "Preferences",
+		"preferencesDescription": "Customize your account settings and preferences",
+		"darkMode": "Dark Mode",
+		"darkModeDescription": "Toggle between light and dark theme",
+		"language": "Language",
+		"languageDescription": "Choose your preferred language",
+		"phone": "Phone Number",
+		"email": "Email Address",
+		"username": "Username",
+		"saveChanges": "Save Changes",
+		"tabs": {
+			"profile": "Profile",
+			"preferences": "Preferences"
+		}
+	},
+	"app": {
+		"name": "11Tutors",
+		"tagline": "Learn university courses from the best tutors"
+	},
+	"common": {
+		"loading": "Loading..."
+	},
+	"nav": {
+		"home": "Home",
+		"features": "Features",
+		"about": "About",
+		"courses": "Courses",
+		"tutors": "Tutors",
+		"how_it_works": "How It Works",
+		"for_tutors": "For Tutors",
+		"login": "Login",
+		"register": "Register",
+		"dashboard": "Dashboard",
+		"my_courses": "My Courses",
+		"logout": "Logout",
+		"new": "New",
+		"profile": "Profile",
+		"creator": "Creator",
+		"menu": "Menu"
+	},
+	"home": {
+		"hero": {
+			"title": "Learn with the Best Tutors",
+			"subtitle": "Get personalized tutoring from top university students and graduates",
+			"cta": "Get Started",
+			"browseCourses": "Browse Courses",
+			"becomeTutor": "Become a Tutor"
+		},
+		"welcome": "Welcome back",
+		"subtitle": "Continue your learning journey",
+		"enrolledCourses": "Your Enrolled Courses",
+		"viewAll": "View All",
+		"popularCourses": "Popular Courses",
+		"completed": "Completed",
+		"continueButton": "Continue",
+		"details": "Details",
+		"noCoursesYet": "No courses enrolled yet",
+		"exploreAndEnroll": "Explore our course catalog and enroll in your first course",
+		"exploreCourses": "Explore Courses",
+		"features": {
+			"title": "Why Choose 11Tutors?"
+		},
+		"about": {
+			"title": "About Us",
+			"description": "11Tutors connects students with top-rated tutors for personalized learning experiences."
+		}
+	},
+	"landing": {
+		"heroSection": {
+			"title": "Learn from Top University Tutors",
+			"subtitle": "Get personalized tutoring from students who recently aced the courses you're taking",
+			"browseCourses": "Browse Courses",
+			"becomeTutor": "Become a Tutor",
+			"stats": {
+				"courses": "Courses",
+				"tutors": "Tutors",
+				"universities": "Universities",
+				"students": "Students"
+			}
+		},
+		"scrollIndicator": {
+			"scrollToExplore": "Scroll to explore"
+		},
+		"sections": {
+			"howItWorks": {
+				"id": "how-it-works"
+			},
+			"courses": {
+				"id": "courses"
+			},
+			"whyChooseUs": {
+				"id": "why-choose-us"
+			},
+			"forTutors": {
+				"id": "for-tutors"
+			},
+			"testimonials": {
+				"id": "testimonials"
+			},
+			"joinCommunity": {
+				"id": "join"
+			}
+		},
+		"howItWorks": {
+			"title": "How It Works",
+			"description": "Our platform connects university students with peers who want to learn from them.",
+			"startLearning": "Start Learning Now",
+			"step1": {
+				"title": "Browse Courses",
+				"description": "Pick from a growing catalog of university-level courses."
+			},
+			"step2": {
+				"title": "Learn from Tutors",
+				"description": "University students teaching what they know best."
+			},
+			"step3": {
+				"title": "Flexible & Affordable",
+				"description": "Learn anytime, anywhere at student-friendly prices."
+			},
+			"step4": {
+				"title": "Earn As a Tutor",
+				"description": "University students earn by teaching what they excel at."
+			}
+		},
+		"featuredCourses": {
+			"title": "Featured Courses",
+			"subtitle": "Explore our most popular courses across different subjects",
+			"viewAll": "View All Courses",
+			"category": {
+				"computerScience": "Computer Science",
+				"mathematics": "Mathematics",
+				"business": "Business"
+			},
+			"courseCard": {
+				"courseBy": "Course by",
+				"price": "Price:",
+				"viewCourse": "View Course"
+			}
+		},
+		"whyChooseUs": {
+			"title": "Why Choose 11Tutors?",
+			"subtitle": "The platform built by students, for students",
+			"benefit1": {
+				"title": "Peer-to-peer learning advantage",
+				"description": "Learn from students who recently mastered the material and understand your challenges."
+			},
+			"benefit2": {
+				"title": "Affordable pricing",
+				"description": "Quality education at student-friendly prices, significantly lower than traditional tutoring."
+			},
+			"benefit3": {
+				"title": "Fast, relevant & practical",
+				"description": "Courses focused on practical knowledge and current academic requirements."
+			},
+			"benefit4": {
+				"title": "Tutors from top universities",
+				"description": "Learn from high-achieving students from prestigious universities worldwide."
+			},
+			"benefit5": {
+				"title": "Flexible scheduling",
+				"description": "Book sessions that fit your schedule, with tutors available across different time zones."
+			},
+			"benefit6": {
+				"title": "Proven results",
+				"description": "Our students consistently improve their grades and understanding of complex subjects."
+			},
+			"trustedBy": "Our Tutors Come From Top Universities",
+			"verifiedByStudents": "Verified by students",
+			"viewAllUniversities": "View all partner universities",
+			"stat1": {
+				"value": "95%",
+				"label": "Student satisfaction"
+			},
+			"stat2": {
+				"value": "4.8/5",
+				"label": "Average tutor rating"
+			},
+			"stat3": {
+				"value": "50,000+",
+				"label": "Students taught"
+			},
+			"stat4": {
+				"value": "100%",
+				"label": "Money-back guarantee"
+			}
+		},
+		"forTutors": {
+			"title": "For Tutors",
+			"subtitle": "Share your knowledge and earn while studying",
+			"benefit1": {
+				"title": "Earn Money",
+				"description": "Make money sharing your knowledge and expertise with other students."
+			},
+			"benefit2": {
+				"title": "Build Your CV",
+				"description": "Add teaching experience to your resume and develop valuable skills."
+			},
+			"benefit3": {
+				"title": "Flexible Hours",
+				"description": "Create and teach courses on your own schedule, from anywhere."
+			},
+			"benefit4": {
+				"title": "Deepen Knowledge",
+				"description": "Teaching others is the best way to master a subject and solidify your understanding."
+			},
+			"benefit5": {
+				"title": "Global Reach",
+				"description": "Connect with students worldwide and build an international teaching portfolio."
+			},
+			"benefit6": {
+				"title": "Career Growth",
+				"description": "Develop communication and leadership skills that will benefit your future career."
+			},
+			"joinCta": "Apply as a Tutor",
+			"featuredTutors": "Top Tutor"
+		},
+		"testimonials": {
+			"title": "Success Stories",
+			"subtitle": "Hear from students who transformed their academic journey with 11tutors",
+			"videoSection": "Video Testimonials",
+			"prevTestimonial": "Previous testimonial",
+			"nextTestimonial": "Next testimonial",
+			"viewCount": "views"
+		},
+		"joinCommunity": {
+			"title": "Join Our Community",
+			"subtitle": "Stay updated with new courses, learning resources, and special offers",
+			"newsletter": {
+				"title": "Get updates on new courses",
+				"placeholder": "Enter your email",
+				"button": "Subscribe",
+				"success": "Thank you for subscribing! You'll receive updates on new courses soon.",
+				"disclaimer": "By subscribing, you agree to our Privacy Policy and consent to receive updates from 11tutors."
+			},
+			"social": {
+				"title": "Connect with us",
+				"community": "Join over 50,000 students in our online community"
+			}
+		},
+		"ctaBanner": {
+			"title": "Start learning with 11tutors today",
+			"subtitle": "Join thousands of students learning from university tutors around the world",
+			"discount": "Get 20% off your first month with code",
+			"discountCode": "WELCOME20",
+			"browseCourses": "Browse Courses",
+			"becomeTutor": "Join as Tutor",
+			"limitedOffer": "Limited Time Offer",
+			"stats": {
+				"title": "Platform Stats",
+				"courses": "Courses",
+				"students": "Students",
+				"tutors": "Tutors"
+			}
+		},
+		"footer": {
+			"description": "A platform connecting university students with peers who want to learn from them.",
+			"company": "Company",
+			"resources": "Resources",
+			"legal": "Legal",
+			"categories": "Categories",
+			"allRightsReserved": "All rights reserved.",
+			"madeWithStudents": "Made with students for students",
+			"links": {
+				"aboutUs": "About Us",
+				"careers": "Careers",
+				"blog": "Blog",
+				"press": "Press",
+				"helpCenter": "Help Center",
+				"contactUs": "Contact Us",
+				"tutors": "Tutors",
+				"becomeTutor": "Become a Tutor",
+				"termsOfService": "Terms of Service",
+				"privacyPolicy": "Privacy Policy",
+				"cookiePolicy": "Cookie Policy",
+				"accessibility": "Accessibility",
+				"computerScience": "Computer Science",
+				"mathematics": "Mathematics",
+				"business": "Business",
+				"science": "Science",
+				"languages": "Languages",
+				"artsHumanities": "Arts & Humanities"
+			},
+			"social": {
+				"instagram": "Instagram",
+				"twitter": "Twitter",
+				"youtube": "YouTube",
+				"linkedin": "LinkedIn",
+				"facebook": "Facebook"
+			}
+		}
+	},
+	"auth": {
+		"signIn": "Sign in to your account",
+		"orRegister": "Or",
+		"register": "Register",
+		"email": "Email address",
+		"emailPlaceholder": "Enter your email",
+		"password": "Password",
+		"passwordPlaceholder": "Enter your password",
+		"passwordRequirements": "Password must be at least 8 characters long",
+		"forgotPassword": "Forgot password?",
+		"signingIn": "Signing in...",
+		"createAccount": "Create your account",
+		"alreadyHaveAccount": "Already have an account?",
+		"firstName": "First Name",
+		"firstNamePlaceholder": "Enter your first name",
+		"lastName": "Last Name",
+		"lastNamePlaceholder": "Enter your last name",
+		"confirmPassword": "Confirm Password",
+		"confirmPasswordPlaceholder": "Confirm your password",
+		"registering": "Registering..."
+	},
+	"login": {
+		"title": "Sign in to your account",
+		"button": "Sign in",
+		"loading": "Signing in...",
+		"noAccount": "Don't have an account?",
+		"register": "Register now"
+	},
+	"register": {
+		"title": "Create your account",
+		"button": "Create account",
+		"loading": "Creating account...",
+		"haveAccount": "Already have an account?",
+		"login": "Sign in"
+	},
+	"dashboard": {
+		"welcome": "Welcome back",
+		"title": "Your Dashboard",
+		"profile": "Profile",
+		"loading": "Loading your profile...",
+		"userProfile": "User Profile",
+		"personalDetails": "Personal details and information.",
+		"fullName": "Full name",
+		"username": "Username",
+		"email": "Email address",
+		"courses": {
+			"enrolled": "Enrolled",
+			"progress": "Progress",
+			"parts": "parts",
+			"students": "students",
+			"loading": "Loading...",
+			"error": "Error",
+			"dismiss": "Dismiss",
+			"noCoursesFound": "No courses found",
+			"noCoursesDescription": "Try adjusting your search or filter criteria",
+			"all": "All"
+		}
+	},
+	"errors": {
+		"required": "This field is required",
+		"invalid": "This field is invalid",
+		"invalidEmail": "Please enter a valid email address",
+		"emailRequired": "Email is required",
+		"passwordRequired": "Password is required",
+		"firstNameRequired": "First name is required",
+		"lastNameRequired": "Last name is required",
+		"passwordsDoNotMatch": "Passwords do not match",
+		"passwordTooShort": "Password must be at least 8 characters",
+		"loginFailed": "Login failed. Please check your credentials.",
+		"registrationFailed": "Registration failed. Please try again.",
+		"generalError": "An error occurred. Please try again."
+	},
+	"language": {
+		"english": "English",
+		"russian": "Russian",
+		"spanish": "Spanish",
+		"switch": "Switch language"
+	},
+	"footer": {
+		"rights": "All rights reserved."
+	},
+	"onboarding": {
+		"step": "Step",
+		"of": "of",
+		"complete": "Complete",
+		"steps": {
+			"university": "University",
+			"age": "Age",
+			"degree": "Degree",
+			"graduation": "Graduation",
+			"interests": "Interests"
+		},
+		"buttons": {
+			"next": "Next",
+			"back": "Back",
+			"skip": "Skip",
+			"finish": "Finish"
+		},
+		"university": {
+			"title": "Your University",
+			"subtitle": "Tell us where you're studying or teaching",
+			"select": "Select your university",
+			"placeholder": "Select a university",
+			"other": "Enter your university",
+			"otherPlaceholder": "Enter the name of your university"
+		},
+		"age": {
+			"title": "Your Age",
+			"subtitle": "This helps us personalize your experience",
+			"label": "How old are you?",
+			"placeholder": "Enter your age",
+			"invalid": "Please enter a valid age between 16 and 100"
+		},
+		"degree": {
+			"title": "Your Degree",
+			"subtitle": "What degree are you pursuing or teaching?",
+			"select": "Select your degree",
+			"placeholder": "Select a degree",
+			"other": "Enter your degree",
+			"otherPlaceholder": "Enter the name of your degree"
+		},
+		"graduationYear": {
+			"title": "Your Graduation Year",
+			"subtitle": "When do you expect to graduate?",
+			"label": "Expected graduation year",
+			"placeholder": "Select your graduation year",
+			"classOf": "Class of",
+			"invalid": "Please select a valid graduation year"
+		},
+		"interests": {
+			"title": "Your Interests",
+			"subtitle": "Select subjects you're interested in learning or teaching",
+			"select": "Select your interests",
+			"selectMultiple": "select multiple",
+			"required": "Please select at least one interest"
+		}
+	},
+	"courses": {
+		"title": "Explore Our Courses",
+		"subtitle": "Discover the perfect course for your learning journey",
+		"description": "Browse our comprehensive selection of university-level courses taught by expert tutors.",
+		"searchPlaceholder": "Search for courses...",
+		"filterByCategory": "Filter by Category",
+		"allCategories": "All Categories",
+		"categories": "Categories",
+		"sortBy": "Sort By",
+		"sortOptions": {
+			"popular": "Most Popular",
+			"newest": "Newest",
+			"priceAsc": "Price: Low to High",
+			"priceDesc": "Price: High to Low"
+		},
+		"course": "Course",
+		"coursesPlural": "Courses",
+		"viewCourse": "View Course",
+		"noCoursesFound": "No courses found",
+		"tryDifferentSearch": "Try a different search term or category",
+		"clearFilters": "Clear Filters",
+		"previous": "Previous",
+		"next": "Next",
+		"ctaTitle": "Ready to Start Learning?",
+		"ctaDescription": "Join thousands of students already learning with 11Tutors. Find the perfect course or become a tutor yourself.",
+		"startLearning": "Start Learning",
+		"becomeTutor": "Become a Tutor",
+		"level": "Level",
+		"duration": {
+			"weeks": "{{count}} weeks"
+		},
+		"showing": "Showing",
+		"of": "of",
+		"page": "Page",
+		"free": "Free",
+		"paid": "Paid",
+		"allPrices": "All Prices",
+		"priceFilter": "Price",
+		"priceLowToHigh": "Price: Low to High",
+		"priceHighToLow": "Price: High to Low",
+		"filters": "Filters",
+		"filtersDescription": "Refine your course search",
+		"resetFilters": "Reset Filters",
+		"applyFilters": "Apply",
+		"errorTitle": "Oops! Something went wrong",
+		"tryAgain": "Try Again",
+		"noResults": "No courses found",
+		"noResultsDescription": "Try adjusting your search or filter criteria",
+		"details": "Details",
+		"enroll": "Enroll",
+		"continue": "Continue",
+		"category": {
+			"mathematics": "Mathematics",
+			"science": "Science",
+			"technology": "Technology",
+			"language": "Language",
+			"arts": "Arts",
+			"business": "Business"
+		}
+	},
+	"courseDetail": {
+		"loading": "Loading course...",
+		"error": "Error",
+		"errorFetching": "Error fetching course details",
+		"goBack": "Go Back",
+		"notFound": "Course Not Found",
+		"notFoundMessage": "The course you're looking for doesn't exist or has been removed.",
+		"lessons": "Lessons",
+		"updated": "Updated",
+		"instructors": "Instructors",
+		"free": "Free",
+		"fullAccess": "Full access to all course content",
+		"enroll": "Enroll Now",
+		"enrolled": "Enrolled",
+		"duration": "Duration",
+		"continue": "Continue",
+		"totalLength": "total length",
+		"lifetime": "Lifetime access",
+		"certificate": "Certificate of completion",
+		"courseContent": "Course Content",
+		"overview": "Overview",
+		"reviews": "Reviews",
+		"aboutCourse": "About This Course",
+		"noDescription": "No description available for this course.",
+		"noReviews": "No Reviews Yet",
+		"beFirst": "Be the first to review this course",
+		"writeReview": "Write a Review",
+		"relatedCourses": "Related Courses",
+		"comingSoon": "Coming Soon",
+		"content": "Content"
+	},
+	"payment": {
+		"success": {
+			"title": "Payment Successful!",
+			"subtitle": "Congratulations! Your enrollment was successful.",
+			"enrollmentComplete": "Enrollment Complete",
+			"accessMessage": "You now have full access to all course materials, lessons, and resources.",
+			"viewCourses": "View Courses",
+			"startCourse": "Start Course",
+			"backToDashboard": "Back to Dashboard",
+			"supportMessage": "Need help? Contact our support team anytime.",
+			"contactSupport": "Contact Support"
+		}
+	},
+	"lessonDetail": {
+		"loading": "Loading lesson...",
+		"error": "Error",
+		"errorFetching": "Error fetching lesson details",
+		"notFound": "Lesson Not Found",
+		"notFoundMessage": "The lesson you're looking for doesn't exist or has been removed.",
+		"backToCourse": "Back to Course",
+		"courseNavigation": "Course Navigation",
+		"curriculum": "Curriculum",
+		"freePreview": "Free Preview",
+		"freePreviewDescription": "This is a free preview of the lesson",
+		"watchPreview": "Watch Preview",
+		"premium": "Premium",
+		"premiumContent": "Premium Content",
+		"enrollToWatch": "Enroll in this course to watch this lesson",
+		"enrollToUnlock": "Enroll in this course to unlock this lesson and all other premium content.",
+		"processing": "Processing...",
+		"enrollNow": "Enroll Now",
+		"noVideo": "No Video Available",
+		"like": "Like",
+		"comments": "Comments",
+		"share": "Share",
+		"about": "About this lesson",
+		"noDescription": "No description available",
+		"discussion": "Discussion",
+		"notes": "Notes",
+		"noComments": "No comments yet",
+		"beFirstComment": "Be the first to comment!",
+		"addComment": "Add Comment",
+		"noNotes": "No notes yet",
+		"addNoteDescription": "Add your personal notes for this lesson",
+		"addNote": "Add Note",
+		"previous": "Previous",
+		"next": "Next",
+		"commentPlaceholder": "Share your thoughts about this lesson...",
+		"postComment": "Post Comment",
+		"noCommentsYet": "No comments yet. Be the first to comment!",
+		"reply": "Reply",
+		"shareLesson": "Share this lesson",
+		"copied": "Copied!",
+		"copy": "Copy",
+		"shareOn": "Share on social media",
+		"commentsDescription": "Share your thoughts about this lesson",
+		"shareDescription": "Share this lesson with others",
+		"benefits": "What You'll Get"
+	},
+	"forTutors": {
+		"title": "Become a Tutor",
+		"description": "Share your knowledge and earn while studying",
+		"points": {
+			"point1": "Earn money teaching subjects you excel at",
+			"point2": "Create your own schedule and work remotely",
+			"point3": "Build your resume with teaching experience"
+		},
+		"applyNow": "Apply Now",
+		"earningsTitle": "Potential Earnings",
+		"averageRate": "$25-45",
+		"perHour": "per hour",
+		"potentialEarnings": {
+			"weekly": "$250-450",
+			"monthly": "$1,000-1,800"
+		},
+		"weeklyHours": "10 hours/week",
+		"monthlyHours": "40 hours/month",
+		"benefitsTitle": "Benefits of Teaching",
+		"benefitsDescription": "Why become a tutor with 11tutors?",
+		"benefits": {
+			"students": {
+				"title": "Quality Students",
+				"description": "Connect with motivated university students eager to learn from peers"
+			},
+			"earnings": {
+				"title": "Competitive Pay",
+				"description": "Earn more than typical part-time jobs with flexible scheduling"
+			},
+			"flexibility": {
+				"title": "Complete Flexibility",
+				"description": "Create your own schedule and teach from anywhere"
+			},
+			"tools": {
+				"title": "Teaching Tools",
+				"description": "Access our platform's teaching resources, materials and support"
+			}
+		},
+		"stepsTitle": "How to Become a Tutor",
+		"stepsDescription": "Our simple application process",
+		"steps": {
+			"apply": {
+				"title": "Apply Online",
+				"description": "Fill out our simple application form with your qualifications"
+			},
+			"interview": {
+				"title": "Brief Interview",
+				"description": "Meet with our team to discuss your teaching style and expertise"
+			},
+			"onboarding": {
+				"title": "Complete Onboarding",
+				"description": "Learn how to use our platform and create your tutor profile"
+			},
+			"teaching": {
+				"title": "Start Teaching",
+				"description": "Begin connecting with students and earning money"
+			}
+		},
+		"testimonialsTitle": "Tutor Success Stories",
+		"testimonialsDescription": "Hear from current tutors on our platform",
+		"testimonials": {
+			"testimonial1": {
+				"name": "Alex Johnson",
+				"subject": "Computer Science",
+				"quote": "Teaching on 11tutors has been incredibly rewarding. I've improved my own understanding of complex topics while earning enough to cover my living expenses."
+			},
+			"testimonial2": {
+				"name": "Maria Rodriguez",
+				"subject": "Economics",
+				"quote": "The flexibility allows me to balance my graduate studies while earning a meaningful income. The platform makes scheduling and payments seamless."
+			},
+			"testimonial3": {
+				"name": "David Chen",
+				"subject": "Mathematics",
+				"quote": "I've connected with students from around the world and built my teaching portfolio. The experience has been invaluable for my academic career."
+			}
+		},
+		"applyTitle": "Ready to Apply?",
+		"applyDescription": "Join our community of tutors and start earning",
+		"requirements": {
+			"requirement1": {
+				"title": "Academic Excellence",
+				"description": "Currently enrolled or graduated with strong academic performance"
+			},
+			"requirement2": {
+				"title": "Subject Expertise",
+				"description": "Deep knowledge in your teaching subjects with relevant coursework"
+			},
+			"requirement3": {
+				"title": "Communication Skills",
+				"description": "Ability to explain complex concepts clearly and engage with students"
+			}
+		},
+		"applicationFormTitle": "Tutor Application",
+		"form": {
+			"firstName": "First Name",
+			"firstNamePlaceholder": "Enter your first name",
+			"lastName": "Last Name",
+			"lastNamePlaceholder": "Enter your last name",
+			"email": "Email Address",
+			"emailPlaceholder": "Enter your email address",
+			"subjects": "Subjects You Can Teach",
+			"subjectsPlaceholder": "e.g., Calculus, Microeconomics, Computer Science",
+			"experience": "Teaching Experience",
+			"experiencePlaceholder": "Briefly describe any relevant teaching or tutoring experience",
+			"submit": "Submit Application"
+		},
+		"faqTitle": "Frequently Asked Questions",
+		"faqDescription": "Common questions about becoming a tutor",
+		"faqs": {
+			"faq1": {
+				"question": "How much can I really earn as a tutor?",
+				"answer": "Earnings vary based on your subjects, experience, and hours. Most tutors earn $25-45 per hour, with top tutors earning $50+ per hour for specialized subjects."
+			},
+			"faq2": {
+				"question": "What subjects are most in demand?",
+				"answer": "STEM subjects (mathematics, statistics, computer science), economics, and business courses typically have the highest demand, but we need tutors across all disciplines."
+			},
+			"faq3": {
+				"question": "How many hours can I expect to teach?",
+				"answer": "This is entirely up to you. Some tutors teach 5-10 hours weekly, while others teach 20+ hours. You set your own availability and can adjust it anytime."
+			},
+			"faq4": {
+				"question": "Do I need previous teaching experience?",
+				"answer": "No formal teaching experience is required, but you should be able to explain concepts clearly and have strong knowledge in your subject areas."
+			}
+		},
+		"ctaTitle": "Share Your Knowledge, Earn While Learning",
+		"ctaDescription": "Join our growing community of university tutors today",
+		"ctaButton": "Apply to Become a Tutor"
+	},
+	"tutors": {
+		"title": "Find Your Perfect Tutor",
+		"description": "Connect with expert tutors who will help you excel in your studies. Browse our community of verified university-level instructors.",
+		"searchPlaceholder": "Search tutors by name, subject, or expertise...",
+		"filterBySubject": "Filter by Subject",
+		"allSubjects": "All Subjects",
+		"subjects": {
+			"mathematics": "Mathematics",
+			"physics": "Physics",
+			"computerScience": "Computer Science",
+			"englishLiterature": "English Literature",
+			"history": "History",
+			"chemistry": "Chemistry",
+			"economics": "Economics",
+			"biology": "Biology",
+			"business": "Business",
+			"creativeWriting": "Creative Writing",
+			"politicalScience": "Political Science",
+			"dataScience": "Data Science"
+		},
+		"tutor": "tutor found",
+		"tutorsPlural": "tutors found",
+		"sortBy": "Sort by",
+		"sortOptions": {
+			"rating": "Highest Rating",
+			"priceAsc": "Price: Low to High",
+			"priceDesc": "Price: High to Low",
+			"experience": "Most Experience"
+		},
+		"noTutorsFound": "No tutors found",
+		"tryDifferentSearch": "Try adjusting your search criteria or browse all tutors.",
+		"clearFilters": "Clear Filters",
+		"verified": "Verified",
+		"perHour": "per hour",
+		"experience": "Experience",
+		"availability": "Availability",
+		"viewProfile": "View Profile",
+		"bookSession": "Book Session",
+		"previous": "Previous",
+		"next": "Next",
+		"becomeTitle": "Become a Tutor",
+		"becomeDescription": "Share your knowledge and earn money by teaching students from around the world. Join our community of expert tutors today.",
+		"benefits": {
+			"flexible": "Flexible schedule - teach when you want",
+			"earnings": "Competitive earnings - $25-60+ per hour",
+			"impact": "Make a real impact on students' academic success"
+		},
+		"applyNow": "Apply Now",
+		"joinTitle": "Join 11tutors",
+		"joinSubtitle": "Start your tutoring journey",
+		"joinBenefits": {
+			"students": "Connect with motivated students worldwide",
+			"tools": "Access professional teaching tools and resources",
+			"community": "Join a supportive community of educators"
+		}
+	},
+	"howItWorks": {
+		"title": "How 11tutors Works",
+		"description": "Discover how our platform connects students with expert tutors for personalized learning experiences. Get started in just a few simple steps.",
+		"exploreCourses": "Explore Courses",
+		"findTutor": "Find a Tutor",
+		"stepsTitle": "Simple Steps to Success",
+		"stepsDescription": "Follow these easy steps to start your learning journey with 11tutors",
+		"videoTitle": "See How It Works",
+		"videoDescription": "Watch our quick overview to understand how 11tutors makes learning accessible and effective for everyone.",
+		"videoPoints": {
+			"point1": {
+				"title": "Interactive Learning",
+				"description": "Engage with tutors through live sessions and interactive content"
+			},
+			"point2": {
+				"title": "Personalized Approach",
+				"description": "Get customized learning plans tailored to your needs"
+			},
+			"point3": {
+				"title": "Progress Tracking",
+				"description": "Monitor your learning progress with detailed analytics"
+			}
+		},
+		"getStarted": "Get Started Today",
+		"benefitsTitle": "Why Choose 11tutors?",
+		"benefitsDescription": "Experience the advantages of personalized online tutoring with our comprehensive platform",
+		"benefits": {
+			"flexibility": {
+				"title": "Complete Flexibility",
+				"description": "Learn at your own pace, on your own schedule, from anywhere in the world"
+			},
+			"quality": {
+				"title": "Expert Tutors",
+				"description": "Learn from verified university-level instructors with proven expertise"
+			},
+			"technology": {
+				"title": "Advanced Technology",
+				"description": "Use cutting-edge tools for interactive learning and seamless communication"
+			},
+			"support": {
+				"title": "24/7 Support",
+				"description": "Get help whenever you need it with our dedicated support team"
+			}
+		},
+		"faqsTitle": "Frequently Asked Questions",
+		"faqsDescription": "Find answers to common questions about using 11tutors",
+		"faqs": {
+			"question1": "How do I get started with 11tutors?",
+			"answer1": "Simply create an account, browse our courses or tutors, and book your first session. It's that easy!",
+			"question2": "What subjects are available?",
+			"answer2": "We offer tutoring in mathematics, sciences, languages, business, and many other university-level subjects.",
+			"question3": "How much does tutoring cost?",
+			"answer3": "Pricing varies by tutor and subject, typically ranging from $25-60 per hour. You can see exact rates before booking.",
+			"question4": "Can I cancel or reschedule sessions?",
+			"answer4": "Yes, you can cancel or reschedule sessions up to 24 hours in advance without any penalty.",
+			"question5": "Is there a money-back guarantee?",
+			"answer5": "Yes, if you're not satisfied with your first session, we offer a full refund within 48 hours."
+		},
+		"moreQuestions": "Have more questions? We're here to help!",
+		"contactSupport": "Contact Support",
+		"ctaTitle": "Ready to Start Learning?",
+		"ctaDescription": "Join thousands of students who are already achieving their academic goals with 11tutors",
+		"startLearning": "Start Learning Now",
+		"becomeTutor": "Become a Tutor"
+	}
 }

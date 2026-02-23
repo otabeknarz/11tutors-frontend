@@ -13,6 +13,7 @@ import {
 	LogOutIcon,
 	MenuIcon,
 	XIcon,
+	PencilRuler,
 } from "lucide-react";
 import { useAuth } from "@/lib/AuthContext";
 import { useRouter } from "next/navigation";
@@ -45,7 +46,7 @@ const NavItem = ({ href, icon, label, isActive, onClick }: NavItemProps) => {
 				"flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-all",
 				isActive
 					? "bg-primary text-primary-foreground"
-					: "hover:bg-muted text-muted-foreground hover:text-foreground"
+					: "hover:bg-muted text-muted-foreground hover:text-foreground",
 			)}
 		>
 			{icon}
@@ -60,7 +61,7 @@ const NavItem = ({ href, icon, label, isActive, onClick }: NavItemProps) => {
 			onClick={onClick}
 			className={cn(
 				"flex flex-col items-center justify-center gap-1 text-xs",
-				isActive ? "text-primary" : "text-muted-foreground"
+				isActive ? "text-primary" : "text-muted-foreground",
 			)}
 		>
 			{icon}
@@ -91,6 +92,9 @@ export default function AppNav() {
 		router.push("/login");
 	};
 
+	// User roles from backend: ADMIN=1, TUTOR=2, STUDENT=3, USER=4
+	const isCreator = user?.role === 1 || user?.role === 2;
+
 	const navItems = [
 		{
 			href: "/dashboard/home",
@@ -102,6 +106,15 @@ export default function AppNav() {
 			icon: <BookOpenIcon className="h-5 w-5" />,
 			label: "nav.courses",
 		},
+		...(isCreator
+			? [
+					{
+						href: "/dashboard/creator/home",
+						icon: <PencilRuler className="h-5 w-5" />,
+						label: "nav.creator",
+					},
+				]
+			: []),
 		{
 			href: "/dashboard/profile",
 			icon: <UserIcon className="h-5 w-5" />,
@@ -113,11 +126,11 @@ export default function AppNav() {
 		<>
 			{/* Desktop Sidebar - Fixed on the left side */}
 			<div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
-				<div className="flex flex-col flex-grow border-r bg-background pt-5 overflow-y-auto">
-					<div className="flex items-center flex-shrink-0 px-4 mb-5">
+				<div className="flex flex-col grow border-r bg-background pt-5 overflow-y-auto">
+					<div className="flex items-center shrink-0 px-4 mb-5">
 						<h1 className="text-xl font-bold text-primary">11Tutors</h1>
 					</div>
-					<div className="mt-5 flex-grow flex flex-col">
+					<div className="mt-5 grow flex flex-col">
 						<nav className="flex-1 px-2 pb-4 space-y-1">
 							{navItems.map((item) => (
 								<NavItem

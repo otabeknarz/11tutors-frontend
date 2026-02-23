@@ -79,3 +79,43 @@ export interface CourseFilters {
 	page?: number;
 	limit?: number;
 }
+
+// Course creation/editing types (creator dashboard)
+export interface LessonData {
+	id?: string;
+	slug?: string;
+	title: string;
+	description: string;
+	videoFile: File | null;
+	videoServiceId: string | null;
+	videoUrl?: string;
+	duration: number;
+	order: number;
+	isFreePreview: boolean;
+	uploadProgress: number;
+	uploadStatus: "idle" | "uploading" | "completed" | "error";
+}
+
+export interface CoursePartData {
+	id?: string;
+	slug?: string;
+	title: string;
+	description: string;
+	order: number;
+	lessons: LessonData[];
+}
+
+export interface CourseFormData {
+	id?: string;
+	slug: string;
+	title: string;
+	description: string;
+	category: string;
+	price: number;
+	thumbnail: File | null;
+	thumbnailUrl?: string;
+	parts: CoursePartData[];
+	isPublished: boolean;
+	createdAt?: string;
+	updatedAt?: string;
+}
