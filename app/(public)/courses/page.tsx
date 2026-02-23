@@ -144,7 +144,7 @@ export default function CoursesPage() {
 
 		try {
 			const response = await api.get<CoursesResponse>(
-				url || "/api/courses/courses/"
+				url || "/api/courses/courses/",
 			);
 			const data = response.data;
 
@@ -220,7 +220,7 @@ export default function CoursesPage() {
 					categoryFilter === "all" ||
 					course.category?.toLowerCase() === categoryFilter.toLowerCase();
 				return matchesSearch && matchesCategory;
-		  })
+			})
 		: courses;
 
 	// Handle course enrollment
@@ -230,21 +230,21 @@ export default function CoursesPage() {
 			courseId,
 			courseSlug,
 			user,
-			router
+			router,
 		);
 	};
 
 	return (
 		<div className="min-h-screen bg-background">
 			<Navbar />
-			<main className="container mx-auto px-4 py-8">
+			<main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
 				{/* Hero Section */}
-				<section className="mb-12">
+				<section className="mb-10">
 					<div className="text-center">
-						<h1 className="text-4xl font-bold mb-4">
+						<h1 className="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-3">
 							{t("courses.title") || "Explore Our Courses"}
 						</h1>
-						<p className="text-muted-foreground max-w-2xl mx-auto">
+						<p className="text-muted-foreground max-w-xl mx-auto text-base">
 							{t("courses.subtitle") ||
 								"Discover a wide range of courses taught by expert tutors to help you achieve your learning goals."}
 						</p>
@@ -255,7 +255,7 @@ export default function CoursesPage() {
 				<section className="mb-8">
 					<div className="flex flex-col md:flex-row gap-4 items-center justify-between">
 						<div className="relative w-full md:w-1/2">
-							<SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+							<SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-4 w-4" />
 							<Input
 								type="text"
 								placeholder={
@@ -263,7 +263,7 @@ export default function CoursesPage() {
 								}
 								value={searchQuery}
 								onChange={(e) => setSearchQuery(e.target.value)}
-								className="pl-10"
+								className="pl-10 h-11"
 							/>
 						</div>
 
@@ -377,7 +377,7 @@ export default function CoursesPage() {
 																		setLevelFilter([...levelFilter, level]);
 																	} else {
 																		setLevelFilter(
-																			levelFilter.filter((l) => l !== level)
+																			levelFilter.filter((l) => l !== level),
 																		);
 																	}
 																}}
@@ -389,7 +389,7 @@ export default function CoursesPage() {
 																{t(`courses.level.${level}`) || level}
 															</Label>
 														</div>
-													)
+													),
 												)}
 											</div>
 										</div>
@@ -410,7 +410,7 @@ export default function CoursesPage() {
 
 				{/* Results count */}
 				{!loading && !error && filteredCourses.length > 0 && (
-					<div className="mb-4 text-sm text-muted-foreground">
+					<div className="mb-6 text-sm text-muted-foreground">
 						{t("courses.showing") || "Showing"} {filteredCourses.length}{" "}
 						{t("courses.of") || "of"} {totalCount}{" "}
 						{totalCount === 1
@@ -425,103 +425,118 @@ export default function CoursesPage() {
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 							{Array.from({ length: 8 }).map((_, index) => (
 								<Card key={index} className="overflow-hidden">
-									<div className="aspect-video bg-muted animate-pulse" />
-									<CardHeader>
-										<div className="h-6 bg-muted animate-pulse rounded mb-2" />
-										<div className="h-4 bg-muted animate-pulse rounded w-3/4" />
+									<Skeleton className="aspect-video rounded-none" />
+									<CardHeader className="pb-2">
+										<Skeleton className="h-5 w-4/5" />
+										<Skeleton className="h-4 w-3/5 mt-2" />
 									</CardHeader>
 									<CardContent>
-										<div className="h-4 bg-muted animate-pulse rounded mb-2" />
-										<div className="h-4 bg-muted animate-pulse rounded w-2/3" />
+										<Skeleton className="h-4 w-full" />
+										<Skeleton className="h-4 w-2/3 mt-2" />
 									</CardContent>
 									<CardFooter>
-										<div className="h-10 bg-muted animate-pulse rounded w-full" />
+										<Skeleton className="h-9 w-full" />
 									</CardFooter>
 								</Card>
 							))}
 						</div>
 					) : error ? (
-						<div className="text-center py-12">
-							<XIcon className="h-12 w-12 mx-auto text-destructive mb-4" />
-							<h3 className="text-xl font-medium mb-2">
-								{t("courses.errorTitle") || "Oops! Something went wrong"}
-							</h3>
-							<p className="text-muted-foreground mb-6">{error}</p>
-							<Button onClick={() => fetchCourses()}>
-								{t("courses.tryAgain") || "Try Again"}
-							</Button>
-						</div>
+						<Card className="card-premium">
+							<CardContent className="py-16 text-center">
+								<div className="mx-auto w-14 h-14 rounded-xl bg-destructive/10 flex items-center justify-center mb-4">
+									<XIcon className="h-7 w-7 text-destructive" />
+								</div>
+								<h3 className="text-lg font-semibold mb-2">
+									{t("courses.errorTitle") || "Oops! Something went wrong"}
+								</h3>
+								<p className="text-muted-foreground text-sm mb-6">{error}</p>
+								<Button onClick={() => fetchCourses()}>
+									{t("courses.tryAgain") || "Try Again"}
+								</Button>
+							</CardContent>
+						</Card>
 					) : filteredCourses.length === 0 ? (
-						<div className="text-center py-12">
-							<SearchIcon className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-							<h3 className="text-xl font-medium mb-2">
-								{t("courses.noResults") || "No courses found"}
-							</h3>
-							<p className="text-muted-foreground mb-6">
-								{t("courses.noResultsDescription") ||
-									"Try adjusting your search or filter criteria"}
-							</p>
-							<Button onClick={resetFilters}>
-								{t("courses.resetFilters") || "Reset Filters"}
-							</Button>
-						</div>
+						<Card className="card-premium">
+							<CardContent className="py-16 text-center">
+								<div className="mx-auto w-14 h-14 rounded-xl bg-muted flex items-center justify-center mb-4">
+									<SearchIcon className="h-7 w-7 text-muted-foreground" />
+								</div>
+								<h3 className="text-lg font-semibold mb-2">
+									{t("courses.noResults") || "No courses found"}
+								</h3>
+								<p className="text-muted-foreground text-sm mb-6">
+									{t("courses.noResultsDescription") ||
+										"Try adjusting your search or filter criteria"}
+								</p>
+								<Button variant="outline" onClick={resetFilters}>
+									{t("courses.resetFilters") || "Reset Filters"}
+								</Button>
+							</CardContent>
+						</Card>
 					) : (
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 							{filteredCourses.map((course) => (
 								<Card
 									key={course.id}
-									className="overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-lg"
+									className="overflow-hidden flex flex-col h-full group card-highlight"
 								>
-									<div className="relative aspect-video">
-										<Image
-											src={course.thumbnail || ""}
-											alt={course.title}
-											fill
-											className="object-cover"
-										/>
+									<div className="relative aspect-video overflow-hidden">
+										{course.thumbnail ? (
+											<Image
+												src={course.thumbnail}
+												alt={course.title}
+												fill
+												className="object-cover transition-transform duration-500 group-hover:scale-105"
+											/>
+										) : (
+											<div className="absolute inset-0 bg-linear-to-br from-amber-600/20 to-orange-700/20 flex items-center justify-center">
+												<SearchIcon className="h-10 w-10 text-primary/30" />
+											</div>
+										)}
 										{typeof course.price === "number" && course.price === 0 && (
-											<Badge className="absolute top-2 right-2 bg-green-500">
+											<Badge className="absolute top-3 left-3 bg-green-600 text-white border-0">
 												{t("courses.free") || "Free"}
 											</Badge>
 										)}
+										<div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
 									</div>
-									<CardHeader>
-										<CardTitle className="line-clamp-2">
+									<CardHeader className="pb-2">
+										<CardTitle className="text-base font-semibold line-clamp-2 leading-snug group-hover:text-primary transition-colors duration-200">
 											{course.title}
 										</CardTitle>
-										<CardDescription className="line-clamp-2">
+										<CardDescription className="line-clamp-2 text-sm leading-relaxed">
 											{course.description}
 										</CardDescription>
 									</CardHeader>
-									<CardContent className="flex-grow">
-										<div className="flex items-center gap-2 mb-2">
-											{course.tutor && (
-												<div className="flex items-center gap-2">
-													<Avatar className="h-6 w-6">
-														<AvatarImage
-															src={course.tutor.avatar}
-															alt={course.tutor.name}
-														/>
-														<AvatarFallback>
-															{course.tutor.name.charAt(0)}
-														</AvatarFallback>
-													</Avatar>
-													<span className="text-sm text-muted-foreground">
-														{course.tutor.name}
-													</span>
-												</div>
-											)}
-										</div>
-										<div className="flex items-center gap-4 text-sm text-muted-foreground">
+									<CardContent className="flex-1">
+										{course.tutor && (
+											<div className="flex items-center gap-2 mb-3">
+												<Avatar className="h-5 w-5">
+													<AvatarImage
+														src={course.tutor.avatar}
+														alt={course.tutor.name}
+													/>
+													<AvatarFallback className="text-[10px] bg-primary/10 text-primary">
+														{course.tutor.name.charAt(0)}
+													</AvatarFallback>
+												</Avatar>
+												<span className="text-xs text-muted-foreground">
+													{course.tutor.name}
+												</span>
+											</div>
+										)}
+										<div className="flex items-center gap-3 text-xs text-muted-foreground">
 											{course.rating && (
 												<div className="flex items-center gap-1">
-													<StarIcon className="h-4 w-4 text-yellow-500" />
-													<span>{course.rating.toFixed(1)}</span>
+													<StarIcon className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+													<span className="font-medium">
+														{course.rating.toFixed(1)}
+													</span>
 												</div>
 											)}
 											{course.enrolledStudents && (
 												<div className="flex items-center gap-1">
-													<UsersIcon className="h-4 w-4" />
+													<UsersIcon className="h-3.5 w-3.5" />
 													<span>
 														{course.enrolledStudents.toLocaleString()}
 													</span>
@@ -529,19 +544,25 @@ export default function CoursesPage() {
 											)}
 											{course.duration && (
 												<div className="flex items-center gap-1">
-													<ClockIcon className="h-4 w-4" />
+													<ClockIcon className="h-3.5 w-3.5" />
 													<span>{course.duration}</span>
 												</div>
 											)}
 										</div>
 									</CardContent>
-									<CardFooter className="flex gap-2">
-										<Button variant="outline" asChild className="flex-1">
+									<CardFooter className="flex gap-2 pt-0">
+										<Button
+											variant="outline"
+											size="sm"
+											asChild
+											className="flex-1"
+										>
 											<Link href={`/courses/${course.slug}`}>
 												{t("courses.details") || "Details"}
 											</Link>
 										</Button>
 										<Button
+											size="sm"
 											className="flex-1"
 											onClick={() => handleEnrollCourse(course.id, course.slug)}
 										>
@@ -557,27 +578,26 @@ export default function CoursesPage() {
 
 					{/* Pagination */}
 					{!loading && !error && totalPages > 1 && (
-						<div className="flex justify-center items-center gap-4 mt-8">
+						<div className="flex justify-center items-center gap-3 mt-10">
 							<Button
 								variant="outline"
 								size="sm"
 								onClick={goToPrevPage}
 								disabled={!prevPageUrl}
-								className="flex items-center gap-1"
+								className="flex items-center gap-1.5"
 							>
 								<ChevronLeftIcon className="h-4 w-4" />
 								{t("courses.previous") || "Previous"}
 							</Button>
-							<span className="text-sm text-muted-foreground">
-								{t("courses.page") || "Page"} {currentPage}{" "}
-								{t("courses.of") || "of"} {totalPages}
+							<span className="text-sm text-muted-foreground px-3">
+								{currentPage} / {totalPages}
 							</span>
 							<Button
 								variant="outline"
 								size="sm"
 								onClick={goToNextPage}
 								disabled={!nextPageUrl}
-								className="flex items-center gap-1"
+								className="flex items-center gap-1.5"
 							>
 								{t("courses.next") || "Next"}
 								<ChevronRightIcon className="h-4 w-4" />

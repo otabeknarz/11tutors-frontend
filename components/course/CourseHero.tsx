@@ -61,12 +61,12 @@ export default function CourseHero({
 			className="space-y-8"
 		>
 			{/* Course Title */}
-			<div className="space-y-6">
+			<div className="space-y-5">
 				<motion.h1
 					initial={{ opacity: 0, y: 10 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 0.1 }}
-					className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
+					className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-[1.15] tracking-tight"
 				>
 					{title}
 				</motion.h1>
@@ -78,23 +78,17 @@ export default function CourseHero({
 					transition={{ duration: 0.6, delay: 0.2 }}
 					className="flex flex-wrap items-center gap-4 text-sm"
 				>
-					<Badge
-						variant="secondary"
-						className="px-4 py-2 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors"
-					>
-						<BookOpen className="w-4 h-4 mr-2" />
+					<Badge variant="secondary" className="px-3 py-1.5 text-xs">
+						<BookOpen className="w-3.5 h-3.5 mr-1.5" />
 						{totalLessons} {t("courseDetail.lessons")}
 					</Badge>
-					<Badge
-						variant="outline"
-						className="px-4 py-2 border-muted-foreground/30 hover:border-muted-foreground/50 transition-colors"
-					>
-						<Clock className="w-4 h-4 mr-2" />
+					<Badge variant="outline" className="px-3 py-1.5 text-xs">
+						<Clock className="w-3.5 h-3.5 mr-1.5" />
 						{totalDuration}
 					</Badge>
-					<div className="flex items-center gap-2 text-muted-foreground">
-						<Calendar className="w-4 h-4" />
-						<span className="text-sm">
+					<div className="flex items-center gap-1.5 text-muted-foreground">
+						<Calendar className="w-3.5 h-3.5" />
+						<span className="text-xs">
 							{t("courseDetail.updated")} {formatDate(updatedAt)}
 						</span>
 					</div>
@@ -108,31 +102,31 @@ export default function CourseHero({
 				transition={{ duration: 0.6, delay: 0.3 }}
 				className="space-y-4"
 			>
-				<h3 className="text-xl font-semibold text-foreground flex items-center gap-3">
-					<div className="p-2 bg-primary/10 rounded-lg">
-						<Users className="w-5 h-5 text-primary" />
+				<h3 className="text-base font-semibold text-foreground flex items-center gap-2.5">
+					<div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center">
+						<Users className="w-4 h-4 text-primary" />
 					</div>
 					{t("courseDetail.instructors")}
 				</h3>
-				<div className="flex flex-wrap gap-6">
+				<div className="flex flex-wrap gap-4">
 					{tutors.map((tutor, index) => (
 						<motion.div
 							key={tutor.id}
-							initial={{ opacity: 0, scale: 0.9 }}
+							initial={{ opacity: 0, scale: 0.95 }}
 							animate={{ opacity: 1, scale: 1 }}
 							transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-							className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-border transition-all duration-200 hover:shadow-sm"
+							className="flex items-center gap-3 px-4 py-3 rounded-xl bg-card border border-border/50 hover:border-border/80 transition-all duration-200"
 						>
-							<Avatar className="w-14 h-14 ring-2 ring-primary/20 shadow-sm">
-								<AvatarFallback className="bg-gradient-to-br from-primary/20 to-primary/10 text-primary font-semibold text-lg">
+							<Avatar className="w-10 h-10">
+								<AvatarFallback className="bg-primary/10 text-primary font-semibold text-sm">
 									{getTutorInitials(tutor)}
 								</AvatarFallback>
 							</Avatar>
-							<div className="space-y-1">
-								<p className="font-semibold text-foreground text-base">
+							<div>
+								<p className="font-medium text-sm text-foreground">
 									{tutor.first_name} {tutor.last_name}
 								</p>
-								<p className="text-sm text-muted-foreground">{tutor.email}</p>
+								<p className="text-xs text-muted-foreground">{tutor.email}</p>
 							</div>
 						</motion.div>
 					))}
@@ -146,14 +140,14 @@ export default function CourseHero({
 				transition={{ duration: 0.6, delay: 0.5 }}
 				className="space-y-4"
 			>
-				<h3 className="text-xl font-semibold text-foreground flex items-center gap-3">
-					<div className="p-2 bg-primary/10 rounded-lg">
-						<FileText className="w-5 h-5 text-primary" />
+				<h3 className="text-base font-semibold text-foreground flex items-center gap-2.5">
+					<div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center">
+						<FileText className="w-4 h-4 text-primary" />
 					</div>
 					{t("courseDetail.aboutCourse")}
 				</h3>
-				<div className="prose prose-gray dark:prose-invert max-w-none">
-					<p className="text-muted-foreground leading-relaxed text-base lg:text-lg">
+				<div className="prose prose-sm dark:prose-invert max-w-none">
+					<p className="text-muted-foreground leading-relaxed text-sm">
 						{description}
 					</p>
 				</div>

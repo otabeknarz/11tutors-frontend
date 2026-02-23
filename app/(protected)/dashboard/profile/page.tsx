@@ -105,184 +105,182 @@ export default function ProfilePage() {
 	}
 
 	return (
-		<div className="min-h-screen bg-background py-8 px-4 sm:px-6 lg:px-8">
-			<div className="max-w-4xl mx-auto">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5 }}
-				>
-					<div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+		<div className="space-y-10">
+			{/* Header with avatar */}
+			<motion.div
+				initial={{ opacity: 0, y: 16 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5 }}
+			>
+				<div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+					<div className="flex items-center gap-4">
+						<Avatar className="h-14 w-14 border-2 border-primary/20 shadow-sm">
+							<AvatarImage src={user?.avatar || ""} alt={user?.first_name} />
+							<AvatarFallback className="text-lg bg-primary/10 text-primary font-semibold">
+								{user?.first_name?.[0]}
+								{user?.last_name?.[0]}
+							</AvatarFallback>
+						</Avatar>
 						<div>
-							<h1 className="text-3xl font-bold text-foreground">
-								{t("profile.title") || "My Profile"}
+							<h1 className="text-2xl font-bold tracking-tight">
+								{user?.first_name} {user?.last_name}
 							</h1>
-							<p className="text-muted-foreground mt-1">
-								{t("profile.subtitle") ||
-									"Manage your account settings and preferences"}
-							</p>
+							<p className="text-sm text-muted-foreground">{user?.email}</p>
 						</div>
-						<Button
-							variant="destructive"
-							onClick={handleLogout}
-							className="mt-4 md:mt-0 flex items-center gap-2"
-						>
-							<LogOut className="h-4 w-4" />
-							{t("nav.logout") || "Logout"}
-						</Button>
 					</div>
-				</motion.div>
+					<Button
+						variant="outline"
+						onClick={handleLogout}
+						className="flex items-center gap-2 text-destructive hover:text-destructive hover:bg-destructive/5 hover:border-destructive/30"
+					>
+						<LogOut className="h-4 w-4" />
+						{t("nav.logout") || "Logout"}
+					</Button>
+				</div>
+			</motion.div>
 
-				<Tabs defaultValue="profile" className="w-full">
-					<TabsList className="mb-8">
-						<TabsTrigger value="profile">
-							{t("profile.tabs.profile") || "Profile"}
-						</TabsTrigger>
-						<TabsTrigger value="preferences">
-							{t("profile.tabs.preferences") || "Preferences"}
-						</TabsTrigger>
-					</TabsList>
+			<Tabs defaultValue="profile" className="w-full">
+				<TabsList className="mb-6">
+					<TabsTrigger value="profile">
+						{t("profile.tabs.profile") || "Profile"}
+					</TabsTrigger>
+					<TabsTrigger value="preferences">
+						{t("profile.tabs.preferences") || "Preferences"}
+					</TabsTrigger>
+				</TabsList>
 
-					<TabsContent value="profile">
-						<motion.div
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ delay: 0.2 }}
-						>
-							<Card>
-								<CardHeader>
-									<CardTitle>
-										{t("profile.personalInfo") || "Personal Information"}
-									</CardTitle>
-									<CardDescription>
-										{t("profile.updateInfo") ||
-											"Update your personal information"}
-									</CardDescription>
-								</CardHeader>
-								<CardContent>
-									{success && (
-										<Alert className="mb-6 bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-300 border-green-200 dark:border-green-900">
-											<AlertDescription>
-												{t("profile.updateSuccess") ||
-													"Profile updated successfully"}
-											</AlertDescription>
-										</Alert>
-									)}
+				<TabsContent value="profile">
+					<motion.div
+						initial={{ opacity: 0, y: 8 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.1 }}
+					>
+						<Card className="card-premium">
+							<CardHeader>
+								<CardTitle className="text-lg">
+									{t("profile.personalInfo") || "Personal Information"}
+								</CardTitle>
+								<CardDescription>
+									{t("profile.updateInfo") ||
+										"Update your personal information"}
+								</CardDescription>
+							</CardHeader>
+							<CardContent>
+								{success && (
+									<Alert className="mb-6 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800">
+										<AlertDescription>
+											{t("profile.updateSuccess") ||
+												"Profile updated successfully"}
+										</AlertDescription>
+									</Alert>
+								)}
 
-									{error && (
-										<Alert className="mb-6 bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-300 border-red-200 dark:border-red-900">
-											<AlertDescription>{error}</AlertDescription>
-										</Alert>
-									)}
+								{error && (
+									<Alert variant="destructive" className="mb-6">
+										<AlertDescription>{error}</AlertDescription>
+									</Alert>
+								)}
 
-									<form onSubmit={handleSubmit} className="space-y-6">
-										<div className="flex justify-center mb-8">
-											<Avatar className="h-24 w-24 border-4 border-primary/20">
-												<AvatarImage
-													src={user?.avatar || ""}
-													alt={user?.first_name}
-												/>
-												<AvatarFallback className="text-2xl bg-primary/10">
-													{user?.first_name?.[0]}
-													{user?.last_name?.[0]}
-												</AvatarFallback>
-											</Avatar>
-										</div>
-
-										<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-											<div className="space-y-2">
-												<Label
-													htmlFor="first_name"
-													className="flex items-center gap-2"
-												>
-													<User className="h-4 w-4" />
-													{t("profile.firstName") || "First Name"}
-												</Label>
+								<form onSubmit={handleSubmit} className="space-y-6">
+									<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+										<div className="space-y-2">
+											<Label
+												htmlFor="first_name"
+												className="text-sm font-medium"
+											>
+												{t("profile.firstName") || "First Name"}
+											</Label>
+											<div className="relative">
+												<User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 												<Input
 													id="first_name"
 													name="first_name"
 													value={formData.first_name}
 													onChange={handleChange}
+													className="pl-10 h-11"
 													placeholder={
 														t("profile.firstNamePlaceholder") ||
 														"Enter your first name"
 													}
 												/>
 											</div>
+										</div>
 
-											<div className="space-y-2">
-												<Label
-													htmlFor="last_name"
-													className="flex items-center gap-2"
-												>
-													<User className="h-4 w-4" />
-													{t("profile.lastName") || "Last Name"}
-												</Label>
+										<div className="space-y-2">
+											<Label
+												htmlFor="last_name"
+												className="text-sm font-medium"
+											>
+												{t("profile.lastName") || "Last Name"}
+											</Label>
+											<div className="relative">
+												<User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 												<Input
 													id="last_name"
 													name="last_name"
 													value={formData.last_name}
 													onChange={handleChange}
+													className="pl-10 h-11"
 													placeholder={
 														t("profile.lastNamePlaceholder") ||
 														"Enter your last name"
 													}
 												/>
 											</div>
+										</div>
 
-											<div className="space-y-2">
-												<Label
-													htmlFor="email"
-													className="flex items-center gap-2"
-												>
-													<Mail className="h-4 w-4" />
-													{t("profile.email") || "Email"}
-												</Label>
+										<div className="space-y-2">
+											<Label htmlFor="email" className="text-sm font-medium">
+												{t("profile.email") || "Email"}
+											</Label>
+											<div className="relative">
+												<Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 												<Input
 													id="email"
 													name="email"
 													type="email"
 													value={formData.email}
 													onChange={handleChange}
+													className="pl-10 h-11"
 													placeholder={
 														t("profile.emailPlaceholder") || "Enter your email"
 													}
 												/>
 											</div>
+										</div>
 
-											<div className="space-y-2">
-												<Label
-													htmlFor="phone"
-													className="flex items-center gap-2"
-												>
-													<Phone className="h-4 w-4" />
-													{t("profile.phone") || "Phone"}
-												</Label>
+										<div className="space-y-2">
+											<Label htmlFor="phone" className="text-sm font-medium">
+												{t("profile.phone") || "Phone"}
+											</Label>
+											<div className="relative">
+												<Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 												<Input
 													id="phone"
 													name="phone"
 													value={formData.phone}
 													onChange={handleChange}
+													className="pl-10 h-11"
 													placeholder={
 														t("profile.phonePlaceholder") ||
 														"Enter your phone number"
 													}
 												/>
 											</div>
+										</div>
 
-											<div className="space-y-2 md:col-span-2">
-												<Label
-													htmlFor="username"
-													className="flex items-center gap-2"
-												>
-													<User className="h-4 w-4" />
-													{t("profile.username") || "Username"}
-												</Label>
+										<div className="space-y-2 md:col-span-2">
+											<Label htmlFor="username" className="text-sm font-medium">
+												{t("profile.username") || "Username"}
+											</Label>
+											<div className="relative">
+												<User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 												<Input
 													id="username"
 													name="username"
 													value={formData.username}
 													onChange={handleChange}
+													className="pl-10 h-11"
 													placeholder={
 														t("profile.usernamePlaceholder") ||
 														"Enter your username"
@@ -290,90 +288,94 @@ export default function ProfilePage() {
 												/>
 											</div>
 										</div>
+									</div>
 
-										<div className="flex justify-end">
-											<Button
-												type="submit"
-												disabled={loading}
-												className="flex items-center gap-2"
-											>
-												{loading ? (
-													<div className="animate-spin h-4 w-4 border-2 border-t-transparent rounded-full" />
-												) : (
-													<Save className="h-4 w-4" />
-												)}
-												{t("profile.saveChanges") || "Save Changes"}
-											</Button>
-										</div>
-									</form>
-								</CardContent>
-							</Card>
-						</motion.div>
-					</TabsContent>
-
-					<TabsContent value="preferences">
-						<motion.div
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ delay: 0.2 }}
-						>
-							<Card>
-								<CardHeader>
-									<CardTitle>
-										{t("profile.preferences") || "Preferences"}
-									</CardTitle>
-									<CardDescription>
-										{t("profile.preferencesDescription") ||
-											"Customize your app experience"}
-									</CardDescription>
-								</CardHeader>
-								<CardContent className="space-y-6">
-									<div className="flex items-center justify-between">
-										<div className="flex items-center gap-2">
-											{theme === "dark" ? (
-												<Moon className="h-5 w-5" />
+									<div className="flex justify-end pt-2">
+										<Button
+											type="submit"
+											disabled={loading}
+											className="btn-glow flex items-center gap-2"
+										>
+											{loading ? (
+												<span className="h-4 w-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
 											) : (
-												<Sun className="h-5 w-5" />
+												<Save className="h-4 w-4" />
 											)}
-											<div>
-												<p className="font-medium">
-													{t("profile.darkMode") || "Dark Mode"}
-												</p>
-												<p className="text-sm text-muted-foreground">
-													{t("profile.darkModeDescription") ||
-														"Toggle between light and dark theme"}
-												</p>
-											</div>
-										</div>
-										<Switch
-											checked={theme === "dark"}
-											onCheckedChange={toggleTheme}
-										/>
+											{t("profile.saveChanges") || "Save Changes"}
+										</Button>
 									</div>
+								</form>
+							</CardContent>
+						</Card>
+					</motion.div>
+				</TabsContent>
 
-									<Separator />
-
-									<div className="flex items-center justify-between">
-										<div className="flex items-center gap-2">
-											<Languages className="h-5 w-5" />
-											<div>
-												<p className="font-medium">
-													{t("profile.language") || "Language"}
-												</p>
-												<p className="text-sm text-muted-foreground">
-													{t("profile.languageDescription") ||
-														"Select your preferred language"}
-												</p>
-											</div>
+				<TabsContent value="preferences">
+					<motion.div
+						initial={{ opacity: 0, y: 8 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.1 }}
+					>
+						<Card className="card-premium">
+							<CardHeader>
+								<CardTitle className="text-lg">
+									{t("profile.preferences") || "Preferences"}
+								</CardTitle>
+								<CardDescription>
+									{t("profile.preferencesDescription") ||
+										"Customize your app experience"}
+								</CardDescription>
+							</CardHeader>
+							<CardContent className="space-y-6">
+								<div className="flex items-center justify-between">
+									<div className="flex items-center gap-3">
+										<div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center shrink-0">
+											{theme === "dark" ? (
+												<Moon className="h-4 w-4" />
+											) : (
+												<Sun className="h-4 w-4" />
+											)}
 										</div>
-										<LanguageSwitcher />
+										<div>
+											<p className="text-sm font-medium">
+												{t("profile.darkMode") || "Dark Mode"}
+											</p>
+											<p className="text-xs text-muted-foreground">
+												{t("profile.darkModeDescription") ||
+													"Toggle between light and dark theme"}
+											</p>
+										</div>
 									</div>
-								</CardContent>
-							</Card>
-						</motion.div>
-					</TabsContent>
-				</Tabs>
-			</div>
+									<Switch
+										checked={theme === "dark"}
+										onCheckedChange={toggleTheme}
+									/>
+								</div>
+
+								<Separator />
+
+								<div className="flex items-center justify-between">
+									<div className="flex items-center gap-3">
+										<div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center shrink-0">
+											<Languages className="h-4 w-4" />
+										</div>
+										<div>
+											<p className="text-sm font-medium">
+												{t("profile.language") || "Language"}
+											</p>
+											<p className="text-xs text-muted-foreground">
+												{t("profile.languageDescription") ||
+													"Select your preferred language"}
+											</p>
+										</div>
+									</div>
+									<LanguageSwitcher />
+								</div>
+							</CardContent>
+						</Card>
+					</motion.div>
+				</TabsContent>
+			</Tabs>
 		</div>
 	);
 }

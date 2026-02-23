@@ -75,7 +75,7 @@ export default function Navbar() {
 				"fixed top-0 left-0 right-0 z-50 transition-all duration-500",
 				scrolled
 					? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg py-3"
-					: "bg-background/80 backdrop-blur-md py-4"
+					: "bg-background/80 backdrop-blur-md py-4",
 			)}
 		>
 			<div className="container mx-auto px-4 lg:px-6">
@@ -86,12 +86,14 @@ export default function Navbar() {
 						animate={{ opacity: 1, x: 0 }}
 						transition={{ duration: 0.6, delay: 0.1 }}
 					>
-						<Link href="/" className="flex items-center gap-3 group">
-							<div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-								<span className="text-white font-bold text-lg">11</span>
+						<Link href="/" className="flex items-center gap-2.5 group">
+							<div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300">
+								<span className="text-primary-foreground font-bold text-sm">
+									11
+								</span>
 							</div>
-							<span className="text-2xl font-bold bg-gradient-to-r from-primary via-primary/90 to-primary/80 text-transparent bg-clip-text group-hover:from-primary/90 group-hover:to-primary transition-all duration-300">
-								{t("app.name")}
+							<span className="font-heading text-xl font-bold tracking-tight">
+								Tutors
 							</span>
 						</Link>
 					</motion.div>
@@ -151,7 +153,7 @@ export default function Navbar() {
 							{theme === "dark" ? (
 								<SunIcon className="h-5 w-5 text-amber-500" />
 							) : (
-								<MoonIcon className="h-5 w-5 text-slate-600" />
+								<MoonIcon className="h-5 w-5 text-muted-foreground" />
 							)}
 						</Button>
 
@@ -175,7 +177,7 @@ export default function Navbar() {
 									variant="default"
 									size="sm"
 									asChild
-									className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+									className="btn-glow"
 								>
 									<Link href="/dashboard/courses">{t("nav.my_courses")}</Link>
 								</Button>
@@ -194,7 +196,7 @@ export default function Navbar() {
 									variant="default"
 									size="sm"
 									asChild
-									className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+									className="btn-glow"
 								>
 									<Link href="/register">{t("nav.register")}</Link>
 								</Button>
@@ -289,7 +291,7 @@ export default function Navbar() {
 									variant="default"
 									size="lg"
 									asChild
-									className="w-full h-12 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300"
+									className="w-full h-12 btn-glow"
 								>
 									<Link
 										href="/register"
@@ -336,7 +338,7 @@ export default function Navbar() {
 									variant="default"
 									size="lg"
 									asChild
-									className="w-full h-12 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300"
+									className="w-full h-12 btn-glow"
 								>
 									<Link
 										href="/dashboard/courses"

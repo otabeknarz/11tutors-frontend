@@ -25,20 +25,20 @@ export default function Footer() {
 	};
 
 	return (
-		<footer className="border-t border-border/40 bg-background/50 backdrop-blur-sm">
-			<div className="container mx-auto px-4 py-12">
+		<footer className="border-t border-border/50 bg-background">
+			<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
 				{/* Main footer content */}
 				<div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
 					{/* Brand */}
 					<div className="col-span-2 md:col-span-1">
-						<Link href="/" className="inline-flex items-center gap-2 mb-4">
+						<Link href="/" className="inline-flex items-center gap-2.5 mb-4">
 							<div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-								<span className="text-primary-foreground font-bold text-sm">
+								<span className="text-primary-foreground font-bold text-xs">
 									11
 								</span>
 							</div>
-							<span className="text-xl font-semibold text-foreground">
-								{t("app.name")}
+							<span className="font-heading text-lg font-bold tracking-tight">
+								Tutors
 							</span>
 						</Link>
 						<p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
@@ -48,7 +48,7 @@ export default function Footer() {
 
 					{/* Product */}
 					<div>
-						<h4 className="text-sm font-medium text-foreground mb-4">
+						<h4 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-4">
 							{t("landing.footer.resources")}
 						</h4>
 						<ul className="space-y-3">
@@ -67,7 +67,7 @@ export default function Footer() {
 
 					{/* Company */}
 					<div>
-						<h4 className="text-sm font-medium text-foreground mb-4">
+						<h4 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-4">
 							{t("landing.footer.company")}
 						</h4>
 						<ul className="space-y-3">
@@ -86,7 +86,7 @@ export default function Footer() {
 
 					{/* Legal */}
 					<div>
-						<h4 className="text-sm font-medium text-foreground mb-4">
+						<h4 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-4">
 							{t("landing.footer.legal")}
 						</h4>
 						<ul className="space-y-3">

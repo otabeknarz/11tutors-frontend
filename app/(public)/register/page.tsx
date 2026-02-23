@@ -99,180 +99,219 @@ export default function RegisterPage() {
 	};
 
 	return (
-		<div className="min-h-screen bg-muted/30 flex flex-col">
-			<div className="flex-grow flex items-center justify-center px-4 py-12">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5 }}
-					className="w-full max-w-md"
-				>
-					<Card className="border-muted-foreground/20 shadow-lg">
-						<CardHeader className="space-y-1 text-center">
-							<CardTitle className="text-2xl font-bold tracking-tight">
+		<div className="min-h-screen flex">
+			{/* Left decorative panel */}
+			<div className="hidden lg:flex lg:w-1/2 relative bg-[#1C1917] items-center justify-center overflow-hidden">
+				<div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/20 rounded-full blur-[120px]" />
+				<div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-amber-500/10 rounded-full blur-[100px]" />
+
+				<div className="relative z-10 max-w-md px-12 text-white">
+					<div className="flex items-center gap-3 mb-10">
+						<div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center">
+							<span className="text-primary-foreground font-bold">11</span>
+						</div>
+						<span className="font-heading text-2xl font-bold tracking-tight">
+							Tutors
+						</span>
+					</div>
+					<h2 className="font-heading text-4xl font-bold tracking-tight leading-[1.15] mb-4">
+						Start your journey
+						<br />
+						<span className="text-primary">today.</span>
+					</h2>
+					<p className="text-white/60 text-base leading-relaxed">
+						Create your account and get access to personalized courses from top
+						university tutors.
+					</p>
+				</div>
+			</div>
+
+			{/* Right form panel */}
+			<div className="flex-1 flex flex-col">
+				{/* Top bar */}
+				<div className="flex items-center justify-between px-6 py-4">
+					<div className="flex items-center gap-2 lg:hidden">
+						<div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+							<span className="text-primary-foreground font-bold text-sm">
+								11
+							</span>
+						</div>
+						<span className="font-heading text-lg font-bold">Tutors</span>
+					</div>
+					<div className="flex items-center gap-2 ml-auto">
+						<LanguageSwitcher />
+						<Button
+							variant="ghost"
+							size="icon"
+							onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+							className="rounded-full"
+							aria-label="Toggle theme"
+						>
+							{theme === "dark" ? (
+								<SunIcon className="h-4 w-4" />
+							) : (
+								<MoonIcon className="h-4 w-4" />
+							)}
+						</Button>
+					</div>
+				</div>
+
+				{/* Form */}
+				<div className="flex-1 flex items-center justify-center px-6 py-8">
+					<motion.div
+						initial={{ opacity: 0, y: 16 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.4 }}
+						className="w-full max-w-sm"
+					>
+						<div className="mb-8">
+							<h1 className="text-2xl font-bold tracking-tight">
 								{t("auth.createAccount")}
-							</CardTitle>
-							<CardDescription>
+							</h1>
+							<p className="text-muted-foreground text-sm mt-1.5">
 								{t("auth.alreadyHaveAccount")}{" "}
 								<Link
 									href="/login"
-									className="font-medium text-primary hover:underline"
+									className="font-semibold text-primary hover:text-primary/80 transition-colors"
 								>
 									{t("auth.signIn")}
 								</Link>
-							</CardDescription>
-						</CardHeader>
+							</p>
+						</div>
 
-						<CardContent>
-							<form className="space-y-4" onSubmit={handleSubmit}>
-								<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-									<div className="space-y-2">
-										<Label htmlFor="first-name" className="text-sm font-medium">
-											{t("auth.firstName")}
-										</Label>
-										<div className="relative">
-											<User className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-											<Input
-												type="text"
-												name="first-name"
-												id="first-name"
-												autoComplete="given-name"
-												value={firstName}
-												onChange={(e) => setFirstName(e.target.value)}
-												className="pl-10"
-												placeholder={t("auth.firstNamePlaceholder")}
-											/>
-										</div>
-									</div>
-
-									<div className="space-y-2">
-										<Label htmlFor="last-name" className="text-sm font-medium">
-											{t("auth.lastName")}
-										</Label>
-										<div className="relative">
-											<User className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-											<Input
-												type="text"
-												name="last-name"
-												id="last-name"
-												autoComplete="family-name"
-												value={lastName}
-												onChange={(e) => setLastName(e.target.value)}
-												className="pl-10"
-												placeholder={t("auth.lastNamePlaceholder")}
-											/>
-										</div>
-									</div>
-								</div>
-
+						<form className="space-y-4" onSubmit={handleSubmit}>
+							<div className="grid grid-cols-2 gap-3">
 								<div className="space-y-2">
-									<Label htmlFor="email" className="text-sm font-medium">
-										{t("auth.email")}
+									<Label htmlFor="first-name" className="text-sm font-medium">
+										{t("auth.firstName")}
 									</Label>
 									<div className="relative">
-										<Mail className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+										<User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 										<Input
-											id="email"
-											name="email"
-											type="email"
-											autoComplete="email"
-											required
-											value={email}
-											onChange={(e) => setEmail(e.target.value)}
-											className="pl-10"
-											placeholder={t("auth.emailPlaceholder")}
+											type="text"
+											name="first-name"
+											id="first-name"
+											autoComplete="given-name"
+											value={firstName}
+											onChange={(e) => setFirstName(e.target.value)}
+											className="pl-10 h-11"
+											placeholder={t("auth.firstNamePlaceholder")}
 										/>
 									</div>
 								</div>
 
 								<div className="space-y-2">
-									<Label htmlFor="password" className="text-sm font-medium">
-										{t("auth.password")}
+									<Label htmlFor="last-name" className="text-sm font-medium">
+										{t("auth.lastName")}
 									</Label>
 									<div className="relative">
-										<Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+										<User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 										<Input
-											id="password"
-											name="password"
-											type="password"
-											autoComplete="new-password"
-											required
-											value={password}
-											onChange={(e) => setPassword(e.target.value)}
-											className="pl-10"
-											placeholder={t("auth.passwordPlaceholder")}
-										/>
-									</div>
-									<p className="text-xs text-muted-foreground">
-										{t("auth.passwordRequirements")}
-									</p>
-								</div>
-
-								<div className="space-y-2">
-									<Label
-										htmlFor="confirm-password"
-										className="text-sm font-medium"
-									>
-										{t("auth.confirmPassword")}
-									</Label>
-									<div className="relative">
-										<KeyRound className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-										<Input
-											id="confirm-password"
-											name="confirm-password"
-											type="password"
-											autoComplete="new-password"
-											required
-											value={confirmPassword}
-											onChange={(e) => setConfirmPassword(e.target.value)}
-											className="pl-10"
-											placeholder={t("auth.confirmPasswordPlaceholder")}
+											type="text"
+											name="last-name"
+											id="last-name"
+											autoComplete="family-name"
+											value={lastName}
+											onChange={(e) => setLastName(e.target.value)}
+											className="pl-10 h-11"
+											placeholder={t("auth.lastNamePlaceholder")}
 										/>
 									</div>
 								</div>
+							</div>
 
-								{(error || formError) && (
-									<Alert variant="destructive" className="text-sm">
-										<AlertCircle className="h-4 w-4" />
-										<AlertDescription>{error || formError}</AlertDescription>
-									</Alert>
-								)}
+							<div className="space-y-2">
+								<Label htmlFor="email" className="text-sm font-medium">
+									{t("auth.email")}
+								</Label>
+								<div className="relative">
+									<Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+									<Input
+										id="email"
+										name="email"
+										type="email"
+										autoComplete="email"
+										required
+										value={email}
+										onChange={(e) => setEmail(e.target.value)}
+										className="pl-10 h-11"
+										placeholder={t("auth.emailPlaceholder")}
+									/>
+								</div>
+							</div>
 
-								<Button
-									type="submit"
-									disabled={isSubmitting}
-									className="w-full"
+							<div className="space-y-2">
+								<Label htmlFor="password" className="text-sm font-medium">
+									{t("auth.password")}
+								</Label>
+								<div className="relative">
+									<Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+									<Input
+										id="password"
+										name="password"
+										type="password"
+										autoComplete="new-password"
+										required
+										value={password}
+										onChange={(e) => setPassword(e.target.value)}
+										className="pl-10 h-11"
+										placeholder={t("auth.passwordPlaceholder")}
+									/>
+								</div>
+								<p className="text-[11px] text-muted-foreground">
+									{t("auth.passwordRequirements")}
+								</p>
+							</div>
+
+							<div className="space-y-2">
+								<Label
+									htmlFor="confirm-password"
+									className="text-sm font-medium"
 								>
-									{isSubmitting ? (
-										t("auth.registering")
-									) : (
-										<span className="flex items-center">
-											{t("auth.register")}{" "}
-											<ArrowRight className="ml-2 h-4 w-4" />
-										</span>
-									)}
-								</Button>
-							</form>
-						</CardContent>
+									{t("auth.confirmPassword")}
+								</Label>
+								<div className="relative">
+									<KeyRound className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+									<Input
+										id="confirm-password"
+										name="confirm-password"
+										type="password"
+										autoComplete="new-password"
+										required
+										value={confirmPassword}
+										onChange={(e) => setConfirmPassword(e.target.value)}
+										className="pl-10 h-11"
+										placeholder={t("auth.confirmPasswordPlaceholder")}
+									/>
+								</div>
+							</div>
 
-						<CardFooter className="flex justify-between border-t pt-4">
-							<LanguageSwitcher />
+							{(error || formError) && (
+								<Alert variant="destructive" className="text-sm">
+									<AlertCircle className="h-4 w-4" />
+									<AlertDescription>{error || formError}</AlertDescription>
+								</Alert>
+							)}
+
 							<Button
-								variant="ghost"
-								size="icon"
-								onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-								className="rounded-full"
-								aria-label="Toggle theme"
+								type="submit"
+								disabled={isSubmitting}
+								className="w-full h-11 btn-glow"
 							>
-								{theme === "dark" ? (
-									<SunIcon className="h-5 w-5" />
+								{isSubmitting ? (
+									<span className="flex items-center gap-2">
+										<span className="h-4 w-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+										{t("auth.registering")}
+									</span>
 								) : (
-									<MoonIcon className="h-5 w-5" />
+									<span className="flex items-center">
+										{t("auth.register")} <ArrowRight className="ml-2 h-4 w-4" />
+									</span>
 								)}
 							</Button>
-						</CardFooter>
-					</Card>
-				</motion.div>
+						</form>
+					</motion.div>
+				</div>
 			</div>
 		</div>
 	);

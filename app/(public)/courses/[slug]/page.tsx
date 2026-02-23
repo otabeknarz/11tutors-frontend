@@ -139,7 +139,7 @@ export default function CourseDetailPage() {
 				setError(
 					`${t("courseDetail.errorFetching")}: ${
 						(err as Error).message || String(err)
-					}`
+					}`,
 				);
 			} finally {
 				setLoading(false);
@@ -197,9 +197,9 @@ export default function CourseDetailPage() {
 			<Navbar />
 
 			{/* Mobile-first Course Layout */}
-			<div className="container mx-auto px-4 py-8">
+			<div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
 				{/* Mobile: Thumbnail first, Desktop: Side by side */}
-				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
 					{/* Mobile: Course thumbnail card first */}
 					<div className="lg:hidden">
 						<CourseThumbnailCard
